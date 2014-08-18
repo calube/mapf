@@ -105,6 +105,7 @@ class Configuration:
     """
     x, y= self.pos
     dx, dy = vector
+    #print "vector: *** " , vector
     direction = Actions.vectorToDirection(vector)
     if direction == Directions.STOP:
       direction = self.direction # There is no stop direction
@@ -353,6 +354,7 @@ class Actions:
 
   def getSuccessor(position, action):
     dx, dy = Actions.directionToVector(action)
+    #print "test111: ", action
     x, y = position
     return (x + dx, y + dy)
   getSuccessor = staticmethod(getSuccessor)
@@ -571,20 +573,28 @@ class Game:
     paths = []            # paths is a list of actions required for each agent to reach their goal position: I believe paths should have each path as its own element in the list
     openList = []         # openList will be a list of neighboring nodes that have not been visited yet and need to be visited
     closedList = []       # closedList will be a list of nodes that have been visited and do not need to be checked again
+    g_value = 0
 
-   
-    gValue = 1 # every move will cost 1
-
+    start = initialPositions
+    # agentIndex = 0 : pacman
     agentIndex = self.startingIndex
+
+    # prints the location of the agent
+    pacman = self.state.data.agentStates[ agentIndex ].getPosition()
+    print "pacman: ", pacman
+
+    myDirection = self.state.data.agentStates[ agentIndex ].getDirection()
+    print "first direction: ", myDirection
+
     print "agent index: ", agentIndex
 
+    # prints the legal moves for x agent
     legalMoves = self.state.getLegalActions(agentIndex)
     print "legal moves: ", legalMoves
 
+    # still learning what this is
     states = [self.state.generateSuccessor(agentIndex,action) for action in legalMoves]
-
-    start = initialPositions
-    current = (9,1)
+    
    
     for i in range(len(self.agents)):
       initialPositions.append(self.state.data.agentStates[ i ].getPosition())
@@ -607,6 +617,14 @@ class Game:
     #goalPositions[ 2 ] = [(18,9)]  -- ghost #2's goal
     goalPositions = [(goalX1 , goalY1), (goalX2 , goalY2), (goalX3 , goalY3)] 
     print "goal positions: ", goalPositions
+
+    # prints the heuristic for pacman
+   
+    h_value = manhattanDistance(pacman, goalPositions[0])
+    print "heuristic: ", h_value
+
+    f_value = g_value + h_value
+    print "f-value: ", f_value
   
     
 
@@ -627,13 +645,59 @@ class Game:
     #     3.) 
     #     class Actions: provides useful functions I will need
     #####################################################
-    print "heuristic: ", manhattanDistance(start[0], goalPositions[0])
+    
     #fringe = PriorityQueueWithFunction(manhattanDistance(start[0], goalPositions[0]))
 
     # ============================= STOPPED HERE ====================
     # I NEED TO MAKE A FRINGE AND PUSH TO FRINGE ACCORDINGLY
     fringe = PriorityQueue()
-    #fringe.push()
+    fringe.push(pacman, manhattanDistance(pacman, goalPositions[0]))
+
+
+
+    while not fringe.isEmpty():
+
+      currentNode = fringe.pop()
+      if currentNode == goalPositions[0]:
+        paths[0] = myDirection
+        print "my Direction here: ", myDirection
+      closedList.append(currentNode)
+
+      '''for parentNode in Actions.getSuccessor(currentNode, myDirection):
+        if not parentNode in closedList:
+          print "parent node:", parentNode'''
+
+      for parentNode in legalMoves:
+        #print "parent nodes: ", parentNode
+
+        possibleActions = Actions.directionToVector(parentNode)
+        print "test999: ", possibleActions
+        childNodesX = int(currentNode[0] + possibleActions[0])
+        childNodesY = int(currentNode[1] + possibleActions[1])
+        childNode = (childNodesX , childNodesY)
+        print "child: ", childNode
+
+        if childNode not in closedList:
+          print "test not in closed list"
+          tempCost = g_value +  manhattanDistance(currentNode, childNode)
+          print "temp cost: ", tempCost
+          tempGoal = tempCost + manhattanDistance(childNode, goalPositions[0])
+          print "temp goal: ", tempGoal
+
+        if tempGoal <= h_value:
+          print "test", tempGoal
+          h_value = tempGoal
+          g_value+1;
+          closedList.append(childNode)
+          print "the path: ", closedList
+
+
+
+
+
+      
+
+
     
     
 
@@ -647,6 +711,8 @@ class Game:
     for i in range(len(self.agents)):
       self.agents[ i ].setPathPlan( paths[ i ])
     #that's it; return
+
+
 
 
 
