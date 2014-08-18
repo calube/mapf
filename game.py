@@ -6,6 +6,7 @@
 # John DeNero (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
 # For more info, see http://inst.eecs.berkeley.edu/~cs188/sp09/pacman.html
 
+#import util
 from util import *
 from util import raiseNotDefined
 import time, os
@@ -543,33 +544,101 @@ class Game:
 
 
     #python mapf_pacman.py --frameTime 2
-  def MAPFinder( self ):
-    initialPositions = []
-    goalPositions = []
-    paths = []
+  def MAPFinder( self):
+
+    #####################################################
+    #             _-'-_ Initializing A* variables _-'-_
+    #     G-Value: movement cost
+    #     H-Value: heuristic cost
+    #     F-Value: movement cost + heuristic cost
+    #     openList: list of nodes that need to be checked
+    #     closedList: list of nodes that have been checked 
+    #     fringe: Priority Queue used to sort nodes based on the smallest f-value
+    #     parentNode: neighboring nodes that the current node can move to -- typically add parent node to open list
+    #     childNode: the previous node of the current node
+    #####################################################
+
+    #####################################################
+    #                   _-'-_ Notes_-'-_
+    #     range(len(self.agents)) will give me the number of agents 
+    #     self.state.data.agentStates[i].getPosition()) will give me the position of each agent
+    #     class Actions: provides useful functions I will need
+    #####################################################
+
+
+    initialPositions = [] # initial positions of each agent will be stored as a [ initalPosition for agent 1 (x,y), initalPosition for agent 2 (x,y), initalPosition for agent 3 (x,y)]
+    goalPositions = []    # goal positions for each agent will be stored as [ gold for agent 1 (x,y) , goal for agent 2 (x,y), goal for agent 3 (x,y)]
+    paths = []            # paths is a list of actions required for each agent to reach their goal position: I believe paths should have each path as its own element in the list
+    openList = []         # openList will be a list of neighboring nodes that have not been visited yet and need to be visited
+    closedList = []       # closedList will be a list of nodes that have been visited and do not need to be checked again
+
+   
+    gValue = 1 # every move will cost 1
+
+    agentIndex = self.startingIndex
+    print "agent index: ", agentIndex
+
+    legalMoves = self.state.getLegalActions(agentIndex)
+    print "legal moves: ", legalMoves
+
+    states = [self.state.generateSuccessor(agentIndex,action) for action in legalMoves]
+
+    start = initialPositions
+    current = (9,1)
+   
     for i in range(len(self.agents)):
       initialPositions.append(self.state.data.agentStates[ i ].getPosition())
       paths.append([])
-    print initialPositions
+    #print "initial positions: ", initialPositions
+    print "start: ", start[0]
     
     #generate random valid goals for all agents
-    goalPositions = [(18,1), (1,9), (18,9)]
+
+    # making variables for the agent's goalPostions instead of using hard-coded values 
+    goalX1 = 18
+    goalX2 = 1
+    goalX3 = 18
+    goalY1 = 1
+    goalY2 = 9
+    goalY3 = 9
+
     #goalPositions[ 0 ] = [(18, 1)] -- pacman's goal
     #goalPositions[ 1 ] = [(1,9)]   -- ghost # 1's goal
     #goalPositions[ 2 ] = [(18,9)]  -- ghost #2's goal
+    goalPositions = [(goalX1 , goalY1), (goalX2 , goalY2), (goalX3 , goalY3)] 
+    print "goal positions: ", goalPositions
+  
+    
 
     #make sure self.state.data.layout.walls[goalX][goalY] == False
-    if self.state.data.layout.walls[18][1] == True:
+    if self.state.data.layout.walls[goalX1][goalY1] == True:
        return
-    if self.state.data.layout.walls[1][9] == True:
+    if self.state.data.layout.walls[goalX2][goalY2] == True:
        return
-    if self.state.data.layout.walls[18][9] == True:
+    if self.state.data.layout.walls[goalX3][goalY3] == True:
        return
 
     #Now compute all agents' path plans. Below hard-coded for illustration.
-    # A* algorithm to path find the path for the goal position for each agent
+
+    #####################################################
+    #                   _-'-_ A* TO DO: _-'-_
+    #     1.) Define the start state for the agent. (i.e. G = 0, No child nodes, Calculate the F and H values, Add to closedList)
+    #     2.) Get all parentNodes that are neighboring the starting Node and calculate their F,H values and the Movement Cost from the Start Node, which is 1)
+    #     3.) 
+    #     class Actions: provides useful functions I will need
+    #####################################################
+    print "heuristic: ", manhattanDistance(start[0], goalPositions[0])
+    #fringe = PriorityQueueWithFunction(manhattanDistance(start[0], goalPositions[0]))
+
+    # ============================= STOPPED HERE ====================
+    # I NEED TO MAKE A FRINGE AND PUSH TO FRINGE ACCORDINGLY
+    fringe = PriorityQueue()
+    #fringe.push()
+    
+    
+
     #pacman:
-    paths[ 0 ] = [Directions.EAST, Directions.EAST,Directions.EAST,Directions.EAST,Directions.NORTH,Directions.NORTH, Directions.NORTH]
+    paths[ 0 ] = [Directions.EAST, Directions.EAST,Directions.EAST,Directions.EAST,Directions.NORTH,Directions.NORTH, Directions.EAST, Directions.EAST, Directions.SOUTH, Directions.SOUTH, Directions.EAST, Directions.EAST, Directions.EAST]
     #ghost 1:
     paths[ 1 ] = [Directions.STOP, Directions.EAST, Directions.NORTH, Directions.NORTH,Directions.EAST,Directions.EAST,Directions.EAST,Directions.EAST]
     #ghost 2:
@@ -578,8 +647,8 @@ class Game:
     for i in range(len(self.agents)):
       self.agents[ i ].setPathPlan( paths[ i ])
     #that's it; return
-    
-  
+
+
 
 
 
