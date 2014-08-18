@@ -625,6 +625,9 @@ class Game:
 
     f_value = g_value + h_value
     print "f-value: ", f_value
+
+   
+
   
     
 
@@ -658,6 +661,7 @@ class Game:
     while not fringe.isEmpty():
 
       currentNode = fringe.pop()
+      print "current node: ", currentNode
       if currentNode == goalPositions[0]:
         paths[0] = myDirection
         print "my Direction here: ", myDirection
@@ -669,27 +673,35 @@ class Game:
 
       for parentNode in legalMoves:
         #print "parent nodes: ", parentNode
-
+        print "legal moves for this current node: ", legalMoves
         possibleActions = Actions.directionToVector(parentNode)
-        print "test999: ", possibleActions
+        #print "current node's legalMoves: ", possibleActions
         childNodesX = int(currentNode[0] + possibleActions[0])
         childNodesY = int(currentNode[1] + possibleActions[1])
         childNode = (childNodesX , childNodesY)
         print "child: ", childNode
 
         if childNode not in closedList:
+          openList.append(childNode)
           print "test not in closed list"
           tempCost = g_value +  manhattanDistance(currentNode, childNode)
           print "temp cost: ", tempCost
           tempGoal = tempCost + manhattanDistance(childNode, goalPositions[0])
-          print "temp goal: ", tempGoal
+          print "temp goal ( f-value): ", tempGoal
+          print "h-value: ", h_value
+          print "f-value: ",f_value
 
-        if tempGoal <= h_value:
-          print "test", tempGoal
-          h_value = tempGoal
-          g_value+1;
-          closedList.append(childNode)
-          print "the path: ", closedList
+          if tempGoal <= f_value:
+            openList.remove(childNode)
+            #closedList.append(childNode)
+            print "testting open list", openList
+            print "testing closed list", closedList
+            h_value = tempGoal
+            
+            fringe.push(childNode, tempGoal) 
+            print "the path: ", closedList
+            g_value = g_value + 1
+            print "G-Value after moving: ", g_value
 
 
 
@@ -702,7 +714,8 @@ class Game:
     
 
     #pacman:
-    paths[ 0 ] = [Directions.EAST, Directions.EAST,Directions.EAST,Directions.EAST,Directions.NORTH,Directions.NORTH, Directions.EAST, Directions.EAST, Directions.SOUTH, Directions.SOUTH, Directions.EAST, Directions.EAST, Directions.EAST]
+    paths[0] = [closedList]
+    #paths[ 0 ] = [Directions.EAST, Directions.EAST,Directions.EAST,Directions.EAST,Directions.NORTH,Directions.NORTH, Directions.EAST, Directions.EAST, Directions.SOUTH, Directions.SOUTH, Directions.EAST, Directions.EAST, Directions.EAST]
     #ghost 1:
     paths[ 1 ] = [Directions.STOP, Directions.EAST, Directions.NORTH, Directions.NORTH,Directions.EAST,Directions.EAST,Directions.EAST,Directions.EAST]
     #ghost 2:
