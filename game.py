@@ -354,7 +354,7 @@ class Actions:
 
   def getSuccessor(position, action):
     dx, dy = Actions.directionToVector(action)
-    #print "test111: ", action
+    print "\t \t \t THIS IS ACTION : ", action
     x, y = position
     return (x + dx, y + dy)
   getSuccessor = staticmethod(getSuccessor)
@@ -496,7 +496,7 @@ class Game:
   The Game manages the control flow, soliciting actions from agents.
   """
 
-  def __init__( self, agents, display, rules, startingIndex=0, muteAgents=False, catchExceptions=False ):
+  def __init__( self, agents, display, rules, startingIndex=0, muteAgents=False, catchExceptions=False, costFn = lambda x: 1 ):
     self.agentCrashed = False
     self.agents = agents
     self.display = display
@@ -509,6 +509,10 @@ class Game:
     self.totalAgentTimes = [0 for agent in agents]
     self.totalAgentTimeWarnings = [0 for agent in agents]
     self.agentTimeout = False
+    self.costFn = costFn
+    self._expanded = 0
+    self._visited = {}
+    self._visitedlist = []
 
   def getProgress(self):
     if self.gameOver:
@@ -545,6 +549,38 @@ class Game:
     sys.stderr = OLD_STDERR
 
 
+
+  def getSuccessors(self, state):
+    """
+    Returns successor states, the actions they require, and a cost of 1.
+    
+     As noted in search.py:
+         For a given state, this should return a list of triples, 
+     (successor, action, stepCost), where 'successor' is a 
+     successor to the current state, 'action' is the action
+     required to get there, and 'stepCost' is the incremental 
+     cost of expanding to that successor
+    """
+    
+    successors = []
+    for action in [Directions.NORTH, Directions.SOUTH, Directions.EAST, Directions.WEST]:
+      x,y = state
+      dx, dy = Actions.directionToVector(action)
+      nextx, nexty = int(x + dx), int(y + dy)
+      if not self.state.data.layout.walls[nextx][nexty]:
+        nextState = (nextx, nexty)
+        cost = self.costFn(nextState)
+        successors.append( ( nextState, action, cost) )
+        
+    # Bookkeeping for display purposes
+    self._expanded += 1 
+    if state not in self._visited:
+      self._visited[state] = True
+      self._visitedlist.append(state)
+      
+    return successors
+
+
     #python mapf_pacman.py --frameTime 2
   def MAPFinder( self):
 
@@ -573,36 +609,34 @@ class Game:
     paths = []            # paths is a list of actions required for each agent to reach their goal position: I believe paths should have each path as its own element in the list
     openList = []         # openList will be a list of neighboring nodes that have not been visited yet and need to be visited
     closedList = []       # closedList will be a list of nodes that have been visited and do not need to be checked again
+    directions = []
     g_value = 0
 
     start = initialPositions
+
     # agentIndex = 0 : pacman
     agentIndex = self.startingIndex
 
-    # prints the location of the agent
+    # pacman equals the location of the agent that is pacman
     pacman = self.state.data.agentStates[ agentIndex ].getPosition()
-    print "pacman: ", pacman
+    #print "states: ", self.state.data.agentStates[agentIndex]
 
-    myDirection = self.state.data.agentStates[ agentIndex ].getDirection()
-    print "first direction: ", myDirection
-
-    print "agent index: ", agentIndex
-
-    # prints the legal moves for x agent
+    # prints the legal moves for the agent
     legalMoves = self.state.getLegalActions(agentIndex)
-    print "legal moves: ", legalMoves
+    #print "legal moves: ", legalMoves
+
+    walls = self.state.data.layout.walls
+    #legalNeighbors = self.state.getLegalNeighbors(pacman, walls)
+    #print "NEIGHBORS: ", legalNeighbors
 
     # still learning what this is
-    states = [self.state.generateSuccessor(agentIndex,action) for action in legalMoves]
+    #states = [self.state.generateSuccessor(agentIndex,action) for action in legalMoves]
     
    
     for i in range(len(self.agents)):
       initialPositions.append(self.state.data.agentStates[ i ].getPosition())
       paths.append([])
-    #print "initial positions: ", initialPositions
-    print "start: ", start[0]
-    
-    #generate random valid goals for all agents
+      #generate random valid goals for all agents
 
     # making variables for the agent's goalPostions instead of using hard-coded values 
     goalX1 = 18
@@ -616,21 +650,16 @@ class Game:
     #goalPositions[ 1 ] = [(1,9)]   -- ghost # 1's goal
     #goalPositions[ 2 ] = [(18,9)]  -- ghost #2's goal
     goalPositions = [(goalX1 , goalY1), (goalX2 , goalY2), (goalX3 , goalY3)] 
-    print "goal positions: ", goalPositions
-
-    # prints the heuristic for pacman
-   
-    h_value = manhattanDistance(pacman, goalPositions[0])
+    h_value = manhattanDistance(pacman, goalPositions[agentIndex])
     print "heuristic: ", h_value
-
     f_value = g_value + h_value
     print "f-value: ", f_value
 
    
 
-  
     
-
+    
+    #print "walls: \n", self.state.data.layout.walls
     #make sure self.state.data.layout.walls[goalX][goalY] == False
     if self.state.data.layout.walls[goalX1][goalY1] == True:
        return
@@ -648,60 +677,67 @@ class Game:
     #     3.) 
     #     class Actions: provides useful functions I will need
     #####################################################
-    
-    #fringe = PriorityQueueWithFunction(manhattanDistance(start[0], goalPositions[0]))
 
-    # ============================= STOPPED HERE ====================
-    # I NEED TO MAKE A FRINGE AND PUSH TO FRINGE ACCORDINGLY
     fringe = PriorityQueue()
-    fringe.push(pacman, manhattanDistance(pacman, goalPositions[0]))
-
-
-
+    fringe.push(pacman, manhattanDistance(pacman, goalPositions[agentIndex]))
+    
     while not fringe.isEmpty():
-
       currentNode = fringe.pop()
       print "current node: ", currentNode
-      if currentNode == goalPositions[0]:
-        paths[0] = myDirection
-        print "my Direction here: ", myDirection
+      if currentNode == goalPositions[agentIndex]:
+        print "test"
       closedList.append(currentNode)
 
-      '''for parentNode in Actions.getSuccessor(currentNode, myDirection):
-        if not parentNode in closedList:
-          print "parent node:", parentNode'''
-
       for parentNode in legalMoves:
-        #print "parent nodes: ", parentNode
-        print "legal moves for this current node: ", legalMoves
+        # get the state for the successor  in order for pacman's position to move
+        # state is just a cord in the getSuccessor(self, state) in searchAgents.py
+        #print "\n ************ \n state for legal action: \n", self.state
         possibleActions = Actions.directionToVector(parentNode)
-        #print "current node's legalMoves: ", possibleActions
+        
+        
+        
         childNodesX = int(currentNode[0] + possibleActions[0])
         childNodesY = int(currentNode[1] + possibleActions[1])
         childNode = (childNodesX , childNodesY)
         print "child: ", childNode
 
         if childNode not in closedList:
+
           openList.append(childNode)
-          print "test not in closed list"
+          print childNode, " is not in closedList"
           tempCost = g_value +  manhattanDistance(currentNode, childNode)
-          print "temp cost: ", tempCost
-          tempGoal = tempCost + manhattanDistance(childNode, goalPositions[0])
-          print "temp goal ( f-value): ", tempGoal
-          print "h-value: ", h_value
-          print "f-value: ",f_value
+          tempGoal = tempCost + manhattanDistance(childNode, goalPositions[agentIndex])
 
           if tempGoal <= f_value:
+            print "current node's legalMoves (possibleActions): ", possibleActions
+            print "removing ", childNode , " from the openList \n"
             openList.remove(childNode)
-            #closedList.append(childNode)
-            print "testting open list", openList
+
+            myDirection = Actions.vectorToDirection(possibleActions)
+            print "\t \t Moving ", myDirection, " from", currentNode
+
+            closedList.append(childNode)
+
+            if myDirection == Directions.EAST:
+              directions.append(Directions.EAST)
+            if myDirection == Directions.NORTH:
+              directions.append(Directions.NORTH)
+            if myDirection == Directions.SOUTH:
+              directions.append(Directions.SOUTH)
+
+            print "pacman: ", pacman
+            print "states: ", self.state.data.agentStates[agentIndex]
+
+            states = self.getSuccessors(childNode)
+            print "Successor States: ", states  
+
+            print "the path via directions: ", directions
+            print "testing open list", openList
             print "testing closed list", closedList
             h_value = tempGoal
-            
             fringe.push(childNode, tempGoal) 
-            print "the path: ", closedList
+            print "the path via closedList: ", closedList
             g_value = g_value + 1
-            print "G-Value after moving: ", g_value
 
 
 
@@ -714,12 +750,14 @@ class Game:
     
 
     #pacman:
-    paths[0] = [closedList]
+    paths[0] = directions
+    print "Pacman's PATH: ", paths[0]
     #paths[ 0 ] = [Directions.EAST, Directions.EAST,Directions.EAST,Directions.EAST,Directions.NORTH,Directions.NORTH, Directions.EAST, Directions.EAST, Directions.SOUTH, Directions.SOUTH, Directions.EAST, Directions.EAST, Directions.EAST]
     #ghost 1:
     paths[ 1 ] = [Directions.STOP, Directions.EAST, Directions.NORTH, Directions.NORTH,Directions.EAST,Directions.EAST,Directions.EAST,Directions.EAST]
+    print "GHOST'S PATH: ", paths[1]
     #ghost 2:
-    paths[ 2 ] = [Directions.WEST, Directions.NORTH, Directions.NORTH, Directions.EAST,Directions.EAST,Directions.EAST]
+    paths[ 2 ] = [Directions.WEST, Directions.NORTH, Directions.NORTH, Directions.EAST,Directions.EAST,Directions.EAST] 
 
     for i in range(len(self.agents)):
       self.agents[ i ].setPathPlan( paths[ i ])

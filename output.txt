@@ -1,0 +1,160 @@
+heuristic:  9
+f-value:  9
+current node:  (9, 1)
+child:  (8, 1)
+(8, 1)  is not in closedList
+child:  (9, 1)
+child:  (10, 1)
+(10, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (10, 1)  from the openList 
+
+	 	 Moving  East  from (9, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((11, 1), 'East', 1), ((9, 1), 'West', 1)]
+the path via directions:  ['East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1)]
+the path via closedList:  [(9, 1), (10, 1)]
+current node:  (10, 1)
+child:  (9, 1)
+child:  (10, 1)
+child:  (11, 1)
+(11, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (11, 1)  from the openList 
+
+	 	 Moving  East  from (10, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((12, 1), 'East', 1), ((10, 1), 'West', 1)]
+the path via directions:  ['East', 'East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1), (10, 1), (11, 1)]
+the path via closedList:  [(9, 1), (10, 1), (10, 1), (11, 1)]
+current node:  (11, 1)
+child:  (10, 1)
+child:  (11, 1)
+child:  (12, 1)
+(12, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (12, 1)  from the openList 
+
+	 	 Moving  East  from (11, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((13, 1), 'East', 1), ((11, 1), 'West', 1)]
+the path via directions:  ['East', 'East', 'East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1)]
+the path via closedList:  [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1)]
+current node:  (12, 1)
+child:  (11, 1)
+child:  (12, 1)
+child:  (13, 1)
+(13, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (13, 1)  from the openList 
+
+	 	 Moving  East  from (12, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((13, 2), 'North', 1), ((12, 1), 'West', 1)]
+the path via directions:  ['East', 'East', 'East', 'East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1)]
+the path via closedList:  [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1)]
+current node:  (13, 1)
+child:  (12, 1)
+child:  (13, 1)
+child:  (14, 1)
+(14, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (14, 1)  from the openList 
+
+	 	 Moving  East  from (13, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((15, 1), 'East', 1), ((13, 1), 'West', 1)]
+the path via directions:  ['East', 'East', 'East', 'East', 'East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1)]
+the path via closedList:  [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1)]
+current node:  (14, 1)
+child:  (13, 1)
+child:  (14, 1)
+child:  (15, 1)
+(15, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (15, 1)  from the openList 
+
+	 	 Moving  East  from (14, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((15, 2), 'North', 1), ((16, 1), 'East', 1)]
+the path via directions:  ['East', 'East', 'East', 'East', 'East', 'East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1), (14, 1), (15, 1)]
+the path via closedList:  [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1), (14, 1), (15, 1)]
+current node:  (15, 1)
+child:  (14, 1)
+child:  (15, 1)
+child:  (16, 1)
+(16, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (16, 1)  from the openList 
+
+	 	 Moving  East  from (15, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((17, 1), 'East', 1), ((15, 1), 'West', 1)]
+the path via directions:  ['East', 'East', 'East', 'East', 'East', 'East', 'East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1), (14, 1), (15, 1), (15, 1), (16, 1)]
+the path via closedList:  [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1), (14, 1), (15, 1), (15, 1), (16, 1)]
+current node:  (16, 1)
+child:  (15, 1)
+child:  (16, 1)
+child:  (17, 1)
+(17, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (17, 1)  from the openList 
+
+	 	 Moving  East  from (16, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((18, 1), 'East', 1), ((16, 1), 'West', 1)]
+the path via directions:  ['East', 'East', 'East', 'East', 'East', 'East', 'East', 'East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1), (14, 1), (15, 1), (15, 1), (16, 1), (16, 1), (17, 1)]
+the path via closedList:  [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1), (14, 1), (15, 1), (15, 1), (16, 1), (16, 1), (17, 1)]
+current node:  (17, 1)
+child:  (16, 1)
+child:  (17, 1)
+child:  (18, 1)
+(18, 1)  is not in closedList
+current node's legalMoves (possibleActions):  (1.0, 0.0)
+removing  (18, 1)  from the openList 
+
+	 	 Moving  East  from (17, 1)
+pacman:  (9, 1)
+states:  Pacman: (x,y)=(9, 1), Stop
+Successor States:  [((18, 2), 'North', 1), ((17, 1), 'West', 1)]
+the path via directions:  ['East', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'East']
+testing open list [(8, 1)]
+testing closed list [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1), (14, 1), (15, 1), (15, 1), (16, 1), (16, 1), (17, 1), (17, 1), (18, 1)]
+the path via closedList:  [(9, 1), (10, 1), (10, 1), (11, 1), (11, 1), (12, 1), (12, 1), (13, 1), (13, 1), (14, 1), (14, 1), (15, 1), (15, 1), (16, 1), (16, 1), (17, 1), (17, 1), (18, 1)]
+current node:  (18, 1)
+test
+child:  (17, 1)
+child:  (18, 1)
+child:  (19, 1)
+(19, 1)  is not in closedList
+Pacman's PATH:  ['East', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'East']
+GHOST'S PATH:  ['Stop', 'East', 'North', 'North', 'East', 'East', 'East', 'East']
+ILLEGAL MAPF move:  East
+ILLEGAL MAPF move:  East
+ILLEGAL MAPF move:  East
+ILLEGAL MAPF move:  East
+ILLEGAL MAPF move:  East
