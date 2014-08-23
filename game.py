@@ -548,7 +548,26 @@ class Game:
     sys.stdout = OLD_STDOUT
     sys.stderr = OLD_STDERR
 
-
+  def getCostOfActions(self, actions):
+    """
+    Returns the cost of a particular sequence of actions.  If those actions
+    include an illegal move, return 999999
+    """
+    agentIndex = self.startingIndex
+    if actions == None: return 999999
+    x,y= self.state.data.agentStates[ agentIndex ].getPosition()
+    
+    cost = 0
+    for action in actions:
+      # Check figure out the next state and see whether its' legal
+      dx, dy = Actions.directionToVector(action)
+      #print "dx , dy: ", dx , " , " , dy
+      x, y = int(x + dx), int(y + dy)
+      #print "x,y: ", x , " , ", y
+      if self.state.data.layout.walls[x][y]: return 999999
+      cost += self.costFn((x,y))
+      #print "cost: ", cost
+    return cost
 
   def getSuccessors(self, state):
     """
@@ -580,63 +599,31 @@ class Game:
       
     return successors
 
+    def aStarPathFinding(self, start, goal):
+      
+
+
+      return []
+
 
     #python mapf_pacman.py --frameTime 2
   def MAPFinder( self):
 
-    #####################################################
-    #             _-'-_ Initializing A* variables _-'-_
-    #     G-Value: movement cost
-    #     H-Value: heuristic cost
-    #     F-Value: movement cost + heuristic cost
-    #     openList: list of nodes that need to be checked
-    #     closedList: list of nodes that have been checked 
-    #     fringe: Priority Queue used to sort nodes based on the smallest f-value
-    #     parentNode: neighboring nodes that the current node can move to -- typically add parent node to open list
-    #     childNode: the previous node of the current node
-    #####################################################
-
-    #####################################################
-    #                   _-'-_ Notes_-'-_
-    #     range(len(self.agents)) will give me the number of agents 
-    #     self.state.data.agentStates[i].getPosition()) will give me the position of each agent
-    #     class Actions: provides useful functions I will need
-    #####################################################
-
-
-    initialPositions = [] # initial positions of each agent will be stored as a [ initalPosition for agent 1 (x,y), initalPosition for agent 2 (x,y), initalPosition for agent 3 (x,y)]
-    goalPositions = []    # goal positions for each agent will be stored as [ gold for agent 1 (x,y) , goal for agent 2 (x,y), goal for agent 3 (x,y)]
-    paths = []            # paths is a list of actions required for each agent to reach their goal position: I believe paths should have each path as its own element in the list
-    openList = []         # openList will be a list of neighboring nodes that have not been visited yet and need to be visited
-    closedList = []       # closedList will be a list of nodes that have been visited and do not need to be checked again
+    initialPositions = [] 
+    goalPositions = []    
+    paths = []           
+    closedList = []       
     directions = []
     g_value = 0
 
-    start = initialPositions
-
-    # agentIndex = 0 : pacman
     agentIndex = self.startingIndex
-
-    # pacman equals the location of the agent that is pacman
     pacman = self.state.data.agentStates[ agentIndex ].getPosition()
-    #print "states: ", self.state.data.agentStates[agentIndex]
-
-    # prints the legal moves for the agent
-    legalMoves = self.state.getLegalActions(agentIndex)
-    #print "legal moves: ", legalMoves
-
     walls = self.state.data.layout.walls
-    #legalNeighbors = self.state.getLegalNeighbors(pacman, walls)
-    #print "NEIGHBORS: ", legalNeighbors
 
-    # still learning what this is
-    #states = [self.state.generateSuccessor(agentIndex,action) for action in legalMoves]
     
-   
     for i in range(len(self.agents)):
       initialPositions.append(self.state.data.agentStates[ i ].getPosition())
       paths.append([])
-      #generate random valid goals for all agents
 
     # making variables for the agent's goalPostions instead of using hard-coded values 
     goalX1 = 18
@@ -650,15 +637,10 @@ class Game:
     #goalPositions[ 1 ] = [(1,9)]   -- ghost # 1's goal
     #goalPositions[ 2 ] = [(18,9)]  -- ghost #2's goal
     goalPositions = [(goalX1 , goalY1), (goalX2 , goalY2), (goalX3 , goalY3)] 
+    
     h_value = manhattanDistance(pacman, goalPositions[agentIndex])
-    print "heuristic: ", h_value
     f_value = g_value + h_value
-    print "f-value: ", f_value
 
-   
-
-    
-    
     #print "walls: \n", self.state.data.layout.walls
     #make sure self.state.data.layout.walls[goalX][goalY] == False
     if self.state.data.layout.walls[goalX1][goalY1] == True:
@@ -668,76 +650,44 @@ class Game:
     if self.state.data.layout.walls[goalX3][goalY3] == True:
        return
 
-    #Now compute all agents' path plans. Below hard-coded for illustration.
 
-    #####################################################
-    #                   _-'-_ A* TO DO: _-'-_
-    #     1.) Define the start state for the agent. (i.e. G = 0, No child nodes, Calculate the F and H values, Add to closedList)
-    #     2.) Get all parentNodes that are neighboring the starting Node and calculate their F,H values and the Movement Cost from the Start Node, which is 1)
-    #     3.) 
-    #     class Actions: provides useful functions I will need
-    #####################################################
 
-    fringe = PriorityQueue()
-    fringe.push(pacman, manhattanDistance(pacman, goalPositions[agentIndex]))
-    
+    fringe = PriorityQueue() #open list
+    fringe.push((pacman, []), h_value)
+    i = 0
     while not fringe.isEmpty():
-      currentNode = fringe.pop()
-      print "current node: ", currentNode
+      i += 1
+      print i
+      currentNode, nodeAction = fringe.pop()
+      print "current node: " , currentNode, " node action: ", nodeAction
       if currentNode == goalPositions[agentIndex]:
-        print "test"
+        directions.append(nodeAction)
+        print "TESTING SOMETHING: ", directions
       closedList.append(currentNode)
-
-      for parentNode in legalMoves:
-        # get the state for the successor  in order for pacman's position to move
-        # state is just a cord in the getSuccessor(self, state) in searchAgents.py
-        #print "\n ************ \n state for legal action: \n", self.state
-        possibleActions = Actions.directionToVector(parentNode)
         
-        
-        
-        childNodesX = int(currentNode[0] + possibleActions[0])
-        childNodesY = int(currentNode[1] + possibleActions[1])
-        childNode = (childNodesX , childNodesY)
-        print "child: ", childNode
+      successors = self.getSuccessors(currentNode)
+      print "successor: ", successors
 
-        if childNode not in closedList:
-
-          openList.append(childNode)
-          print childNode, " is not in closedList"
-          tempCost = g_value +  manhattanDistance(currentNode, childNode)
-          tempGoal = tempCost + manhattanDistance(childNode, goalPositions[agentIndex])
-
-          if tempGoal <= f_value:
-            print "current node's legalMoves (possibleActions): ", possibleActions
-            print "removing ", childNode , " from the openList \n"
-            openList.remove(childNode)
-
-            myDirection = Actions.vectorToDirection(possibleActions)
-            print "\t \t Moving ", myDirection, " from", currentNode
-
-            closedList.append(childNode)
-
-            if myDirection == Directions.EAST:
-              directions.append(Directions.EAST)
-            if myDirection == Directions.NORTH:
-              directions.append(Directions.NORTH)
-            if myDirection == Directions.SOUTH:
-              directions.append(Directions.SOUTH)
-
-            print "pacman: ", pacman
-            print "states: ", self.state.data.agentStates[agentIndex]
-
-            states = self.getSuccessors(childNode)
-            print "Successor States: ", states  
-
-            print "the path via directions: ", directions
-            print "testing open list", openList
-            print "testing closed list", closedList
-            h_value = tempGoal
-            fringe.push(childNode, tempGoal) 
-            print "the path via closedList: ", closedList
-            g_value = g_value + 1
+      for childNode, direction, stepCost in successors:
+        #print "child Node: ", childNode, " direction: ", direction
+       
+        if not childNode in closedList:
+          tempCost = nodeAction + [direction]
+          tempGoal = self.getCostOfActions(tempCost) + manhattanDistance(childNode, goalPositions[agentIndex])
+          
+          
+          
+          print "current node: ", currentNode
+          print "child Node: ", childNode, " direction: ", direction
+          print "closedList: ", closedList
+          print "childNode: ", childNode, "direction: ", direction, "step cost: ", stepCost
+          print "comparing f_value to tempGoal:  ", "f_value: ", f_value, " tempGoal: ", tempGoal
+          print "g-value: ", g_value
+          fringe.push( (childNode, tempCost), tempGoal) 
+          print " \n \n \n \n "
+          g_value += 1
+    directions.append(nodeAction)
+  
 
 
 
