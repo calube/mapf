@@ -599,11 +599,54 @@ class Game:
       
     return successors
 
-    def aStarPathFinding(self, start, goal):
+  def aStarPathFinding(self, start, goal):
       
+    closedList = []       
+    directions = []
 
+    startX, startY = start
+    goalX, goalY = goal
 
-      return []
+    agentIndex = self.startingIndex
+    pacman = self.state.data.agentStates[ agentIndex ].getPosition()
+    walls = self.state.data.layout.walls
+
+    g_value = 0
+    h_value = manhattanDistance(pacman, goal)
+    f_value = g_value + h_value
+
+    fringe = PriorityQueue() #open list
+    fringe.push((start, []), f_value)
+    i = 0
+
+    while not fringe.isEmpty():
+      i += 1
+      print i
+      currentNode, nodeActions = fringe.pop()
+      print "current node: " , currentNode, " node actions: ", nodeActions
+
+      if currentNode == goal:
+        return nodeActions
+
+      closedList.append(currentNode)
+      successors = self.getSuccessors(currentNode)
+      print "successor: ", successors
+
+      for childNode, direction, cost in successors:
+        if not childNode in closedList:
+          tempCost = nodeActions + [direction]
+          tempGoal = self.getCostOfActions(tempCost) + manhattanDistance(childNode, goal)
+          fringe.push( (childNode, tempCost), tempGoal) 
+          print "current node: ", currentNode
+          print "child Node: ", childNode, " direction: ", direction
+          print "closedList: ", closedList
+          print "childNode: ", childNode, "direction: ", direction, "step cost: ", cost
+          print "comparing f_value to tempGoal:  ", "f_value: ", f_value, " tempGoal: ", tempGoal
+          print "g-value: ", g_value
+          
+          print " \n \n \n \n "
+          g_value += 1
+    return []
 
 
     #python mapf_pacman.py --frameTime 2
@@ -612,13 +655,7 @@ class Game:
     initialPositions = [] 
     goalPositions = []    
     paths = []           
-    closedList = []       
-    directions = []
-    g_value = 0
-
-    agentIndex = self.startingIndex
-    pacman = self.state.data.agentStates[ agentIndex ].getPosition()
-    walls = self.state.data.layout.walls
+    
 
     
     for i in range(len(self.agents)):
@@ -638,9 +675,7 @@ class Game:
     #goalPositions[ 2 ] = [(18,9)]  -- ghost #2's goal
     goalPositions = [(goalX1 , goalY1), (goalX2 , goalY2), (goalX3 , goalY3)] 
     
-    h_value = manhattanDistance(pacman, goalPositions[agentIndex])
-    f_value = g_value + h_value
-
+    
     #print "walls: \n", self.state.data.layout.walls
     #make sure self.state.data.layout.walls[goalX][goalY] == False
     if self.state.data.layout.walls[goalX1][goalY1] == True:
@@ -649,58 +684,14 @@ class Game:
        return
     if self.state.data.layout.walls[goalX3][goalY3] == True:
        return
+    agentIndex = self.startingIndex
+    pacman = self.state.data.agentStates[ agentIndex ].getPosition()
 
+    path0 = self.aStarPathFinding(pacman, goalPositions[agentIndex])
 
-
-    fringe = PriorityQueue() #open list
-    fringe.push((pacman, []), h_value)
-    i = 0
-    while not fringe.isEmpty():
-      i += 1
-      print i
-      currentNode, nodeAction = fringe.pop()
-      print "current node: " , currentNode, " node action: ", nodeAction
-      if currentNode == goalPositions[agentIndex]:
-        directions.append(nodeAction)
-        print "TESTING SOMETHING: ", directions
-      closedList.append(currentNode)
-        
-      successors = self.getSuccessors(currentNode)
-      print "successor: ", successors
-
-      for childNode, direction, stepCost in successors:
-        #print "child Node: ", childNode, " direction: ", direction
-       
-        if not childNode in closedList:
-          tempCost = nodeAction + [direction]
-          tempGoal = self.getCostOfActions(tempCost) + manhattanDistance(childNode, goalPositions[agentIndex])
-          
-          
-          
-          print "current node: ", currentNode
-          print "child Node: ", childNode, " direction: ", direction
-          print "closedList: ", closedList
-          print "childNode: ", childNode, "direction: ", direction, "step cost: ", stepCost
-          print "comparing f_value to tempGoal:  ", "f_value: ", f_value, " tempGoal: ", tempGoal
-          print "g-value: ", g_value
-          fringe.push( (childNode, tempCost), tempGoal) 
-          print " \n \n \n \n "
-          g_value += 1
-    directions.append(nodeAction)
-  
-
-
-
-
-
-      
-
-
-    
-    
 
     #pacman:
-    paths[0] = directions
+    paths[0] = path0
     print "Pacman's PATH: ", paths[0]
     #paths[ 0 ] = [Directions.EAST, Directions.EAST,Directions.EAST,Directions.EAST,Directions.NORTH,Directions.NORTH, Directions.EAST, Directions.EAST, Directions.SOUTH, Directions.SOUTH, Directions.EAST, Directions.EAST, Directions.EAST]
     #ghost 1:

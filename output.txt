@@ -1,5 +1,5 @@
 1
-current node:  (9, 1)  node action:  []
+current node:  (9, 1)  node actions:  []
 successor:  [((10, 1), 'East', 1), ((8, 1), 'West', 1)]
 current node:  (9, 1)
 child Node:  (10, 1)  direction:  East
@@ -24,7 +24,7 @@ g-value:  1
  
  
 2
-current node:  (10, 1)  node action:  ['East']
+current node:  (10, 1)  node actions:  ['East']
 successor:  [((11, 1), 'East', 1), ((9, 1), 'West', 1)]
 current node:  (10, 1)
 child Node:  (11, 1)  direction:  East
@@ -38,7 +38,7 @@ g-value:  2
  
  
 3
-current node:  (11, 1)  node action:  ['East', 'East']
+current node:  (11, 1)  node actions:  ['East', 'East']
 successor:  [((12, 1), 'East', 1), ((10, 1), 'West', 1)]
 current node:  (11, 1)
 child Node:  (12, 1)  direction:  East
@@ -52,7 +52,7 @@ g-value:  3
  
  
 4
-current node:  (12, 1)  node action:  ['East', 'East', 'East']
+current node:  (12, 1)  node actions:  ['East', 'East', 'East']
 successor:  [((13, 1), 'East', 1), ((11, 1), 'West', 1)]
 current node:  (12, 1)
 child Node:  (13, 1)  direction:  East
@@ -66,7 +66,7 @@ g-value:  4
  
  
 5
-current node:  (13, 1)  node action:  ['East', 'East', 'East', 'East']
+current node:  (13, 1)  node actions:  ['East', 'East', 'East', 'East']
 successor:  [((13, 2), 'North', 1), ((12, 1), 'West', 1)]
 current node:  (13, 1)
 child Node:  (13, 2)  direction:  North
@@ -80,7 +80,7 @@ g-value:  5
  
  
 6
-current node:  (8, 1)  node action:  ['West']
+current node:  (8, 1)  node actions:  ['West']
 successor:  [((9, 1), 'East', 1), ((7, 1), 'West', 1)]
 current node:  (8, 1)
 child Node:  (7, 1)  direction:  West
@@ -94,7 +94,7 @@ g-value:  6
  
  
 7
-current node:  (13, 2)  node action:  ['East', 'East', 'East', 'East', 'North']
+current node:  (13, 2)  node actions:  ['East', 'East', 'East', 'East', 'North']
 successor:  [((13, 3), 'North', 1), ((13, 1), 'South', 1)]
 current node:  (13, 2)
 child Node:  (13, 3)  direction:  North
@@ -108,7 +108,7 @@ g-value:  7
  
  
 8
-current node:  (7, 1)  node action:  ['West', 'West']
+current node:  (7, 1)  node actions:  ['West', 'West']
 successor:  [((8, 1), 'East', 1), ((6, 1), 'West', 1)]
 current node:  (7, 1)
 child Node:  (6, 1)  direction:  West
@@ -122,7 +122,7 @@ g-value:  8
  
  
 9
-current node:  (13, 3)  node action:  ['East', 'East', 'East', 'East', 'North', 'North']
+current node:  (13, 3)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North']
 successor:  [((13, 4), 'North', 1), ((13, 2), 'South', 1), ((14, 3), 'East', 1), ((12, 3), 'West', 1)]
 current node:  (13, 3)
 child Node:  (13, 4)  direction:  North
@@ -158,7 +158,7 @@ g-value:  11
  
  
 10
-current node:  (14, 3)  node action:  ['East', 'East', 'East', 'East', 'North', 'North', 'East']
+current node:  (14, 3)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East']
 successor:  [((15, 3), 'East', 1), ((13, 3), 'West', 1)]
 current node:  (14, 3)
 child Node:  (15, 3)  direction:  East
@@ -172,7 +172,7 @@ g-value:  12
  
  
 11
-current node:  (15, 3)  node action:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East']
+current node:  (15, 3)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East']
 successor:  [((15, 2), 'South', 1), ((16, 3), 'East', 1), ((14, 3), 'West', 1)]
 current node:  (15, 3)
 child Node:  (15, 2)  direction:  South
@@ -197,7 +197,7 @@ g-value:  14
  
  
 12
-current node:  (15, 2)  node action:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South']
+current node:  (15, 2)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South']
 successor:  [((15, 3), 'North', 1), ((15, 1), 'South', 1)]
 current node:  (15, 2)
 child Node:  (15, 1)  direction:  South
@@ -211,7 +211,7 @@ g-value:  15
  
  
 13
-current node:  (15, 1)  node action:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South']
+current node:  (15, 1)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South']
 successor:  [((15, 2), 'North', 1), ((16, 1), 'East', 1)]
 current node:  (15, 1)
 child Node:  (16, 1)  direction:  East
@@ -225,7 +225,7 @@ g-value:  16
  
  
 14
-current node:  (16, 1)  node action:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East']
+current node:  (16, 1)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East']
 successor:  [((17, 1), 'East', 1), ((15, 1), 'West', 1)]
 current node:  (16, 1)
 child Node:  (17, 1)  direction:  East
@@ -239,7 +239,7 @@ g-value:  17
  
  
 15
-current node:  (16, 3)  node action:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'East']
+current node:  (16, 3)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'East']
 successor:  [((16, 4), 'North', 1), ((15, 3), 'West', 1)]
 current node:  (16, 3)
 child Node:  (16, 4)  direction:  North
@@ -253,7 +253,7 @@ g-value:  18
  
  
 16
-current node:  (17, 1)  node action:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East']
+current node:  (17, 1)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East']
 successor:  [((18, 1), 'East', 1), ((16, 1), 'West', 1)]
 current node:  (17, 1)
 child Node:  (18, 1)  direction:  East
@@ -267,5 +267,6 @@ g-value:  19
  
  
 17
-current node:  (18, 1)  node action:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East', 'East']
-TESTING SOMETHING:  [['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East', 'East']]
+current node:  (18, 1)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East', 'East']
+Pacman's PATH:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East', 'East']
+GHOST'S PATH:  ['Stop', 'East', 'North', 'North', 'East', 'East', 'East', 'East']
