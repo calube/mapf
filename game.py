@@ -684,21 +684,32 @@ class Game:
        return
     if self.state.data.layout.walls[goalX3][goalY3] == True:
        return
-    agentIndex = self.startingIndex
-    pacman = self.state.data.agentStates[ agentIndex ].getPosition()
 
-    path0 = self.aStarPathFinding(pacman, goalPositions[agentIndex])
+    agentIndex = self.startingIndex
+    for i in range(len(self.agents)):       
+      if i == 0:
+       pacman = self.state.data.agentStates[ i ].getPosition()
+       paths[i] = self.aStarPathFinding(pacman, goalPositions[ i ])
+      if i == 1:
+        ghost1 = self.state.data.agentStates[ i ].getPosition()
+        paths[i] = self.aStarPathFinding(ghost1, goalPositions[ i ])
+      if i == 2:
+        ghost2 = self.state.data.agentStates[ i ].getPosition()
+        paths[i] = self.aStarPathFinding(ghost2, goalPositions[ i ])
+
+      
 
 
     #pacman:
-    paths[0] = path0
+    #paths[0] = path0
     print "Pacman's PATH: ", paths[0]
     #paths[ 0 ] = [Directions.EAST, Directions.EAST,Directions.EAST,Directions.EAST,Directions.NORTH,Directions.NORTH, Directions.EAST, Directions.EAST, Directions.SOUTH, Directions.SOUTH, Directions.EAST, Directions.EAST, Directions.EAST]
     #ghost 1:
-    paths[ 1 ] = [Directions.STOP, Directions.EAST, Directions.NORTH, Directions.NORTH,Directions.EAST,Directions.EAST,Directions.EAST,Directions.EAST]
-    print "GHOST'S PATH: ", paths[1]
+    #paths[ 1 ] = [Directions.STOP, Directions.EAST, Directions.NORTH, Directions.NORTH,Directions.EAST,Directions.EAST,Directions.EAST,Directions.EAST]
+    print "GHOST1's PATH: ", paths[1]
+    print "GHOST2's PATH: ", paths[2]
     #ghost 2:
-    paths[ 2 ] = [Directions.WEST, Directions.NORTH, Directions.NORTH, Directions.EAST,Directions.EAST,Directions.EAST] 
+    #paths[ 2 ] = [Directions.WEST, Directions.NORTH, Directions.NORTH, Directions.EAST,Directions.EAST,Directions.EAST] 
 
     for i in range(len(self.agents)):
       self.agents[ i ].setPathPlan( paths[ i ])
