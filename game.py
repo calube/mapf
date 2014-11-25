@@ -11,6 +11,8 @@ from util import *
 from util import raiseNotDefined
 import time, os
 import traceback
+import itertools 
+from itertools import cycle
 
 try:
   import boinc
@@ -45,6 +47,13 @@ class Directions:
   EAST = 'East'
   WEST = 'West'
   STOP = 'Stop'
+
+  NUM = {
+  NORTH: 1,
+  SOUTH: 2,
+  EAST: 3, 
+  WEST: 4,
+  STOP: 0}
 
   LEFT =       {NORTH: WEST,
                  SOUTH: EAST,
@@ -283,7 +292,7 @@ class Actions:
                  Directions.SOUTH: (0, -1),
                  Directions.EAST:  (1, 0),
                  Directions.WEST:  (-1, 0),
-                 Directions.STOP:  (0, 0)}
+                 Directions.STOP:  (0, 0)}           
 
   _directionsAsList = _directions.items()
 
@@ -564,88 +573,538 @@ class Game:
       #print "dx , dy: ", dx , " , " , dy
       x, y = int(x + dx), int(y + dy)
       #print "x,y: ", x , " , ", y
-      if self.state.data.layout.walls[x][y]: return 999999
+      #if self.state.data.layout.walls[x][y]: return 999999
       cost += self.costFn((x,y))
       #print "cost: ", cost
     return cost
 
-  def getSuccessors(self, state):
-    """
-    Returns successor states, the actions they require, and a cost of 1.
+
+
+
+############################################################################################################################################################################
+#                                   ************** HERE IS WHERE MY CODE STARTS **************
+############################################################################################################################################################################
+
+
+  def numToDirection(self, num):
+    if num == 1:
+      return Directions.NORTH
+    if num == 2:
+      #action = Directions.SOUTH
+      return Directions.SOUTH
+    if num == 3:
+      #action = Directions.WEST
+      return Directions.WEST
+    if num == 4:
+      #action = Directions.EAST
+      return Directions.EAST
+    if num == 0:
+      #action = Directions.STOP
+      return Directions.STOP
+
+  def getSuccessors(self, agentStates, agentGoals):
+
     
-     As noted in search.py:
-         For a given state, this should return a list of triples, 
-     (successor, action, stepCost), where 'successor' is a 
-     successor to the current state, 'action' is the action
-     required to get there, and 'stepCost' is the incremental 
-     cost of expanding to that successor
-    """
+    pacmanLocation = agentStates["pacman"]
+    ghost1Location = agentStates["ghost1"]
+    ghost2Location = agentStates["ghost2"]
+
     
+    x1,y1 = pacmanLocation
+    x2,y2 = ghost1Location
+    x3,y3 = ghost2Location
+   
+
     successors = []
-    for action in [Directions.NORTH, Directions.SOUTH, Directions.EAST, Directions.WEST]:
-      x,y = state
-      dx, dy = Actions.directionToVector(action)
-      nextx, nexty = int(x + dx), int(y + dy)
-      if not self.state.data.layout.walls[nextx][nexty]:
-        nextState = (nextx, nexty)
-        cost = self.costFn(nextState)
-        successors.append( ( nextState, action, cost) )
-        
-    # Bookkeeping for display purposes
-    self._expanded += 1 
-    if state not in self._visited:
-      self._visited[state] = True
-      self._visitedlist.append(state)
+    successor = list(itertools.product([0,1,2,3,4], repeat = 3))
       
+    for i in successor:
+      pacman = i[0]
+      ghost1 = i[1]
+      ghost2 = i[2]
+
+      # converting the # ( 0 - 4 ) into an action for each agent
+      pacmanAction = self.numToDirection(pacman)
+      ghost1Action = self.numToDirection(ghost1) 
+      ghost2Action = self.numToDirection(ghost2)
+
+      # appending the list of moves into a single list
+      listOfActions = [pacmanAction, ghost1Action, ghost2Action]
+  
+      # getting new location for each agent's next location ( the child node )
+      dx1, dy1 = Actions.directionToVector(pacmanAction)
+      dx2, dy2 = Actions.directionToVector(ghost1Action)
+      dx3, dy3 = Actions.directionToVector(ghost2Action)
+      (nextX1 , nextY1) = int(x1 + dx1), int(y1 + dy1)
+      (nextX2, nextY2) = int(x2 + dx2), int(y2 + dy2)
+      (nextX3, nextY3) = int(x3 + dx3), int(y3 + dy3)
+
+      pacmanSuccessorState = (nextX1 , nextY1)
+      ghost1SuccessorState = (nextX2, nextY2)
+      ghost2SuccessorState = (nextX3, nextY3)
+
+      pacmanCost = self.costFn(pacmanSuccessorState)
+      ghost1Cost = self.costFn(ghost1SuccessorState)
+      ghost2Cost = self.costFn(ghost2SuccessorState)
+
+      nextState = {
+      "pacman": {"childNode": pacmanSuccessorState, "direction": pacmanAction, "cost": pacmanCost},
+      "ghost1": {"childNode": ghost1SuccessorState, "direction": ghost1Action, "cost": ghost1Cost},
+      "ghost2": {"childNode": ghost2SuccessorState, "direction": ghost2Action, "cost": ghost2Cost}
+      }
+
+      successors.append(nextState)
+
     return successors
 
-  def aStarPathFinding(self, start, goal):
-      
-    closedList = []       
-    directions = []
+  def heuristicFunction( self, agentLocations, goalPositions):
 
-    startX, startY = start
-    goalX, goalY = goal
+    pacmanLocation = agentLocations['pacman']
+    ghost1Location = agentLocations['ghost1']
+    ghost2Location = agentLocations['ghost2']
+    agent1 = manhattanDistance(pacmanLocation, goalPositions['pacman'])
+    agent2 = manhattanDistance(ghost1Location, goalPositions['ghost1'])
+    agent3 = manhattanDistance(ghost2Location, goalPositions['ghost2'])
 
-    agentIndex = self.startingIndex
-    pacman = self.state.data.agentStates[ agentIndex ].getPosition()
+    #print "Agent 1: ", agent1, " Agent 2: ", agent2, " Agent 3: ", agent3
+
+    return max(agent1, agent2, agent3)
+   
+
+  def shouldPruneSuccessor(self, successors, closedList, currentState, agentGoals):
+    
+
+    prunedSuccessors = []
     walls = self.state.data.layout.walls
 
-    g_value = 0
-    h_value = manhattanDistance(pacman, goal)
+    # a list of vectors that each agent has traveled to get to the current state
+    pacmanPath = closedList['pacman']
+    ghost1Path = closedList['ghost1']
+    ghost2Path = closedList['ghost2']
+
+    for successor in successors:
+      pacmanSuccessor = successor['pacman']
+      ghost1Successor = successor['ghost1']
+      ghost2Successor = successor['ghost2']
+
+      pacmanLocation = currentState['pacman']
+      ghost1Location = currentState['ghost1']
+      ghost2Location = currentState['ghost2']
+
+      pacmanChildNode = pacmanSuccessor['childNode']
+      ghost1ChildNode = ghost1Successor['childNode']
+      ghost2ChildNode = ghost2Successor['childNode']
+
+
+      pacmanDirection = pacmanSuccessor['direction']
+      ghost1Direction = ghost1Successor['direction']
+      ghost2Direction = ghost2Successor['direction']
+
+      (pacmanX, pacmanY) = pacmanChildNode
+      (ghost1X, ghost1Y) = ghost1ChildNode
+      (ghost2X, ghost2Y) = ghost2ChildNode
+        
+
+      if not ((walls[pacmanX][pacmanY] or walls[ghost1X][ghost1Y] or walls[ghost2X][ghost2Y])):
+        
+       
+        
+        if not ((pacmanChildNode == ghost1ChildNode) or (ghost1ChildNode == ghost2ChildNode) or (pacmanChildNode == ghost2ChildNode )) :
+          if not (ghost1ChildNode == pacmanLocation):
+            if not (ghost1ChildNode == ghost2Location):
+              if not (ghost2ChildNode == ghost1Location):
+                if not (pacmanChildNode == ghost2Location):
+                        #if not ((ghost1ChildNode == pacmanLocation) and (ghost1ChildNode == ghost2Location)):
+                          #if not ((ghost2ChildNode == pacmanLocation) and (ghost2ChildNode == ghost1Location)):
+                            #if not ((pacmanChildNode == ghost1Location) and (pacmanChildNode == ghost2Location)):
+                
+
+              
+                  if (pacmanChildNode == agentGoals['pacman']) or (ghost1ChildNode == agentGoals['ghost1']) or (ghost2ChildNode == agentGoals['ghost2']):
+
+                              childNode = {
+                                          "pacman": pacmanSuccessor,
+                                          "ghost1": ghost1Successor,
+                                          "ghost2": ghost2Successor
+                                          }
+                              prunedSuccessors.append(childNode)
+
+                  if not pacmanChildNode in pacmanPath:
+                      if not ghost1ChildNode in ghost1Path:
+                        if not ghost2ChildNode in ghost2Path:
+                          if not ((pacmanDirection == 'Stop') and (ghost1Direction == 'Stop') and (ghost2Direction == 'Stop')):
+                            if not ( (pacmanLocation == agentGoals['pacman']) and (pacmanDirection == 'Stop') ):
+                              if not ( (ghost1Location == agentGoals['ghost1']) and (ghost1Direction == 'Stop') ):
+                                if not ( (ghost2Location == agentGoals['ghost2']) and (ghost2Direction == 'Stop') ):
+                                  childNode = {
+                                              "pacman": pacmanSuccessor,
+                                              "ghost1": ghost1Successor,
+                                              "ghost2": ghost2Successor
+                                              }
+                                  prunedSuccessors.append(childNode)
+
+    print "len(prunedSuccessors) = " , len(prunedSuccessors)
+    return prunedSuccessors
+
+    
+
+
+  def createClosedList(self, agentPaths, agentGoals):
+    pacmanClosedList = []
+    ghost1ClosedList = []
+    ghost2ClosedList = []
+
+    pacmanPath = agentPaths['pacman']
+    ghost1Path = agentPaths['ghost1']
+    ghost2Path = agentPaths['ghost2']
+
+    pacmanGoal = agentGoals['pacman']
+    ghost1Goal = agentGoals['ghost1']
+    ghost2Goal = agentGoals['ghost2']
+
+    pacmanStartingLocation = self.state.data.agentStates[0].getPosition()
+    ghost1StartingLocation = self.state.data.agentStates[1].getPosition()
+    ghost2StartingLocation = self.state.data.agentStates[2].getPosition()
+
+
+    pacmanClosedList.append(pacmanStartingLocation)
+    ghost1ClosedList.append(ghost1StartingLocation)
+    ghost2ClosedList.append(ghost2StartingLocation)
+    
+    for i in pacmanPath:
+      pacmanLocation = pacmanClosedList[-1]
+      (x, y) = Actions.directionToVector(i)
+      dx, dy = pacmanLocation
+
+      pacmanNextLocation = (dx + x , dy + y )
+      
+      if pacmanLocation == pacmanGoal:
+        pacmanNextLocation = pacmanLocation
+      pacmanClosedList.append(pacmanNextLocation)
+
+    for i in ghost1Path:
+      
+      ghost1Location = ghost1ClosedList[-1]
+      (x, y) = Actions.directionToVector(i)
+      dx, dy = ghost1Location
+
+      ghost1NextLocation = (dx + x , dy + y )
+      if ghost1Location == ghost1Goal:
+        ghost1NextLocation = ghost1Location
+      ghost1ClosedList.append(ghost1NextLocation)
+
+    for i in ghost2Path:
+     
+      ghost2Location = ghost2ClosedList[-1]
+      (x, y) = Actions.directionToVector(i)
+      dx, dy = ghost2Location
+
+      ghost2NextLocation = (dx + x , dy + y )
+      if ghost2Location == ghost2Goal:
+        ghost2NextLocation = ghost2Location
+      ghost2ClosedList.append(ghost2NextLocation)
+
+    closedList = {
+    'pacman' : pacmanClosedList,
+    'ghost1' : ghost1ClosedList,
+    'ghost2' : ghost2ClosedList
+    }
+    print "the closed list now: ", closedList
+
+    
+
+    return closedList
+
+
+  def buildPathFromClosedList(self, closedList):
+
+    pacmanClosedList = closedList['pacman']
+    ghost1ClosedList = closedList['ghost1']
+    ghost2ClosedList = closedList['ghost2']
+
+    pacmanPath = []
+    ghost1Path = []
+    ghost2Path = []
+
+    pacmanCycle = cycle(pacmanClosedList)
+    ghost1Cycle = cycle(ghost1ClosedList)
+    ghost2Cycle = cycle(ghost2ClosedList)
+
+    print "length of pacman's closed list = " , len(pacmanClosedList)
+    print "length of ghost1's closed list = " , len(ghost1ClosedList)
+    print "length of ghost2's closed list = " , len(ghost2ClosedList)
+    pacmanNextLocation = pacmanCycle.next()
+    ghost1NextLocation = ghost1Cycle.next()
+    ghost2NextLocation = ghost2Cycle.next()
+
+    
+    for pathIndex in range(len(pacmanClosedList)):
+      pacmanLocation, pacmanNextLocation = pacmanNextLocation, pacmanCycle.next()
+      if pathIndex == len(pacmanClosedList) - 1:
+        pacmanNextLocation = pacmanLocation
+
+      #print "pathIndex = ", pathIndex
+      #print "pacmanLocation = ", pacmanLocation
+      #print "pacmanNextLocation = ", pacmanNextLocation
+      
+
+      x, y = pacmanLocation
+      dx, dy = pacmanNextLocation
+
+      if dx - x > 0:
+        pacmanPath.append(Directions.EAST)
+      if dx - x < 0:
+        pacmanPath.append(Directions.WEST)
+      if dy - y > 0:
+        pacmanPath.append(Directions.NORTH)
+      if dy - y < 0:
+        pacmanPath.append(Directions.SOUTH)
+      if (dx == x) and (dy == y):
+        print "DONE"
+        
+    #print "pacman's Path = ", pacmanPath
+    #print "pacman's length = ", len(pacmanPath)
+
+    for pathIndex in range(len(ghost1ClosedList)):
+      ghost1Location, ghost1NextLocation = ghost1NextLocation, ghost1Cycle.next()
+      if pathIndex == len(ghost1ClosedList) - 1:
+        ghost1NextLocation = ghost1Location
+      #print "pathIndex = ", pathIndex
+      #print "ghost1Location = ", ghost1Location
+      #print "ghost1NextLocation = ", ghost1NextLocation
+
+      x, y = ghost1Location
+      dx, dy = ghost1NextLocation
+
+      if dx - x > 0:
+        ghost1Path.append(Directions.EAST)
+      if dx - x < 0:
+        ghost1Path.append(Directions.WEST)
+      if dy - y > 0:
+        ghost1Path.append(Directions.NORTH)
+      if dy - y < 0:
+        ghost1Path.append(Directions.SOUTH)
+      if (dx == x) and (dy == y):
+        print "DONE"
+
+    #print "ghost1's Path = ", ghost1Path
+    #print "ghost1's length = ", len(ghost1Path)
+
+
+    for pathIndex in range(len(ghost2ClosedList)):
+      ghost2Location, ghost2NextLocation = ghost2NextLocation, ghost2Cycle.next()
+      if pathIndex == len(ghost2ClosedList) - 1:
+        ghost2NextLocation = ghost2Location
+      #print "pathIndex = ", pathIndex
+      #print "ghost2Location = ", ghost2Location
+      #print "ghost2NextLocation = ", ghost2NextLocation
+
+      x, y = ghost2Location
+      dx, dy = ghost2NextLocation
+
+      if dx - x > 0:
+        ghost2Path.append(Directions.EAST)
+      if dx - x < 0:
+        ghost2Path.append(Directions.WEST)
+      if dy - y > 0:
+        ghost2Path.append(Directions.NORTH)
+      if dy - y < 0:
+        ghost2Path.append(Directions.SOUTH)
+      if (dx == x) and (dy == y):
+        print "DONE"
+
+    
+    
+    
+
+    if ( len(pacmanPath) > (len(ghost1Path) and len(ghost2Path) ) ):
+      if ( len(ghost1Path) <= len(ghost2Path) ):
+       differenceInLength = len(pacmanPath) - len(ghost1Path)
+       for i in range(differenceInLength):
+        ghost1Path.append(Directions.STOP)
+      if ( len(ghost2Path) <= len(ghost1Path) ):
+        differenceInLength = len(pacmanPath) - len(ghost2Path)
+        for i in range(differenceInLength):
+         ghost2Path.append(Directions.STOP)
+
+      
+
+    if ( len(ghost1Path) > ( len(pacmanPath) and len(ghost2Path) ) ):
+      if ( len(pacmanPath) <= len(ghost2Path) ):
+        differenceInLength = len(ghost1Path) - len(pacmanPath)
+        for i in range(differenceInLength):
+          pacmanPath.append(Directions.STOP)
+      if ( len(ghost2Path) <= len(pacmanPath) ):
+        differenceInLength = len(ghost1Path) - len(ghost2Path)
+        for i in range(differenceInLength):
+          ghost2Path.append(Directions.STOP)
+
+      
+
+    if ( len(ghost2Path) > (len(ghost1Path) and len(pacmanPath) ) ):
+      if ( len(pacmanPath) <= len(ghost1Path) ):
+        differenceInLength = len(ghost2Path) - len(pacmanPath)
+        for i in range(differenceInLength):
+          pacmanPath.append(Directions.STOP)
+      if ( len(ghost1Path) <= len(pacmanPath) ):
+        differenceInLength = len(ghost2Path) - len(ghost1Path)
+        for i in range(differenceInLength):
+          ghost1Path.append(Directions.STOP)
+
+    print "pacman's length = ", len(pacmanPath)
+    print "ghost1's length = ", len(ghost1Path)
+    print "ghost2's length = ", len(ghost2Path)
+
+    print "pacman's path = ", pacmanPath
+    print "ghost1's Path = ", ghost1Path
+    print "ghost2's Path = ", ghost2Path
+
+
+    agentPaths = {
+    'pacman': pacmanPath,
+    'ghost1': ghost1Path,
+    'ghost2': ghost2Path
+    }
+
+    return agentPaths
+
+    
+     
+
+  def aStarPathFinding(self, agentLocations, agentGoals):
+     
+
+    pacmanClosedList = []
+    ghost1ClosedList = []
+    ghost2ClosedList = []  
+    closedList = {
+      'pacman': pacmanClosedList,
+      'ghost1': ghost1ClosedList,
+      'ghost2': ghost2ClosedList
+      }  
+
+
+    pacmanPath = []
+    ghost1Path = []
+    ghost2Path = []
+
+    agentPaths = {
+    'pacman': pacmanPath,
+    'ghost1': ghost1Path,
+    'ghost2': ghost2Path
+    } 
+
+    start = {
+    'pacman': agentLocations[0],
+    'ghost1': agentLocations[1],
+    'ghost2': agentLocations[2]
+    }
+
+    goal = {
+    'pacman': agentGoals[0],
+    'ghost1': agentGoals[1],
+    'ghost2': agentGoals[2]
+    }
+
+    pacman = self.state.data.agentStates[0].getPosition()
+    ghost1 = self.state.data.agentStates[1].getPosition()
+    ghost2 = self.state.data.agentStates[2].getPosition()
+
+    walls = self.state.data.layout.walls
+
+    g_value = self.getCostOfActions(agentPaths['pacman'])
+    h_value = self.heuristicFunction(start, goal)
     f_value = g_value + h_value
 
-    fringe = PriorityQueue() #open list
-    fringe.push((start, []), f_value)
+    fringe = PriorityQueue() 
+    fringe.push((start, agentPaths), f_value)
     i = 0
-
+    
     while not fringe.isEmpty():
-      i += 1
-      print i
+      print " \n \n \n"
+      i += 1  
+      print "i: ", i
+
       currentNode, nodeActions = fringe.pop()
-      print "current node: " , currentNode, " node actions: ", nodeActions
 
+      print "current node: ", currentNode
+      print "agent goals: ", goal
+      #print "node actions: ", nodeActions
+
+      g_value = self.getCostOfActions(nodeActions['pacman']) 
+      h_value = self.heuristicFunction(currentNode, goal)
+      f_value = g_value + h_value
+      print "G_value:", g_value
+      print "h_value: ", h_value
+      print "F_value: ", f_value
+      
       if currentNode == goal:
-        return nodeActions
+        print "A* ended with currentNode == goal:"
+        newClosedList = self.createClosedList(nodeActions, goal)
+        testPath = self.buildPathFromClosedList(newClosedList)
+        return testPath
 
-      closedList.append(currentNode)
-      successors = self.getSuccessors(currentNode)
-      print "successor: ", successors
+      successors = self.getSuccessors(currentNode, agentGoals)
+      newClosedList = self.createClosedList(nodeActions, goal)
+      pruneSuccessors = self.shouldPruneSuccessor(successors, newClosedList, currentNode, goal)
 
-      for childNode, direction, cost in successors:
-        if not childNode in closedList:
-          tempCost = nodeActions + [direction]
-          tempGoal = self.getCostOfActions(tempCost) + manhattanDistance(childNode, goal)
-          fringe.push( (childNode, tempCost), tempGoal) 
-          print "current node: ", currentNode
-          print "child Node: ", childNode, " direction: ", direction
-          print "closedList: ", closedList
-          print "childNode: ", childNode, "direction: ", direction, "step cost: ", cost
-          print "comparing f_value to tempGoal:  ", "f_value: ", f_value, " tempGoal: ", tempGoal
-          print "g-value: ", g_value
-          
-          print " \n \n \n \n "
-          g_value += 1
+      
+      
+
+      for successor in pruneSuccessors:
+        pacmanSuccessor = successor['pacman']
+        ghost1Successor = successor['ghost1']
+        ghost2Successor = successor['ghost2']
+
+        pacmanChildNode = pacmanSuccessor['childNode']
+        ghost1ChildNode = ghost1Successor['childNode']
+        ghost2ChildNode = ghost2Successor['childNode']
+
+        pacmanDirection = pacmanSuccessor['direction']
+        ghost1Direction = ghost1Successor['direction']
+        ghost2Direction = ghost2Successor['direction']
+
+        childNode = {
+        'pacman': pacmanChildNode,
+        'ghost1': ghost1ChildNode,
+        'ghost2': ghost2ChildNode
+        }
+
+        ################ creating the agentPaths here ###################
+        tempPacmanPath = []
+        tempGhost1Path = []
+        tempGhost2Path = []
+        pacmanPath = nodeActions['pacman']
+        tempPacmanPath = pacmanPath + [pacmanSuccessor['direction']]
+
+        ghost1Path = nodeActions['ghost1']
+        tempGhost1Path = ghost1Path + [ghost1Successor['direction']]
+
+        ghost2Path = nodeActions['ghost2']
+        tempGhost2Path = ghost2Path + [ghost2Successor['direction']]
+
+        agentPaths = {
+        'pacman': tempPacmanPath,
+        'ghost1': tempGhost1Path,
+        'ghost2': tempGhost2Path
+        }
+        print "agentPaths: ", agentPaths
+
+        ############## checking value of h' , g' , and f' ####################
+        # h' = tempHeuristic
+        tempHeuristic = self.heuristicFunction(childNode, goal)
+        # g' = tempCost
+        tempCost = self.getCostOfActions(agentPaths['pacman'])
+        # f' = tempGoal
+        tempGoal = tempCost + tempHeuristic
+
+        #print "tempCost: ", tempCost
+        #print "tempHeuristic: ", tempHeuristic
+        #print "tempGoal: ", tempGoal
+
+
+        fringe.push( (childNode, agentPaths), tempGoal)
+
     return []
 
 
@@ -685,35 +1144,28 @@ class Game:
     if self.state.data.layout.walls[goalX3][goalY3] == True:
        return
 
-    agentIndex = self.startingIndex
-    for i in range(len(self.agents)):       
-      if i == 0:
-       pacman = self.state.data.agentStates[ i ].getPosition()
-       paths[i] = self.aStarPathFinding(pacman, goalPositions[ i ])
-      if i == 1:
-        ghost1 = self.state.data.agentStates[ i ].getPosition()
-        paths[i] = self.aStarPathFinding(ghost1, goalPositions[ i ])
-      if i == 2:
-        ghost2 = self.state.data.agentStates[ i ].getPosition()
-        paths[i] = self.aStarPathFinding(ghost2, goalPositions[ i ])
+    #agentIndex =  depth % state.getNumAgents()
+    #print "Initial Positions: ", initialPositions 
 
-      
+    paths = self.aStarPathFinding(initialPositions, goalPositions)
+    print "A* finished: ", paths
 
-
-    #pacman:
-    #paths[0] = path0
-    print "Pacman's PATH: ", paths[0]
-    #paths[ 0 ] = [Directions.EAST, Directions.EAST,Directions.EAST,Directions.EAST,Directions.NORTH,Directions.NORTH, Directions.EAST, Directions.EAST, Directions.SOUTH, Directions.SOUTH, Directions.EAST, Directions.EAST, Directions.EAST]
-    #ghost 1:
-    #paths[ 1 ] = [Directions.STOP, Directions.EAST, Directions.NORTH, Directions.NORTH,Directions.EAST,Directions.EAST,Directions.EAST,Directions.EAST]
-    print "GHOST1's PATH: ", paths[1]
-    print "GHOST2's PATH: ", paths[2]
-    #ghost 2:
-    #paths[ 2 ] = [Directions.WEST, Directions.NORTH, Directions.NORTH, Directions.EAST,Directions.EAST,Directions.EAST] 
+    agentPaths = [] 
+    # pacman's path = agentPaths[0]
+    agentPaths.append(paths['pacman'])
+    # ghost1's path = agentPaths[1]
+    agentPaths.append(paths['ghost1'])
+    # ghost2's path = agentPaths[2]
+    agentPaths.append(paths['ghost2'])
 
     for i in range(len(self.agents)):
-      self.agents[ i ].setPathPlan( paths[ i ])
+      self.agents[ i ].setPathPlan( agentPaths[ i ])
     #that's it; return
+    ############################################################################################################################################################################
+    #                                   ************** HERE IS WHERE MY CODE ENDS **************
+    ############################################################################################################################################################################
+
+
 
 
 
