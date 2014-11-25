@@ -712,36 +712,36 @@ class Game:
         if not ((pacmanChildNode == ghost1ChildNode) or (ghost1ChildNode == ghost2ChildNode) or (pacmanChildNode == ghost2ChildNode )) :
           if not (ghost1ChildNode == pacmanLocation):
             if not (ghost1ChildNode == ghost2Location):
-              if not (ghost2ChildNode == ghost1Location):
-                if not (pacmanChildNode == ghost2Location):
+              #if not (ghost2ChildNode == ghost1Location):
+              if not (pacmanChildNode == ghost2Location):
                         #if not ((ghost1ChildNode == pacmanLocation) and (ghost1ChildNode == ghost2Location)):
                           #if not ((ghost2ChildNode == pacmanLocation) and (ghost2ChildNode == ghost1Location)):
                             #if not ((pacmanChildNode == ghost1Location) and (pacmanChildNode == ghost2Location)):
                 
 
               
-                  if (pacmanChildNode == agentGoals['pacman']) or (ghost1ChildNode == agentGoals['ghost1']) or (ghost2ChildNode == agentGoals['ghost2']):
+                if (pacmanChildNode == agentGoals['pacman']) or (ghost1ChildNode == agentGoals['ghost1']) or (ghost2ChildNode == agentGoals['ghost2']):
 
-                              childNode = {
-                                          "pacman": pacmanSuccessor,
-                                          "ghost1": ghost1Successor,
-                                          "ghost2": ghost2Successor
-                                          }
-                              prunedSuccessors.append(childNode)
+                            childNode = {
+                                        "pacman": pacmanSuccessor,
+                                        "ghost1": ghost1Successor,
+                                        "ghost2": ghost2Successor
+                                        }
+                            prunedSuccessors.append(childNode)
 
-                  if not pacmanChildNode in pacmanPath:
-                      if not ghost1ChildNode in ghost1Path:
-                        if not ghost2ChildNode in ghost2Path:
-                          if not ((pacmanDirection == 'Stop') and (ghost1Direction == 'Stop') and (ghost2Direction == 'Stop')):
-                            if not ( (pacmanLocation == agentGoals['pacman']) and (pacmanDirection == 'Stop') ):
-                              if not ( (ghost1Location == agentGoals['ghost1']) and (ghost1Direction == 'Stop') ):
-                                if not ( (ghost2Location == agentGoals['ghost2']) and (ghost2Direction == 'Stop') ):
-                                  childNode = {
-                                              "pacman": pacmanSuccessor,
-                                              "ghost1": ghost1Successor,
-                                              "ghost2": ghost2Successor
-                                              }
-                                  prunedSuccessors.append(childNode)
+                if not pacmanChildNode in pacmanPath:
+                    if not ghost1ChildNode in ghost1Path:
+                      if not ghost2ChildNode in ghost2Path:
+                        if not ((pacmanDirection == 'Stop') and (ghost1Direction == 'Stop') and (ghost2Direction == 'Stop')):
+                          if not ( (pacmanLocation == agentGoals['pacman']) and (pacmanDirection == 'Stop') ):
+                            if not ( (ghost1Location == agentGoals['ghost1']) and (ghost1Direction == 'Stop') ):
+                              if not ( (ghost2Location == agentGoals['ghost2']) and (ghost2Direction == 'Stop') ):
+                                childNode = {
+                                            "pacman": pacmanSuccessor,
+                                            "ghost1": ghost1Successor,
+                                            "ghost2": ghost2Successor
+                                            }
+                                prunedSuccessors.append(childNode)
 
     print "len(prunedSuccessors) = " , len(prunedSuccessors)
     return prunedSuccessors
@@ -1122,11 +1122,11 @@ class Game:
       paths.append([])
 
     # making variables for the agent's goalPostions instead of using hard-coded values 
-    goalX1 = 18
+    goalX1 = 1
     goalX2 = 1
-    goalX3 = 18
+    goalX3 = 1
     goalY1 = 1
-    goalY2 = 9
+    goalY2 = 5
     goalY3 = 9
 
     #goalPositions[ 0 ] = [(18, 1)] -- pacman's goal
