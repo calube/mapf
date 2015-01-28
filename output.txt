@@ -1,887 +1,520 @@
-1
-current node:  (9, 1)  node actions:  []
-successor:  [((10, 1), 'East', 1), ((8, 1), 'West', 1)]
-current node:  (9, 1)
-child Node:  (10, 1)  direction:  East
-closedList:  [(9, 1)]
-childNode:  (10, 1) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  9
-g-value:  0
- 
- 
- 
- 
- 
-current node:  (9, 1)
-child Node:  (8, 1)  direction:  West
-closedList:  [(9, 1)]
-childNode:  (8, 1) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  11
-g-value:  1
- 
- 
- 
- 
- 
-2
-current node:  (10, 1)  node actions:  ['East']
-successor:  [((11, 1), 'East', 1), ((9, 1), 'West', 1)]
-current node:  (10, 1)
-child Node:  (11, 1)  direction:  East
-closedList:  [(9, 1), (10, 1)]
-childNode:  (11, 1) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  9
-g-value:  2
- 
- 
- 
- 
- 
-3
-current node:  (11, 1)  node actions:  ['East', 'East']
-successor:  [((12, 1), 'East', 1), ((10, 1), 'West', 1)]
-current node:  (11, 1)
-child Node:  (12, 1)  direction:  East
-closedList:  [(9, 1), (10, 1), (11, 1)]
-childNode:  (12, 1) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  9
-g-value:  3
- 
- 
- 
- 
- 
-4
-current node:  (12, 1)  node actions:  ['East', 'East', 'East']
-successor:  [((13, 1), 'East', 1), ((11, 1), 'West', 1)]
-current node:  (12, 1)
-child Node:  (13, 1)  direction:  East
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1)]
-childNode:  (13, 1) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  9
-g-value:  4
- 
- 
- 
- 
- 
-5
-current node:  (13, 1)  node actions:  ['East', 'East', 'East', 'East']
-successor:  [((13, 2), 'North', 1), ((12, 1), 'West', 1)]
-current node:  (13, 1)
-child Node:  (13, 2)  direction:  North
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1)]
-childNode:  (13, 2) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  11
-g-value:  5
- 
- 
- 
- 
- 
-6
-current node:  (8, 1)  node actions:  ['West']
-successor:  [((9, 1), 'East', 1), ((7, 1), 'West', 1)]
-current node:  (8, 1)
-child Node:  (7, 1)  direction:  West
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1)]
-childNode:  (7, 1) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  6
- 
- 
- 
- 
- 
-7
-current node:  (13, 2)  node actions:  ['East', 'East', 'East', 'East', 'North']
-successor:  [((13, 3), 'North', 1), ((13, 1), 'South', 1)]
-current node:  (13, 2)
-child Node:  (13, 3)  direction:  North
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2)]
-childNode:  (13, 3) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  7
- 
- 
- 
- 
- 
-8
-current node:  (7, 1)  node actions:  ['West', 'West']
-successor:  [((8, 1), 'East', 1), ((6, 1), 'West', 1)]
-current node:  (7, 1)
-child Node:  (6, 1)  direction:  West
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1)]
-childNode:  (6, 1) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  15
-g-value:  8
- 
- 
- 
- 
- 
-9
-current node:  (13, 3)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North']
-successor:  [((13, 4), 'North', 1), ((13, 2), 'South', 1), ((14, 3), 'East', 1), ((12, 3), 'West', 1)]
-current node:  (13, 3)
-child Node:  (13, 4)  direction:  North
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3)]
-childNode:  (13, 4) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  15
-g-value:  9
- 
- 
- 
- 
- 
-current node:  (13, 3)
-child Node:  (14, 3)  direction:  East
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3)]
-childNode:  (14, 3) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  10
- 
- 
- 
- 
- 
-current node:  (13, 3)
-child Node:  (12, 3)  direction:  West
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3)]
-childNode:  (12, 3) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  15
-g-value:  11
- 
- 
- 
- 
- 
-10
-current node:  (14, 3)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East']
-successor:  [((15, 3), 'East', 1), ((13, 3), 'West', 1)]
-current node:  (14, 3)
-child Node:  (15, 3)  direction:  East
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3), (14, 3)]
-childNode:  (15, 3) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  12
- 
- 
- 
- 
- 
-11
-current node:  (15, 3)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East']
-successor:  [((15, 2), 'South', 1), ((16, 3), 'East', 1), ((14, 3), 'West', 1)]
-current node:  (15, 3)
-child Node:  (15, 2)  direction:  South
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3), (14, 3), (15, 3)]
-childNode:  (15, 2) direction:  South step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  13
- 
- 
- 
- 
- 
-current node:  (15, 3)
-child Node:  (16, 3)  direction:  East
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3), (14, 3), (15, 3)]
-childNode:  (16, 3) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  14
- 
- 
- 
- 
- 
-12
-current node:  (15, 2)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South']
-successor:  [((15, 3), 'North', 1), ((15, 1), 'South', 1)]
-current node:  (15, 2)
-child Node:  (15, 1)  direction:  South
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3), (14, 3), (15, 3), (15, 2)]
-childNode:  (15, 1) direction:  South step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  15
- 
- 
- 
- 
- 
-13
-current node:  (15, 1)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South']
-successor:  [((15, 2), 'North', 1), ((16, 1), 'East', 1)]
-current node:  (15, 1)
-child Node:  (16, 1)  direction:  East
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3), (14, 3), (15, 3), (15, 2), (15, 1)]
-childNode:  (16, 1) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  16
- 
- 
- 
- 
- 
-14
-current node:  (16, 1)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East']
-successor:  [((17, 1), 'East', 1), ((15, 1), 'West', 1)]
-current node:  (16, 1)
-child Node:  (17, 1)  direction:  East
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3), (14, 3), (15, 3), (15, 2), (15, 1), (16, 1)]
-childNode:  (17, 1) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  17
- 
- 
- 
- 
- 
-15
-current node:  (16, 3)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'East']
-successor:  [((16, 4), 'North', 1), ((15, 3), 'West', 1)]
-current node:  (16, 3)
-child Node:  (16, 4)  direction:  North
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3), (14, 3), (15, 3), (15, 2), (15, 1), (16, 1), (16, 3)]
-childNode:  (16, 4) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  15
-g-value:  18
- 
- 
- 
- 
- 
-16
-current node:  (17, 1)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East']
-successor:  [((18, 1), 'East', 1), ((16, 1), 'West', 1)]
-current node:  (17, 1)
-child Node:  (18, 1)  direction:  East
-closedList:  [(9, 1), (10, 1), (11, 1), (12, 1), (13, 1), (8, 1), (13, 2), (7, 1), (13, 3), (14, 3), (15, 3), (15, 2), (15, 1), (16, 1), (16, 3), (17, 1)]
-childNode:  (18, 1) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  9  tempGoal:  13
-g-value:  19
- 
- 
- 
- 
- 
-17
-current node:  (18, 1)  node actions:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East', 'East']
-1
-current node:  (8, 5)  node actions:  []
-successor:  [((9, 5), 'East', 1)]
-current node:  (8, 5)
-child Node:  (9, 5)  direction:  East
-closedList:  [(8, 5)]
-childNode:  (9, 5) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  13
-g-value:  0
- 
- 
- 
- 
- 
-2
-current node:  (9, 5)  node actions:  ['East']
-successor:  [((9, 6), 'North', 1), ((10, 5), 'East', 1), ((8, 5), 'West', 1)]
-current node:  (9, 5)
-child Node:  (9, 6)  direction:  North
-closedList:  [(8, 5), (9, 5)]
-childNode:  (9, 6) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000010
-g-value:  1
- 
- 
- 
- 
- 
-current node:  (9, 5)
-child Node:  (10, 5)  direction:  East
-closedList:  [(8, 5), (9, 5)]
-childNode:  (10, 5) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  15
-g-value:  2
- 
- 
- 
- 
- 
-3
-current node:  (10, 5)  node actions:  ['East', 'East']
-successor:  [((10, 6), 'North', 1), ((11, 5), 'East', 1), ((9, 5), 'West', 1)]
-current node:  (10, 5)
-child Node:  (10, 6)  direction:  North
-closedList:  [(8, 5), (9, 5), (10, 5)]
-childNode:  (10, 6) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000011
-g-value:  3
- 
- 
- 
- 
- 
-current node:  (10, 5)
-child Node:  (11, 5)  direction:  East
-closedList:  [(8, 5), (9, 5), (10, 5)]
-childNode:  (11, 5) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  17
-g-value:  4
- 
- 
- 
- 
- 
-4
-current node:  (11, 5)  node actions:  ['East', 'East', 'East']
-successor:  [((10, 5), 'West', 1)]
-5
-current node:  (9, 6)  node actions:  ['East', 'North']
-successor:  [((9, 7), 'North', 1), ((9, 5), 'South', 1), ((10, 6), 'East', 1)]
-current node:  (9, 6)
-child Node:  (9, 7)  direction:  North
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6)]
-childNode:  (9, 7) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000009
-g-value:  5
- 
- 
- 
- 
- 
-current node:  (9, 6)
-child Node:  (10, 6)  direction:  East
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6)]
-childNode:  (10, 6) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000011
-g-value:  6
- 
- 
- 
- 
- 
-6
-current node:  (9, 7)  node actions:  ['East', 'North', 'North']
-successor:  [((9, 6), 'South', 1), ((10, 7), 'East', 1), ((8, 7), 'West', 1)]
-current node:  (9, 7)
-child Node:  (10, 7)  direction:  East
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7)]
-childNode:  (10, 7) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000010
-g-value:  7
- 
- 
- 
- 
- 
-current node:  (9, 7)
-child Node:  (8, 7)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7)]
-childNode:  (8, 7) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000008
-g-value:  8
- 
- 
- 
- 
- 
-7
-current node:  (8, 7)  node actions:  ['East', 'North', 'North', 'West']
-successor:  [((9, 7), 'East', 1), ((7, 7), 'West', 1)]
-current node:  (8, 7)
-child Node:  (7, 7)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7)]
-childNode:  (7, 7) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000007
-g-value:  9
- 
- 
- 
- 
- 
-8
-current node:  (7, 7)  node actions:  ['East', 'North', 'North', 'West', 'West']
-successor:  [((8, 7), 'East', 1), ((6, 7), 'West', 1)]
-current node:  (7, 7)
-child Node:  (6, 7)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7)]
-childNode:  (6, 7) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000006
-g-value:  10
- 
- 
- 
- 
- 
-9
-current node:  (6, 7)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West']
-successor:  [((6, 8), 'North', 1), ((6, 6), 'South', 1), ((7, 7), 'East', 1), ((5, 7), 'West', 1)]
-current node:  (6, 7)
-child Node:  (6, 8)  direction:  North
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7)]
-childNode:  (6, 8) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000005
-g-value:  11
- 
- 
- 
- 
- 
-current node:  (6, 7)
-child Node:  (6, 6)  direction:  South
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7)]
-childNode:  (6, 6) direction:  South step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000007
-g-value:  12
- 
- 
- 
- 
- 
-current node:  (6, 7)
-child Node:  (5, 7)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7)]
-childNode:  (5, 7) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000005
-g-value:  13
- 
- 
- 
- 
- 
-10
-current node:  (5, 7)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West', 'West']
-successor:  [((6, 7), 'East', 1), ((4, 7), 'West', 1)]
-current node:  (5, 7)
-child Node:  (4, 7)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7), (5, 7)]
-childNode:  (4, 7) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000004
-g-value:  14
- 
- 
- 
- 
- 
-11
-current node:  (4, 7)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West']
-successor:  [((4, 8), 'North', 1), ((5, 7), 'East', 1), ((3, 7), 'West', 1)]
-current node:  (4, 7)
-child Node:  (4, 8)  direction:  North
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7), (5, 7), (4, 7)]
-childNode:  (4, 8) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000003
-g-value:  15
- 
- 
- 
- 
- 
-current node:  (4, 7)
-child Node:  (3, 7)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7), (5, 7), (4, 7)]
-childNode:  (3, 7) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000003
-g-value:  16
- 
- 
- 
- 
- 
-12
-current node:  (3, 7)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West']
-successor:  [((3, 6), 'South', 1), ((4, 7), 'East', 1)]
-current node:  (3, 7)
-child Node:  (3, 6)  direction:  South
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7), (5, 7), (4, 7), (3, 7)]
-childNode:  (3, 6) direction:  South step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000004
-g-value:  17
- 
- 
- 
- 
- 
-13
-current node:  (4, 8)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'North']
-successor:  [((4, 9), 'North', 1), ((4, 7), 'South', 1)]
-current node:  (4, 8)
-child Node:  (4, 9)  direction:  North
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7), (5, 7), (4, 7), (3, 7), (4, 8)]
-childNode:  (4, 9) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000002
-g-value:  18
- 
- 
- 
- 
- 
-14
-current node:  (4, 9)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'North', 'North']
-successor:  [((4, 8), 'South', 1), ((3, 9), 'West', 1)]
-current node:  (4, 9)
-child Node:  (3, 9)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7), (5, 7), (4, 7), (3, 7), (4, 8), (4, 9)]
-childNode:  (3, 9) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000001
-g-value:  19
- 
- 
- 
- 
- 
-15
-current node:  (3, 9)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'North', 'North', 'West']
-successor:  [((4, 9), 'East', 1), ((2, 9), 'West', 1)]
-current node:  (3, 9)
-child Node:  (2, 9)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7), (5, 7), (4, 7), (3, 7), (4, 8), (4, 9), (3, 9)]
-childNode:  (2, 9) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  1000000
-g-value:  20
- 
- 
- 
- 
- 
-16
-current node:  (2, 9)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'North', 'North', 'West', 'West']
-successor:  [((3, 9), 'East', 1), ((1, 9), 'West', 1)]
-current node:  (2, 9)
-child Node:  (1, 9)  direction:  West
-closedList:  [(8, 5), (9, 5), (10, 5), (11, 5), (9, 6), (9, 7), (8, 7), (7, 7), (6, 7), (5, 7), (4, 7), (3, 7), (4, 8), (4, 9), (3, 9), (2, 9)]
-childNode:  (1, 9) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  16  tempGoal:  999999
-g-value:  21
- 
- 
- 
- 
- 
-17
-current node:  (1, 9)  node actions:  ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'West']
-1
-current node:  (11, 5)  node actions:  []
-successor:  [((10, 5), 'West', 1)]
-current node:  (11, 5)
-child Node:  (10, 5)  direction:  West
-closedList:  [(11, 5)]
-childNode:  (10, 5) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  13
-g-value:  0
- 
- 
- 
- 
- 
-2
-current node:  (10, 5)  node actions:  ['West']
-successor:  [((10, 6), 'North', 1), ((11, 5), 'East', 1), ((9, 5), 'West', 1)]
-current node:  (10, 5)
-child Node:  (10, 6)  direction:  North
-closedList:  [(11, 5), (10, 5)]
-childNode:  (10, 6) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000010
-g-value:  1
- 
- 
- 
- 
- 
-current node:  (10, 5)
-child Node:  (9, 5)  direction:  West
-closedList:  [(11, 5), (10, 5)]
-childNode:  (9, 5) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  15
-g-value:  2
- 
- 
- 
- 
- 
-3
-current node:  (9, 5)  node actions:  ['West', 'West']
-successor:  [((9, 6), 'North', 1), ((10, 5), 'East', 1), ((8, 5), 'West', 1)]
-current node:  (9, 5)
-child Node:  (9, 6)  direction:  North
-closedList:  [(11, 5), (10, 5), (9, 5)]
-childNode:  (9, 6) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000011
-g-value:  3
- 
- 
- 
- 
- 
-current node:  (9, 5)
-child Node:  (8, 5)  direction:  West
-closedList:  [(11, 5), (10, 5), (9, 5)]
-childNode:  (8, 5) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  17
-g-value:  4
- 
- 
- 
- 
- 
-4
-current node:  (8, 5)  node actions:  ['West', 'West', 'West']
-successor:  [((9, 5), 'East', 1)]
-5
-current node:  (10, 6)  node actions:  ['West', 'North']
-successor:  [((10, 7), 'North', 1), ((10, 5), 'South', 1), ((9, 6), 'West', 1)]
-current node:  (10, 6)
-child Node:  (10, 7)  direction:  North
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6)]
-childNode:  (10, 7) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000009
-g-value:  5
- 
- 
- 
- 
- 
-current node:  (10, 6)
-child Node:  (9, 6)  direction:  West
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6)]
-childNode:  (9, 6) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000011
-g-value:  6
- 
- 
- 
- 
- 
-6
-current node:  (10, 7)  node actions:  ['West', 'North', 'North']
-successor:  [((10, 6), 'South', 1), ((11, 7), 'East', 1), ((9, 7), 'West', 1)]
-current node:  (10, 7)
-child Node:  (11, 7)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7)]
-childNode:  (11, 7) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000008
-g-value:  7
- 
- 
- 
- 
- 
-current node:  (10, 7)
-child Node:  (9, 7)  direction:  West
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7)]
-childNode:  (9, 7) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000010
-g-value:  8
- 
- 
- 
- 
- 
-7
-current node:  (11, 7)  node actions:  ['West', 'North', 'North', 'East']
-successor:  [((12, 7), 'East', 1), ((10, 7), 'West', 1)]
-current node:  (11, 7)
-child Node:  (12, 7)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7)]
-childNode:  (12, 7) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000007
-g-value:  9
- 
- 
- 
- 
- 
-8
-current node:  (12, 7)  node actions:  ['West', 'North', 'North', 'East', 'East']
-successor:  [((13, 7), 'East', 1), ((11, 7), 'West', 1)]
-current node:  (12, 7)
-child Node:  (13, 7)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7)]
-childNode:  (13, 7) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000006
-g-value:  10
- 
- 
- 
- 
- 
-9
-current node:  (13, 7)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East']
-successor:  [((13, 8), 'North', 1), ((13, 6), 'South', 1), ((14, 7), 'East', 1), ((12, 7), 'West', 1)]
-current node:  (13, 7)
-child Node:  (13, 8)  direction:  North
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7)]
-childNode:  (13, 8) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000005
-g-value:  11
- 
- 
- 
- 
- 
-current node:  (13, 7)
-child Node:  (13, 6)  direction:  South
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7)]
-childNode:  (13, 6) direction:  South step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000007
-g-value:  12
- 
- 
- 
- 
- 
-current node:  (13, 7)
-child Node:  (14, 7)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7)]
-childNode:  (14, 7) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000005
-g-value:  13
- 
- 
- 
- 
- 
-10
-current node:  (13, 8)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'North']
-successor:  [((13, 9), 'North', 1), ((13, 7), 'South', 1)]
-current node:  (13, 8)
-child Node:  (13, 9)  direction:  North
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8)]
-childNode:  (13, 9) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000004
-g-value:  14
- 
- 
- 
- 
- 
-11
-current node:  (13, 9)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'North', 'North']
-successor:  [((13, 8), 'South', 1), ((12, 9), 'West', 1)]
-current node:  (13, 9)
-child Node:  (12, 9)  direction:  West
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9)]
-childNode:  (12, 9) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000005
-g-value:  15
- 
- 
- 
- 
- 
-12
-current node:  (12, 9)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'North', 'North', 'West']
-successor:  [((13, 9), 'East', 1), ((11, 9), 'West', 1)]
-current node:  (12, 9)
-child Node:  (11, 9)  direction:  West
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9), (12, 9)]
-childNode:  (11, 9) direction:  West step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000006
-g-value:  16
- 
- 
- 
- 
- 
-13
-current node:  (14, 7)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'East']
-successor:  [((15, 7), 'East', 1), ((13, 7), 'West', 1)]
-current node:  (14, 7)
-child Node:  (15, 7)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9), (12, 9), (14, 7)]
-childNode:  (15, 7) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000004
-g-value:  17
- 
- 
- 
- 
- 
-14
-current node:  (15, 7)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'East', 'East']
-successor:  [((15, 8), 'North', 1), ((16, 7), 'East', 1), ((14, 7), 'West', 1)]
-current node:  (15, 7)
-child Node:  (15, 8)  direction:  North
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9), (12, 9), (14, 7), (15, 7)]
-childNode:  (15, 8) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000003
-g-value:  18
- 
- 
- 
- 
- 
-current node:  (15, 7)
-child Node:  (16, 7)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9), (12, 9), (14, 7), (15, 7)]
-childNode:  (16, 7) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000003
-g-value:  19
- 
- 
- 
- 
- 
-15
-current node:  (15, 8)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'North']
-successor:  [((15, 9), 'North', 1), ((15, 7), 'South', 1)]
-current node:  (15, 8)
-child Node:  (15, 9)  direction:  North
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9), (12, 9), (14, 7), (15, 7), (15, 8)]
-childNode:  (15, 9) direction:  North step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000002
-g-value:  20
- 
- 
- 
- 
- 
-16
-current node:  (15, 9)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'North', 'North']
-successor:  [((15, 8), 'South', 1), ((16, 9), 'East', 1)]
-current node:  (15, 9)
-child Node:  (16, 9)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9), (12, 9), (14, 7), (15, 7), (15, 8), (15, 9)]
-childNode:  (16, 9) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000001
-g-value:  21
- 
- 
- 
- 
- 
-17
-current node:  (16, 9)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East']
-successor:  [((17, 9), 'East', 1), ((15, 9), 'West', 1)]
-current node:  (16, 9)
-child Node:  (17, 9)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9), (12, 9), (14, 7), (15, 7), (15, 8), (15, 9), (16, 9)]
-childNode:  (17, 9) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  1000000
-g-value:  22
- 
- 
- 
- 
- 
-18
-current node:  (17, 9)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East', 'East']
-successor:  [((18, 9), 'East', 1), ((16, 9), 'West', 1)]
-current node:  (17, 9)
-child Node:  (18, 9)  direction:  East
-closedList:  [(11, 5), (10, 5), (9, 5), (8, 5), (10, 6), (10, 7), (11, 7), (12, 7), (13, 7), (13, 8), (13, 9), (12, 9), (14, 7), (15, 7), (15, 8), (15, 9), (16, 9), (17, 9)]
-childNode:  (18, 9) direction:  East step cost:  1
-comparing f_value to tempGoal:   f_value:  17  tempGoal:  999999
-g-value:  23
- 
- 
- 
- 
- 
-19
-current node:  (18, 9)  node actions:  ['West', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'East']
-Pacman's PATH:  ['East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'East', 'East', 'East']
-GHOST1's PATH:  ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'West']
-GHOST2's PATH:  ['West', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'East']
-ILLEGAL MAPF move:  Stop
-ILLEGAL MAPF move:  Stop
+ENTERED singleAgentAstarSearch ******
+agent starting location:  (9, 1)
+currentNode in search:  (9, 1)
+time step:  0
+Entered getSuccessor function
+constraints:  ()
+timeStep:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (8, 1)
+time step:  1
+Entered getSuccessor function
+constraints:  ()
+timeStep:  1
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (7, 1)
+time step:  2
+Entered getSuccessor function
+constraints:  ()
+timeStep:  2
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (6, 1)
+time step:  3
+Entered getSuccessor function
+constraints:  ()
+timeStep:  3
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (6, 2)
+time step:  4
+Entered getSuccessor function
+constraints:  ()
+timeStep:  4
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (6, 3)
+time step:  5
+Entered getSuccessor function
+constraints:  ()
+timeStep:  5
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (5, 3)
+time step:  6
+Entered getSuccessor function
+constraints:  ()
+timeStep:  6
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (4, 3)
+time step:  7
+Entered getSuccessor function
+constraints:  ()
+timeStep:  7
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (3, 3)
+time step:  8
+Entered getSuccessor function
+constraints:  ()
+timeStep:  8
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (3, 4)
+time step:  9
+Entered getSuccessor function
+constraints:  ()
+timeStep:  9
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (3, 5)
+time step:  10
+Entered getSuccessor function
+constraints:  ()
+timeStep:  10
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (2, 5)
+time step:  11
+Entered getSuccessor function
+constraints:  ()
+timeStep:  11
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (1, 5)
+time step:  12
+Entered getSuccessor function
+constraints:  ()
+timeStep:  12
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (9, 1)
+currentNode in search:  (1, 6)
+ENTERED singleAgentAstarSearch ******
+agent starting location:  (8, 5)
+currentNode in search:  (8, 5)
+time step:  0
+Entered getSuccessor function
+constraints:  ()
+timeStep:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (9, 5)
+time step:  1
+Entered getSuccessor function
+constraints:  ()
+timeStep:  1
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (9, 6)
+time step:  2
+Entered getSuccessor function
+constraints:  ()
+timeStep:  2
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (10, 5)
+time step:  2
+Entered getSuccessor function
+constraints:  ()
+timeStep:  2
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (9, 7)
+time step:  3
+Entered getSuccessor function
+constraints:  ()
+timeStep:  3
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (8, 7)
+time step:  4
+Entered getSuccessor function
+constraints:  ()
+timeStep:  4
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (7, 7)
+time step:  5
+Entered getSuccessor function
+constraints:  ()
+timeStep:  5
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (6, 7)
+time step:  6
+Entered getSuccessor function
+constraints:  ()
+timeStep:  6
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (5, 7)
+time step:  7
+Entered getSuccessor function
+constraints:  ()
+timeStep:  7
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (4, 7)
+time step:  8
+Entered getSuccessor function
+constraints:  ()
+timeStep:  8
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (3, 7)
+time step:  9
+Entered getSuccessor function
+constraints:  ()
+timeStep:  9
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (3, 6)
+time step:  10
+Entered getSuccessor function
+constraints:  ()
+timeStep:  10
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (3, 5)
+time step:  11
+Entered getSuccessor function
+constraints:  ()
+timeStep:  11
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (2, 5)
+time step:  12
+Entered getSuccessor function
+constraints:  ()
+timeStep:  12
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (1, 5)
+time step:  13
+Entered getSuccessor function
+constraints:  ()
+timeStep:  13
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (8, 5)
+currentNode in search:  (1, 4)
+ENTERED singleAgentAstarSearch ******
+agent starting location:  (11, 5)
+currentNode in search:  (11, 5)
+time step:  0
+Entered getSuccessor function
+constraints:  ()
+timeStep:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (10, 5)
+time step:  1
+Entered getSuccessor function
+constraints:  ()
+timeStep:  1
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (9, 5)
+time step:  2
+Entered getSuccessor function
+constraints:  ()
+timeStep:  2
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (8, 5)
+time step:  3
+Entered getSuccessor function
+constraints:  ()
+timeStep:  3
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (9, 6)
+time step:  3
+Entered getSuccessor function
+constraints:  ()
+timeStep:  3
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (10, 6)
+time step:  2
+Entered getSuccessor function
+constraints:  ()
+timeStep:  2
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (9, 7)
+time step:  4
+Entered getSuccessor function
+constraints:  ()
+timeStep:  4
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (8, 7)
+time step:  5
+Entered getSuccessor function
+constraints:  ()
+timeStep:  5
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (7, 7)
+time step:  6
+Entered getSuccessor function
+constraints:  ()
+timeStep:  6
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (6, 7)
+time step:  7
+Entered getSuccessor function
+constraints:  ()
+timeStep:  7
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (5, 7)
+time step:  8
+Entered getSuccessor function
+constraints:  ()
+timeStep:  8
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (4, 7)
+time step:  9
+Entered getSuccessor function
+constraints:  ()
+timeStep:  9
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (3, 7)
+time step:  10
+Entered getSuccessor function
+constraints:  ()
+timeStep:  10
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (3, 6)
+time step:  11
+Entered getSuccessor function
+constraints:  ()
+timeStep:  11
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (3, 5)
+time step:  12
+Entered getSuccessor function
+constraints:  ()
+timeStep:  12
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (2, 5)
+time step:  13
+Entered getSuccessor function
+constraints:  ()
+timeStep:  13
+*len(constraints) inside successor for-loop:  0
+*len(constraints) inside successor for-loop:  0
+len(constraints) inside closedList:  0
+*len(constraints) inside successor for-loop:  0
+agent starting location:  (11, 5)
+currentNode in search:  (1, 5)
+agentPaths initial:  [['West', 'West', 'West', 'North', 'North', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'North'], ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West', 'South'], ['West', 'West', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West']]
+longestPath length:  14
+shortestPath length:  13
+differenceInLength:  1
+pacman's length:  14
+ghost1's length:  14
+ghost2's length:  14
+REAL pacman's length:  14
+REAL ghost1's length:  14
+REAL ghost2's length:  14
+{'cost': 14, 'solution': [['West', 'West', 'West', 'North', 'North', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'North', 'Stop'], ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West', 'South'], ['West', 'West', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West']], 'constraints': ()}
+
+ 
+ 
+i =  1
+pSolution:  [['West', 'West', 'West', 'North', 'North', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'North', 'Stop'], ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West', 'South'], ['West', 'West', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West']]
+pConstraints:  ()
+p:  <game.CTNode instance at 0x100af7560>
+agentPaths in CORDS FUNCTION:  [['West', 'West', 'West', 'North', 'North', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'North', 'Stop'], ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West', 'South'], ['West', 'West', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West']]
+LENGTH PACMAN:  14
+LENGTH GHOST 1:  14
+LENGTH GHOST 2:  14
+CBS SUCCESS!!!
