@@ -1,520 +1,328 @@
-ENTERED singleAgentAstarSearch ******
-agent starting location:  (9, 1)
-currentNode in search:  (9, 1)
-time step:  0
-Entered getSuccessor function
-constraints:  ()
-timeStep:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (8, 1)
-time step:  1
-Entered getSuccessor function
-constraints:  ()
-timeStep:  1
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (7, 1)
-time step:  2
-Entered getSuccessor function
-constraints:  ()
-timeStep:  2
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (6, 1)
-time step:  3
-Entered getSuccessor function
-constraints:  ()
-timeStep:  3
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (6, 2)
-time step:  4
-Entered getSuccessor function
-constraints:  ()
-timeStep:  4
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (6, 3)
-time step:  5
-Entered getSuccessor function
-constraints:  ()
-timeStep:  5
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (5, 3)
-time step:  6
-Entered getSuccessor function
-constraints:  ()
-timeStep:  6
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (4, 3)
-time step:  7
-Entered getSuccessor function
-constraints:  ()
-timeStep:  7
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (3, 3)
-time step:  8
-Entered getSuccessor function
-constraints:  ()
-timeStep:  8
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (3, 4)
-time step:  9
-Entered getSuccessor function
-constraints:  ()
-timeStep:  9
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (3, 5)
-time step:  10
-Entered getSuccessor function
-constraints:  ()
-timeStep:  10
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (2, 5)
-time step:  11
-Entered getSuccessor function
-constraints:  ()
-timeStep:  11
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (1, 5)
-time step:  12
-Entered getSuccessor function
-constraints:  ()
-timeStep:  12
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (9, 1)
-currentNode in search:  (1, 6)
-ENTERED singleAgentAstarSearch ******
-agent starting location:  (8, 5)
-currentNode in search:  (8, 5)
-time step:  0
-Entered getSuccessor function
-constraints:  ()
-timeStep:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (9, 5)
-time step:  1
-Entered getSuccessor function
-constraints:  ()
-timeStep:  1
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (9, 6)
-time step:  2
-Entered getSuccessor function
-constraints:  ()
-timeStep:  2
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (10, 5)
-time step:  2
-Entered getSuccessor function
-constraints:  ()
-timeStep:  2
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (9, 7)
-time step:  3
-Entered getSuccessor function
-constraints:  ()
-timeStep:  3
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (8, 7)
-time step:  4
-Entered getSuccessor function
-constraints:  ()
-timeStep:  4
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (7, 7)
-time step:  5
-Entered getSuccessor function
-constraints:  ()
-timeStep:  5
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (6, 7)
-time step:  6
-Entered getSuccessor function
-constraints:  ()
-timeStep:  6
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (5, 7)
-time step:  7
-Entered getSuccessor function
-constraints:  ()
-timeStep:  7
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (4, 7)
-time step:  8
-Entered getSuccessor function
-constraints:  ()
-timeStep:  8
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (3, 7)
-time step:  9
-Entered getSuccessor function
-constraints:  ()
-timeStep:  9
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (3, 6)
-time step:  10
-Entered getSuccessor function
-constraints:  ()
-timeStep:  10
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (3, 5)
-time step:  11
-Entered getSuccessor function
-constraints:  ()
-timeStep:  11
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (2, 5)
-time step:  12
-Entered getSuccessor function
-constraints:  ()
-timeStep:  12
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (1, 5)
-time step:  13
-Entered getSuccessor function
-constraints:  ()
-timeStep:  13
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (8, 5)
-currentNode in search:  (1, 4)
-ENTERED singleAgentAstarSearch ******
-agent starting location:  (11, 5)
-currentNode in search:  (11, 5)
-time step:  0
-Entered getSuccessor function
-constraints:  ()
-timeStep:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (10, 5)
-time step:  1
-Entered getSuccessor function
-constraints:  ()
-timeStep:  1
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (9, 5)
-time step:  2
-Entered getSuccessor function
-constraints:  ()
-timeStep:  2
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (8, 5)
-time step:  3
-Entered getSuccessor function
-constraints:  ()
-timeStep:  3
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (9, 6)
-time step:  3
-Entered getSuccessor function
-constraints:  ()
-timeStep:  3
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (10, 6)
-time step:  2
-Entered getSuccessor function
-constraints:  ()
-timeStep:  2
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (9, 7)
-time step:  4
-Entered getSuccessor function
-constraints:  ()
-timeStep:  4
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (8, 7)
-time step:  5
-Entered getSuccessor function
-constraints:  ()
-timeStep:  5
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (7, 7)
-time step:  6
-Entered getSuccessor function
-constraints:  ()
-timeStep:  6
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (6, 7)
-time step:  7
-Entered getSuccessor function
-constraints:  ()
-timeStep:  7
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (5, 7)
-time step:  8
-Entered getSuccessor function
-constraints:  ()
-timeStep:  8
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (4, 7)
-time step:  9
-Entered getSuccessor function
-constraints:  ()
-timeStep:  9
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (3, 7)
-time step:  10
-Entered getSuccessor function
-constraints:  ()
-timeStep:  10
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (3, 6)
-time step:  11
-Entered getSuccessor function
-constraints:  ()
-timeStep:  11
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (3, 5)
-time step:  12
-Entered getSuccessor function
-constraints:  ()
-timeStep:  12
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (2, 5)
-time step:  13
-Entered getSuccessor function
-constraints:  ()
-timeStep:  13
-*len(constraints) inside successor for-loop:  0
-*len(constraints) inside successor for-loop:  0
-len(constraints) inside closedList:  0
-*len(constraints) inside successor for-loop:  0
-agent starting location:  (11, 5)
-currentNode in search:  (1, 5)
-agentPaths initial:  [['West', 'West', 'West', 'North', 'North', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'North'], ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West', 'South'], ['West', 'West', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West']]
-longestPath length:  14
-shortestPath length:  13
-differenceInLength:  1
-pacman's length:  14
-ghost1's length:  14
-ghost2's length:  14
-REAL pacman's length:  14
-REAL ghost1's length:  14
-REAL ghost2's length:  14
-{'cost': 14, 'solution': [['West', 'West', 'West', 'North', 'North', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'North', 'Stop'], ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West', 'South'], ['West', 'West', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West']], 'constraints': ()}
+pacman start position:  (2, 1)
+ghost1 start position:  (1, 3)
+ghost2 start position:  (3, 1)
+look here:  [[], ['South'], ['West', 'West']]
+solution:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+{'cost': 2, 'solution': [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']], 'constraints': []}
 
  
  
 i =  1
-pSolution:  [['West', 'West', 'West', 'North', 'North', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'North', 'Stop'], ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West', 'South'], ['West', 'West', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West']]
-pConstraints:  ()
-p:  <game.CTNode instance at 0x100af7560>
-agentPaths in CORDS FUNCTION:  [['West', 'West', 'West', 'North', 'North', 'West', 'West', 'West', 'North', 'North', 'West', 'West', 'North', 'Stop'], ['East', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West', 'South'], ['West', 'West', 'North', 'North', 'West', 'West', 'West', 'West', 'West', 'West', 'South', 'South', 'West', 'West']]
-LENGTH PACMAN:  14
-LENGTH GHOST 1:  14
-LENGTH GHOST 2:  14
+pSolution:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+pConstraints:  []
+pCost:  2
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+LENGTH PACMAN:  2
+LENGTH GHOST 1:  2
+LENGTH GHOST 2:  2
+time step:  0
+pacman location:  (2, 1)
+ghost1 location:  (1, 3)
+ghost2 location:  (3, 1)
+
+
+time step:  1
+pacman location:  (2, 1)
+ghost1 location:  (1.0, 3.0)
+ghost2 location:  (2.0, 1.0)
+
+
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+LENGTH PACMAN:  2
+LENGTH GHOST 1:  2
+LENGTH GHOST 2:  2
+conflict occured:  (0, 2, (2, 1), 1)
+conflict from cbs:  [(0, 2, (2, 1), 1)]
+agents in conflict:  [0, 2]
+len agents:  2
+agents:  [0, 2]
+ai:  0
+pConstraints:  []
+aConstraints:  [(0, (2, 1), 1)]
+constraints in reconstructPathWithConstraints:  [(0, (2, 1), 1)]
+agent:  0
+constraints in singleAgentAstarSearchWithConstraints:  [(0, (2, 1), 1)]
+currentNode == goal
+nodeActions after testing?  []
+aSolution:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+LENGTH PACMAN:  2
+LENGTH GHOST 1:  2
+LENGTH GHOST 2:  2
+constraints in enterRecoveryMethod:  [(0, (2, 1), 1)]
+ENTERED enterRecoveryMethod 
+pacmanPath:  [(2, 1), (2, 1), (2, 1)]
+ghost1Path:  [(1, 3), (1.0, 3.0), (1.0, 2.0)]
+ghost2Path:  [(3, 1), (2.0, 1.0), (1.0, 1.0)]
+counter:  3
+pacmanConstraints:  []
+ghost1Constraints:  []
+ghost2Constraints:  []
+counter:  2
+pacman and ghost2 conflict!
+path:  [(2, 1), (2, 1), (2, 1)]
+path[1]:  (2, 1)
+constraintList:  []
+path:  [(3, 1), (2.0, 1.0), (1.0, 1.0)]
+path[1]:  (2.0, 1.0)
+i in pathLength:  0
+index in pathLength:  2
+i in pathLength:  1
+index in pathLength:  1
+NIGGER
+agentLocation (2.0, 1.0)
+nextAgentLocation:  (3, 1)
+i in pathLength:  2
+index in pathLength:  0
+constraintList:  []
+pacmanConstraints:  [(0, (2, 1), 1)]
+ghost1Constraints:  []
+ghost2Constraints:  [(2, (2.0, 1.0), 1)]
+counter:  1
+pacmanConstraints:  [(0, (2, 1), 1)]
+ghost1Constraints:  []
+ghost2Constraints:  [(2, (2.0, 1.0), 1)]
+test:  [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]
+agent:  0
+constraints in singleAgentSearchAfterBackChain:  [(0, (2, 1), 1)]
+constraintTable:  [[(2, 1), 1]]
+currentNode == goal
+nodeActions after testing?  []
+new_pacmanPath:  []
+agent:  1
+constraints in singleAgentSearchAfterBackChain:  []
+constraintTable:  []
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  []
+constraints removed the []?:  []
+
+ 
+
+new_ghost1Path:  []
+agent:  2
+constraints in singleAgentSearchAfterBackChain:  [(2, (2.0, 1.0), 1)]
+constraintTable:  [[(2.0, 1.0), 1]]
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  [(2, (2.0, 1.0), 1)]
+constraints removed the []?:  [(2, (2.0, 1.0), 1)]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  [(2, (2.0, 1.0), 1)]
+constraints removed the []?:  [(2, (2.0, 1.0), 1)]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  [(2, (2.0, 1.0), 1)]
+constraints removed the []?:  [(2, (2.0, 1.0), 1)]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  [(2, (2.0, 1.0), 1)]
+constraints removed the []?:  [(2, (2.0, 1.0), 1)]
+
+ 
+
+currentNode == goal
+nodeActions after testing?  ['North', 'West', 'West', 'South']
+new_ghost2Path:  ['North', 'West', 'West', 'South']
+new_pacmanPath:  []
+new_ghost1Path:  []
+new_ghost2Path:  ['North', 'West', 'West', 'South']
+solution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+new_aData:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]}
+new_aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+len(new_aSolution):  3
+new_aConstraint:  [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]
+YESSSS new_aData:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]}
+PRINTING THE TREE: 
+{'cost': 2, 'solution': [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']], 'constraints': []}
+{'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]}
+pSolution:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+pConstraints:  []
+aConstraints:  [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]
+pCost:  2
+aCost:  4
+agents:  [0, 2]
+ai:  2
+pConstraints:  []
+aConstraints:  [(2, (2, 1), 1)]
+constraints in reconstructPathWithConstraints:  [(2, (2, 1), 1)]
+agent:  2
+constraints in singleAgentAstarSearchWithConstraints:  [(2, (2, 1), 1)]
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  [(2, (2, 1), 1)]
+constraints removed the []?:  [(2, (2, 1), 1)]
+
+ 
+
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  [(2, (2, 1), 1)]
+constraints removed the []?:  [(2, (2, 1), 1)]
+
+ 
+
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  [(2, (2, 1), 1)]
+constraints removed the []?:  [(2, (2, 1), 1)]
+
+ 
+
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  [(2, (2, 1), 1)]
+constraints removed the []?:  [(2, (2, 1), 1)]
+
+ 
+
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+constraints:  [(2, (2, 1), 1)]
+len(constraints):  1
+agent_ai:  2 conflict_location:  (2, 1) t:  1
+currentNode == goal
+nodeActions after testing?  ['North', 'West', 'West', 'South']
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+LENGTH PACMAN:  4
+LENGTH GHOST 1:  4
+LENGTH GHOST 2:  4
+constraints in enterRecoveryMethod:  [(2, (2, 1), 1)]
+ENTERED enterRecoveryMethod 
+pacmanPath:  [(2, 1), (2, 1), (2, 1), (2, 1), (2, 1)]
+ghost1Path:  [(1, 3), (1.0, 3.0), (1.0, 3.0), (1.0, 3.0), (1.0, 2.0)]
+ghost2Path:  [(3, 1), (3.0, 2.0), (2.0, 2.0), (1.0, 2.0), (1.0, 1.0)]
+counter:  5
+pacmanConstraints:  []
+ghost1Constraints:  []
+ghost2Constraints:  []
+counter:  4
+pacmanConstraints:  []
+ghost1Constraints:  []
+ghost2Constraints:  []
+counter:  3
+pacmanConstraints:  []
+ghost1Constraints:  []
+ghost2Constraints:  []
+counter:  2
+pacmanConstraints:  []
+ghost1Constraints:  []
+ghost2Constraints:  []
+counter:  1
+pacmanConstraints:  []
+ghost1Constraints:  []
+ghost2Constraints:  []
+test:  [[], [], []]
+agent:  0
+constraints in singleAgentSearchAfterBackChain:  []
+constraintTable:  []
+currentNode == goal
+nodeActions after testing?  []
+new_pacmanPath:  []
+agent:  1
+constraints in singleAgentSearchAfterBackChain:  []
+constraintTable:  []
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  []
+constraints removed the []?:  []
+
+ 
+
+new_ghost1Path:  []
+agent:  2
+constraints in singleAgentSearchAfterBackChain:  []
+constraintTable:  []
+Entered getSuccessorWithConstraints function
+constraints in getSuccessorWithConstraints:  []
+constraints removed the []?:  []
+
+ 
+
+new_ghost2Path:  []
+new_pacmanPath:  []
+new_ghost1Path:  []
+new_ghost2Path:  []
+solution:  [[], [], []]
+new_aData:  {'cost': 0, 'solution': [[], [], []], 'constraints': [[], [], []]}
+new_aSolution:  [[], [], []]
+len(new_aSolution):  3
+new_aConstraint:  [[], [], []]
+YESSSS new_aData:  {'cost': 0, 'solution': [[], [], []], 'constraints': [[], [], []]}
+PRINTING THE TREE: 
+{'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']], 'constraints': []}
+{'cost': 0, 'solution': [[], [], []], 'constraints': [[], [], []]}
+{'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]}
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+aSolution:  [[], [], []]
+pConstraints:  []
+aConstraints:  [[], [], []]
+pCost:  2
+aCost:  0
+
+ 
+ 
+i =  2
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+pConstraints:  []
+pCost:  2
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+LENGTH PACMAN:  4
+LENGTH GHOST 1:  4
+LENGTH GHOST 2:  4
+time step:  0
+pacman location:  (2, 1)
+ghost1 location:  (1, 3)
+ghost2 location:  (3, 1)
+
+
+time step:  1
+pacman location:  (2, 1)
+ghost1 location:  (1.0, 3.0)
+ghost2 location:  (3.0, 2.0)
+
+
+time step:  2
+pacman location:  (2, 1)
+ghost1 location:  (1.0, 3.0)
+ghost2 location:  (2.0, 2.0)
+
+
+time step:  3
+pacman location:  (2, 1)
+ghost1 location:  (1.0, 3.0)
+ghost2 location:  (1.0, 2.0)
+
+
+time step:  4
+pacman location:  (2, 1)
+ghost1 location:  (1.0, 2.0)
+ghost2 location:  (1.0, 1.0)
+
+
 CBS SUCCESS!!!
+new_path:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
