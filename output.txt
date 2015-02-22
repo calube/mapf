@@ -2,32 +2,24 @@ pacman start position:  (2, 1)
 ghost1 start position:  (1, 3)
 ghost2 start position:  (3, 1)
 look here:  [[], ['South'], ['West', 'West']]
-solution:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
-{'cost': 2, 'solution': [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']], 'constraints': []}
+solution:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
+{'cost': 2, 'solution': [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']], 'constraints': []}
+p =  <game.ConstraintTree instance at 0x107b06e60>
+test_data:  {'cost': 2, 'solution': [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']], 'constraints': []}
 
  
  
-i =  1
-pSolution:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+m =  1
+pSolution:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
 pConstraints:  []
 pCost:  2
-agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
 LENGTH PACMAN:  2
 LENGTH GHOST 1:  2
 LENGTH GHOST 2:  2
-time step:  0
-pacman location:  (2, 1)
-ghost1 location:  (1, 3)
-ghost2 location:  (3, 1)
-
-
-time step:  1
-pacman location:  (2, 1)
-ghost1 location:  (1.0, 3.0)
-ghost2 location:  (2.0, 1.0)
-
-
-agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+ghost2Path:  [(3, 1), (2.0, 1.0), (1.0, 1.0)]
+len(ghost2Path):  3
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
 LENGTH PACMAN:  2
 LENGTH GHOST 1:  2
 LENGTH GHOST 2:  2
@@ -38,291 +30,2350 @@ len agents:  2
 agents:  [0, 2]
 ai:  0
 pConstraints:  []
-aConstraints:  [(0, (2, 1), 1)]
+aConstraints in CBS:  [(0, (2, 1), 1)]
 constraints in reconstructPathWithConstraints:  [(0, (2, 1), 1)]
 agent:  0
 constraints in singleAgentAstarSearchWithConstraints:  [(0, (2, 1), 1)]
 currentNode == goal
 nodeActions after testing?  []
-aSolution:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
-agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
+aSolution:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
+solution_with_conflict:  ['Stop', 'Stop']
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
 LENGTH PACMAN:  2
 LENGTH GHOST 1:  2
 LENGTH GHOST 2:  2
-constraints in enterRecoveryMethod:  [(0, (2, 1), 1)]
-ENTERED enterRecoveryMethod 
-pacmanPath:  [(2, 1), (2, 1), (2, 1)]
-ghost1Path:  [(1, 3), (1.0, 3.0), (1.0, 2.0)]
-ghost2Path:  [(3, 1), (2.0, 1.0), (1.0, 1.0)]
-counter:  3
-pacmanConstraints:  []
-ghost1Constraints:  []
-ghost2Constraints:  []
-counter:  2
-pacman and ghost2 conflict!
+agent_path:  ['Stop', 'Stop']
 path:  [(2, 1), (2, 1), (2, 1)]
-path[1]:  (2, 1)
-constraintList:  []
-path:  [(3, 1), (2.0, 1.0), (1.0, 1.0)]
-path[1]:  (2.0, 1.0)
-i in pathLength:  0
-index in pathLength:  2
-i in pathLength:  1
-index in pathLength:  1
-NIGGER
-agentLocation (2.0, 1.0)
-nextAgentLocation:  (3, 1)
-i in pathLength:  2
-index in pathLength:  0
-constraintList:  []
-pacmanConstraints:  [(0, (2, 1), 1)]
-ghost1Constraints:  []
-ghost2Constraints:  [(2, (2.0, 1.0), 1)]
-counter:  1
-pacmanConstraints:  [(0, (2, 1), 1)]
-ghost1Constraints:  []
-ghost2Constraints:  [(2, (2.0, 1.0), 1)]
-test:  [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]
-agent:  0
-constraints in singleAgentSearchAfterBackChain:  [(0, (2, 1), 1)]
-constraintTable:  [[(2, 1), 1]]
-currentNode == goal
-nodeActions after testing?  []
-new_pacmanPath:  []
-agent:  1
-constraints in singleAgentSearchAfterBackChain:  []
-constraintTable:  []
-Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  []
-constraints removed the []?:  []
-
- 
-
-new_ghost1Path:  []
-agent:  2
-constraints in singleAgentSearchAfterBackChain:  [(2, (2.0, 1.0), 1)]
-constraintTable:  [[(2.0, 1.0), 1]]
-Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  [(2, (2.0, 1.0), 1)]
-constraints removed the []?:  [(2, (2.0, 1.0), 1)]
-
- 
-
-Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  [(2, (2.0, 1.0), 1)]
-constraints removed the []?:  [(2, (2.0, 1.0), 1)]
-
- 
-
-Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  [(2, (2.0, 1.0), 1)]
-constraints removed the []?:  [(2, (2.0, 1.0), 1)]
-
- 
-
-Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  [(2, (2.0, 1.0), 1)]
-constraints removed the []?:  [(2, (2.0, 1.0), 1)]
-
- 
-
-currentNode == goal
-nodeActions after testing?  ['North', 'West', 'West', 'South']
-new_ghost2Path:  ['North', 'West', 'West', 'South']
-new_pacmanPath:  []
-new_ghost1Path:  []
-new_ghost2Path:  ['North', 'West', 'West', 'South']
-solution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
-new_aData:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]}
-new_aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
-len(new_aSolution):  3
-new_aConstraint:  [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]
-YESSSS new_aData:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]}
-PRINTING THE TREE: 
-{'cost': 2, 'solution': [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']], 'constraints': []}
-{'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]}
-pSolution:  [['Stop', 'Stop'], ['Stop', 'South'], ['West', 'West']]
-aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+constraints:  (0, (2, 1), 1)
+NO
+test_aSolution:  [['Stop', 'Stop'], [(0, (2, 1), 1)]]
+aSolution after singleAgentRecoveryMethod:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
+new_aData for real maybe?:  {'cost': 2, 'solution': [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']], 'constraints': [(0, (2, 1), 1)]}
+jj =  1
+p's left child:  {'cost': 2, 'solution': [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']], 'constraints': [(0, (2, 1), 1)]}
+getting root value from p:  {'cost': 2, 'solution': [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']], 'constraints': []}
+setting root value for p:
+getting root value from p:  {'cost': 2, 'solution': [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']], 'constraints': [(0, (2, 1), 1)]}
+pSolution:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
+aSolution:  [['Stop', 'Stop'], ['South', 'Stop'], ['West', 'West']]
 pConstraints:  []
-aConstraints:  [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]
+aConstraints:  [(0, (2, 1), 1)]
 pCost:  2
-aCost:  4
+aCost:  2
 agents:  [0, 2]
 ai:  2
 pConstraints:  []
-aConstraints:  [(2, (2, 1), 1)]
+aConstraints in CBS:  [(2, (2, 1), 1)]
 constraints in reconstructPathWithConstraints:  [(2, (2, 1), 1)]
 agent:  2
 constraints in singleAgentAstarSearchWithConstraints:  [(2, (2, 1), 1)]
 Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  [(2, (2, 1), 1)]
-constraints removed the []?:  [(2, (2, 1), 1)]
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 1]]
+pair:  [(3, 2), 1]
+pair:  [(2, 1), 1]
+found a pair that is a conflict successor!
+pair:  [(3, 1), 1]
 
  
 
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
 Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  [(2, (2, 1), 1)]
-constraints removed the []?:  [(2, (2, 1), 1)]
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
 
  
 
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
 Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  [(2, (2, 1), 1)]
-constraints removed the []?:  [(2, (2, 1), 1)]
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+pair:  [(2, 2), 3]
 
  
 
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
 Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  [(2, (2, 1), 1)]
-constraints removed the []?:  [(2, (2, 1), 1)]
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 1]]
+pair:  [(1, 3), 4]
+pair:  [(1, 1), 4]
+pair:  [(2, 2), 4]
+pair:  [(1, 2), 4]
 
  
 
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
-constraints:  [(2, (2, 1), 1)]
-len(constraints):  1
-agent_ai:  2 conflict_location:  (2, 1) t:  1
 currentNode == goal
 nodeActions after testing?  ['North', 'West', 'West', 'South']
-aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
-agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+solution_with_conflict:  ['North', 'West', 'West', 'South']
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
 LENGTH PACMAN:  4
 LENGTH GHOST 1:  4
 LENGTH GHOST 2:  4
-constraints in enterRecoveryMethod:  [(2, (2, 1), 1)]
-ENTERED enterRecoveryMethod 
-pacmanPath:  [(2, 1), (2, 1), (2, 1), (2, 1), (2, 1)]
-ghost1Path:  [(1, 3), (1.0, 3.0), (1.0, 3.0), (1.0, 3.0), (1.0, 2.0)]
+agent_path:  ['North', 'West', 'West', 'South']
+path:  [(3, 1), (3.0, 2.0), (2.0, 2.0), (1.0, 2.0), (1.0, 1.0)]
+constraints:  (2, (2, 1), 1)
+NO
+test_aSolution:  [['North', 'West', 'West', 'South'], [(2, (2, 1), 1)]]
+aSolution after singleAgentRecoveryMethod:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+new_aData for real maybe?:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [(2, (2, 1), 1)]}
+jj =  2
+getting root value from CT:  {'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [(0, (2, 1), 1)]}
+getting root value from p:  {'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [(0, (2, 1), 1)]}
+p's right child:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [(2, (2, 1), 1)]}
+getting root value from p:  {'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [(0, (2, 1), 1)]}
+setting root value for p:
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [(2, (2, 1), 1)]}
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+pConstraints:  []
+aConstraints:  [(2, (2, 1), 1)]
+pCost:  2
+aCost:  4
+p =  <game.ConstraintTree instance at 0x107b06e60>
+test_data:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [(2, (2, 1), 1)]}
+
+ 
+ 
+m =  2
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+pConstraints:  [(2, (2, 1), 1)]
+pCost:  4
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+LENGTH PACMAN:  4
+LENGTH GHOST 1:  4
+LENGTH GHOST 2:  4
 ghost2Path:  [(3, 1), (3.0, 2.0), (2.0, 2.0), (1.0, 2.0), (1.0, 1.0)]
-counter:  5
-pacmanConstraints:  []
-ghost1Constraints:  []
-ghost2Constraints:  []
-counter:  4
-pacmanConstraints:  []
-ghost1Constraints:  []
-ghost2Constraints:  []
-counter:  3
-pacmanConstraints:  []
-ghost1Constraints:  []
-ghost2Constraints:  []
-counter:  2
-pacmanConstraints:  []
-ghost1Constraints:  []
-ghost2Constraints:  []
-counter:  1
-pacmanConstraints:  []
-ghost1Constraints:  []
-ghost2Constraints:  []
-test:  [[], [], []]
+len(ghost2Path):  5
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+LENGTH PACMAN:  4
+LENGTH GHOST 1:  4
+LENGTH GHOST 2:  4
+conflict occured:  (1, 2, (1.0, 2.0), 3)
+conflict from cbs:  [(1, 2, (1.0, 2.0), 3)]
+agents in conflict:  [1, 2]
+len agents:  2
+agents:  [1, 2]
+ai:  1
+pConstraints:  [(2, (2, 1), 1)]
+aConstraints in CBS:  [(1, (1.0, 2.0), 3), (2, (2, 1), 1)]
+constraints in reconstructPathWithConstraints:  [(1, (1.0, 2.0), 3), (2, (2, 1), 1)]
+agent:  1
+constraints in singleAgentAstarSearchWithConstraints:  [(1, (1.0, 2.0), 3), (2, (2, 1), 1)]
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(1, 2), 1]
+pair:  [(2, 3), 1]
+pair:  [(1, 3), 1]
+
+ 
+
+currentNode == goal
+nodeActions after testing?  ['South']
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+solution_with_conflict:  ['South', 'Stop', 'Stop', 'Stop']
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']]
+LENGTH PACMAN:  4
+LENGTH GHOST 1:  4
+LENGTH GHOST 2:  4
+agent_path:  ['South', 'Stop', 'Stop', 'Stop']
+path:  [(1, 3), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0)]
+constraints:  (1, (1.0, 2.0), 3)
+YES
+entered singleAgentRecoveryMethod for agent  1
+agent:  1 path:  [(1, 3), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0)] constraints:  [(1, (1.0, 2.0), 3), (2, (2, 1), 1)] goal:  (1, 2)
+path:  [(1, 3), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0)]
+constraints:  (1, (1.0, 2.0), 3)
+constraintList in checkSingleAgentPathForBackChaining:  [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]
+back_chain_constraints:  [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]
+agent:  1
+constraints in singleAgentSearchAfterBackChain:  [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]
+constraintTable:  [[(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 1]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 1]
+pair:  [(1, 3), 1]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 1]
+test is not in constraintTable:  [(1, 3), 1]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 2]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 2]
+pair:  [(1, 3), 2]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 2]
+test is not in constraintTable:  [(1, 3), 2]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 3]
+pair:  [(1, 3), 3]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 3]
+test is not in constraintTable:  [(1, 3), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 2]
+pair:  [(3, 3), 2]
+pair:  [(1, 3), 2]
+pair:  [(2, 3), 2]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 2]
+test is not in constraintTable:  [(3, 3), 2]
+test is not in constraintTable:  [(1, 3), 2]
+test is not in constraintTable:  [(2, 3), 2]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 3]
+pair:  [(1, 3), 3]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 3]
+test is not in constraintTable:  [(1, 3), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 3]
+test is not in constraintTable:  [(2, 1), 3]
+test is not in constraintTable:  [(3, 2), 3]
+test is not in constraintTable:  [(2, 2), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 4]
+pair:  [(2, 3), 4]
+pair:  [(1, 3), 4]
+successors:  [((1, 2), 'South', 1), ((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(1, 2), 4]
+test is not in constraintTable:  [(2, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+z =  1
+currentNode == goal
+nodeActions after testing?  ['East', 'West', 'Stop', 'South']
+new_path nigga:  ['East', 'West', 'Stop', 'South']
+test_aSolution:  [['East', 'West', 'Stop', 'South'], [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]]
+aSolution after singleAgentRecoveryMethod:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+new_aData for real maybe?:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'West', 'South']], 'constraints': [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+jj =  1
+p's left child:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'West', 'South']], 'constraints': [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'West', 'South']], 'constraints': [(2, (2, 1), 1)]}
+setting root value for p:
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'West', 'South']], 'constraints': [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+pConstraints:  [(2, (2, 1), 1)]
+aConstraints:  [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]
+pCost:  4
+aCost:  4
+agents:  [1, 2]
+ai:  2
+pConstraints:  [(2, (2, 1), 1)]
+aConstraints in CBS:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+constraints in reconstructPathWithConstraints:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+agent:  2
+constraints in singleAgentAstarSearchWithConstraints:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 1]
+pair:  [(2, 1), 1]
+found a pair that is a conflict successor!
+pair:  [(3, 1), 1]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 1), 4]
+pair:  [(1, 1), 4]
+pair:  [(2, 1), 4]
+
+ 
+
+currentNode == goal
+nodeActions after testing?  ['North', 'West', 'South', 'West']
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+solution_with_conflict:  ['North', 'West', 'South', 'West']
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+LENGTH PACMAN:  4
+LENGTH GHOST 1:  4
+LENGTH GHOST 2:  4
+agent_path:  ['North', 'West', 'South', 'West']
+path:  [(3, 1), (3.0, 2.0), (2.0, 2.0), (2.0, 1.0), (1.0, 1.0)]
+constraints:  (2, (1.0, 2.0), 3)
+NO
+test_aSolution:  [['North', 'West', 'South', 'West'], [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]]
+aSolution after singleAgentRecoveryMethod:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+new_aData for real maybe?:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+jj =  2
+getting root value from CT:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+p's right child:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+setting root value for p:
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+pConstraints:  [(2, (2, 1), 1)]
+aConstraints:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+pCost:  4
+aCost:  4
+p =  <game.ConstraintTree instance at 0x107b06e60>
+test_data:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+
+ 
+ 
+m =  3
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+pConstraints:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+pCost:  4
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+LENGTH PACMAN:  4
+LENGTH GHOST 1:  4
+LENGTH GHOST 2:  4
+ghost2Path:  [(3, 1), (3.0, 2.0), (2.0, 2.0), (2.0, 1.0), (1.0, 1.0)]
+len(ghost2Path):  5
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+LENGTH PACMAN:  4
+LENGTH GHOST 1:  4
+LENGTH GHOST 2:  4
+conflict occured:  (0, 2, (2, 1), 3)
+conflict from cbs:  [(0, 2, (2, 1), 3)]
+agents in conflict:  [0, 2]
+len agents:  2
+agents:  [0, 2]
+ai:  0
+pConstraints:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+aConstraints in CBS:  [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+constraints in reconstructPathWithConstraints:  [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
 agent:  0
-constraints in singleAgentSearchAfterBackChain:  []
-constraintTable:  []
+constraints in singleAgentAstarSearchWithConstraints:  [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
 currentNode == goal
 nodeActions after testing?  []
-new_pacmanPath:  []
-agent:  1
-constraints in singleAgentSearchAfterBackChain:  []
-constraintTable:  []
-Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  []
-constraints removed the []?:  []
-
- 
-
-new_ghost1Path:  []
-agent:  2
-constraints in singleAgentSearchAfterBackChain:  []
-constraintTable:  []
-Entered getSuccessorWithConstraints function
-constraints in getSuccessorWithConstraints:  []
-constraints removed the []?:  []
-
- 
-
-new_ghost2Path:  []
-new_pacmanPath:  []
-new_ghost1Path:  []
-new_ghost2Path:  []
-solution:  [[], [], []]
-new_aData:  {'cost': 0, 'solution': [[], [], []], 'constraints': [[], [], []]}
-new_aSolution:  [[], [], []]
-len(new_aSolution):  3
-new_aConstraint:  [[], [], []]
-YESSSS new_aData:  {'cost': 0, 'solution': [[], [], []], 'constraints': [[], [], []]}
-PRINTING THE TREE: 
-{'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']], 'constraints': []}
-{'cost': 0, 'solution': [[], [], []], 'constraints': [[], [], []]}
-{'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'West', 'South']], 'constraints': [[(0, (2, 1), 1)], [], [(2, (2.0, 1.0), 1)]]}
-pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
-aSolution:  [[], [], []]
-pConstraints:  []
-aConstraints:  [[], [], []]
-pCost:  2
-aCost:  0
-
- 
- 
-i =  2
-pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
-pConstraints:  []
-pCost:  2
-agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+solution_with_conflict:  ['Stop', 'Stop', 'Stop', 'Stop']
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
 LENGTH PACMAN:  4
 LENGTH GHOST 1:  4
 LENGTH GHOST 2:  4
-time step:  0
-pacman location:  (2, 1)
-ghost1 location:  (1, 3)
-ghost2 location:  (3, 1)
+agent_path:  ['Stop', 'Stop', 'Stop', 'Stop']
+path:  [(2, 1), (2, 1), (2, 1), (2, 1), (2, 1)]
+constraints:  (0, (2, 1), 3)
+NO
+test_aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]]
+aSolution after singleAgentRecoveryMethod:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+new_aData for real maybe?:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+jj =  1
+p's left child:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+setting root value for p:
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']], 'constraints': [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South'], ['North', 'West', 'South', 'West']]
+pConstraints:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+aConstraints:  [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+pCost:  4
+aCost:  4
+agents:  [0, 2]
+ai:  2
+pConstraints:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+aConstraints in CBS:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+constraints in reconstructPathWithConstraints:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+agent:  2
+constraints in singleAgentAstarSearchWithConstraints:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 1]
+pair:  [(2, 1), 1]
+found a pair that is a conflict successor!
+pair:  [(3, 1), 1]
 
+ 
 
-time step:  1
-pacman location:  (2, 1)
-ghost1 location:  (1.0, 3.0)
-ghost2 location:  (3.0, 2.0)
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
 
+ 
 
-time step:  2
-pacman location:  (2, 1)
-ghost1 location:  (1.0, 3.0)
-ghost2 location:  (2.0, 2.0)
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+found a pair that is a conflict successor!
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
 
+ 
 
-time step:  3
-pacman location:  (2, 1)
-ghost1 location:  (1.0, 3.0)
-ghost2 location:  (1.0, 2.0)
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+found a pair that is a conflict successor!
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
 
+ 
 
-time step:  4
-pacman location:  (2, 1)
-ghost1 location:  (1.0, 2.0)
-ghost2 location:  (1.0, 1.0)
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+found a pair that is a conflict successor!
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
 
+ 
 
-CBS SUCCESS!!!
-new_path:  [['Stop', 'Stop', 'Stop', 'Stop'], ['Stop', 'Stop', 'Stop', 'South'], ['North', 'West', 'West', 'South']]
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(1, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(1, 3), 6]
+pair:  [(1, 1), 6]
+pair:  [(2, 2), 6]
+pair:  [(1, 2), 6]
+
+ 
+
+currentNode == goal
+nodeActions after testing?  ['North', 'West', 'North', 'West', 'South', 'South']
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+solution_with_conflict:  ['North', 'West', 'North', 'West', 'South', 'South']
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+LENGTH PACMAN:  6
+LENGTH GHOST 1:  6
+LENGTH GHOST 2:  6
+agent_path:  ['North', 'West', 'North', 'West', 'South', 'South']
+path:  [(3, 1), (3.0, 2.0), (2.0, 2.0), (2.0, 3.0), (1.0, 3.0), (1.0, 2.0), (1.0, 1.0)]
+constraints:  (2, (2, 1), 3)
+NO
+test_aSolution:  [['North', 'West', 'North', 'West', 'South', 'South'], [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]]
+aSolution after singleAgentRecoveryMethod:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+new_aData for real maybe?:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+jj =  2
+getting root value from CT:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+p's right child:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+getting root value from p:  {'cost': 4, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(0, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+setting root value for p:
+getting root value from p:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+pConstraints:  [(2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+aConstraints:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+pCost:  4
+aCost:  6
+p =  <game.ConstraintTree instance at 0x107b06e60>
+test_data:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+
+ 
+ 
+m =  4
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+pConstraints:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+pCost:  6
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+LENGTH PACMAN:  6
+LENGTH GHOST 1:  6
+LENGTH GHOST 2:  6
+ghost2Path:  [(3, 1), (3.0, 2.0), (2.0, 2.0), (2.0, 3.0), (1.0, 3.0), (1.0, 2.0), (1.0, 1.0)]
+len(ghost2Path):  7
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'West', 'Stop', 'South', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+LENGTH PACMAN:  6
+LENGTH GHOST 1:  6
+LENGTH GHOST 2:  6
+conflict occured:  (1, 2, (1.0, 2.0), 5)
+conflict from cbs:  [(1, 2, (1.0, 2.0), 5)]
+agents in conflict:  [1, 2]
+len agents:  2
+agents:  [1, 2]
+ai:  1
+pConstraints:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+aConstraints in CBS:  [(1, (1.0, 2.0), 5), (2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+constraints in reconstructPathWithConstraints:  [(1, (1.0, 2.0), 5), (2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+agent:  1
+constraints in singleAgentAstarSearchWithConstraints:  [(1, (1.0, 2.0), 5), (2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(1, 2), 1]
+pair:  [(2, 3), 1]
+pair:  [(1, 3), 1]
+
+ 
+
+currentNode == goal
+nodeActions after testing?  ['South']
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+solution_with_conflict:  ['South', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop']
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['North', 'West', 'North', 'West', 'South', 'South']]
+LENGTH PACMAN:  6
+LENGTH GHOST 1:  6
+LENGTH GHOST 2:  6
+agent_path:  ['South', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop']
+path:  [(1, 3), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0)]
+constraints:  (1, (1.0, 2.0), 5)
+YES
+entered singleAgentRecoveryMethod for agent  1
+agent:  1 path:  [(1, 3), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0)] constraints:  [(1, (1.0, 2.0), 5), (2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)] goal:  (1, 2)
+path:  [(1, 3), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0), (1.0, 2.0)]
+constraints:  (1, (1.0, 2.0), 5)
+constraintList in checkSingleAgentPathForBackChaining:  [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]
+back_chain_constraints:  [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]
+agent:  1
+constraints in singleAgentSearchAfterBackChain:  [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]
+constraintTable:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 1]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 1]
+pair:  [(1, 3), 1]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 1]
+test is not in constraintTable:  [(1, 3), 1]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 2]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 2]
+pair:  [(1, 3), 2]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 2]
+test is not in constraintTable:  [(1, 3), 2]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 3]
+pair:  [(1, 3), 3]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 3]
+test is not in constraintTable:  [(1, 3), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 2]
+pair:  [(3, 3), 2]
+pair:  [(1, 3), 2]
+pair:  [(2, 3), 2]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 2]
+test is not in constraintTable:  [(3, 3), 2]
+test is not in constraintTable:  [(1, 3), 2]
+test is not in constraintTable:  [(2, 3), 2]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 3]
+pair:  [(1, 3), 3]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 3]
+test is not in constraintTable:  [(1, 3), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 3]
+test is not in constraintTable:  [(2, 1), 3]
+test is not in constraintTable:  [(3, 2), 3]
+test is not in constraintTable:  [(2, 2), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 4]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 4]
+pair:  [(1, 3), 4]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 4]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 4]
+pair:  [(1, 3), 4]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 4]
+pair:  [(2, 1), 4]
+pair:  [(3, 2), 4]
+pair:  [(1, 2), 4]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 4]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 4]
+test is not in constraintTable:  [(2, 1), 4]
+test is not in constraintTable:  [(3, 2), 4]
+test is not in constraintTable:  [(2, 2), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 3]
+pair:  [(3, 3), 3]
+pair:  [(1, 3), 3]
+pair:  [(2, 3), 3]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 3]
+test is not in constraintTable:  [(3, 3), 3]
+test is not in constraintTable:  [(1, 3), 3]
+test is not in constraintTable:  [(2, 3), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 4]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 4]
+pair:  [(1, 3), 4]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 4]
+pair:  [(2, 1), 4]
+pair:  [(3, 2), 4]
+pair:  [(1, 2), 4]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 4]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 4]
+test is not in constraintTable:  [(2, 1), 4]
+test is not in constraintTable:  [(3, 2), 4]
+test is not in constraintTable:  [(2, 2), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 3]
+pair:  [(3, 3), 3]
+pair:  [(1, 3), 3]
+pair:  [(2, 3), 3]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 3]
+test is not in constraintTable:  [(3, 3), 3]
+test is not in constraintTable:  [(1, 3), 3]
+test is not in constraintTable:  [(2, 3), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 4]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 4]
+pair:  [(1, 3), 4]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 4]
+pair:  [(2, 1), 4]
+pair:  [(3, 2), 4]
+pair:  [(1, 2), 4]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 4]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 4]
+test is not in constraintTable:  [(2, 1), 4]
+test is not in constraintTable:  [(3, 2), 4]
+test is not in constraintTable:  [(2, 2), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 1), 4]
+pair:  [(1, 1), 4]
+pair:  [(2, 1), 4]
+successors:  [((2, 2), 'North', 1), ((3, 1), 'East', 1), ((1, 1), 'West', 1), ((2, 1), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 1), 4]
+test is not in constraintTable:  [(1, 1), 4]
+test is not in constraintTable:  [(2, 1), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 1), 5]
+pair:  [(1, 1), 5]
+successors:  [((2, 1), 'East', 1), ((1, 1), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(1, 1), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+test is not in constraintTable:  [(2, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+test is not in constraintTable:  [(2, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+test is not in constraintTable:  [(2, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+test is not in constraintTable:  [(2, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+test is not in constraintTable:  [(2, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(3, 3), 4]
+pair:  [(3, 1), 4]
+pair:  [(2, 2), 4]
+pair:  [(3, 2), 4]
+successors:  [((3, 3), 'North', 1), ((3, 1), 'South', 1), ((2, 2), 'West', 1), ((3, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(3, 3), 4]
+test is not in constraintTable:  [(3, 1), 4]
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 2), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+successors:  [((3, 2), 'South', 1), ((2, 3), 'West', 1), ((3, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(3, 2), 3]
+test is not in constraintTable:  [(2, 3), 3]
+test is not in constraintTable:  [(3, 3), 3]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+successors:  [((2, 2), 'South', 1), ((3, 3), 'East', 1), ((1, 3), 'West', 1), ((2, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 3), 4]
+test is not in constraintTable:  [(1, 3), 4]
+test is not in constraintTable:  [(2, 3), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+successors:  [((2, 3), 'East', 1), ((1, 3), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(1, 3), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(3, 3), 4]
+pair:  [(3, 1), 4]
+pair:  [(2, 2), 4]
+pair:  [(3, 2), 4]
+successors:  [((3, 3), 'North', 1), ((3, 1), 'South', 1), ((2, 2), 'West', 1), ((3, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(3, 3), 4]
+test is not in constraintTable:  [(3, 1), 4]
+test is not in constraintTable:  [(2, 2), 4]
+test is not in constraintTable:  [(3, 2), 4]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(2, 3), 5]
+pair:  [(2, 1), 5]
+pair:  [(3, 2), 5]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 5]
+successors:  [((2, 3), 'North', 1), ((2, 1), 'South', 1), ((3, 2), 'East', 1), ((2, 2), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 3), 5]
+test is not in constraintTable:  [(2, 1), 5]
+test is not in constraintTable:  [(3, 2), 5]
+test is not in constraintTable:  [(2, 2), 5]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(1.0, 2.0), 4], [(1.0, 2.0), 3], [(1.0, 2.0), 2], [(1.0, 2.0), 1]]
+pair:  [(1, 2), 6]
+pair:  [(2, 1), 6]
+pair:  [(1, 1), 6]
+successors:  [((1, 2), 'North', 1), ((2, 1), 'East', 1), ((1, 1), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(1, 2), 6]
+test is not in constraintTable:  [(2, 1), 6]
+test is not in constraintTable:  [(1, 1), 6]
+z =  1
+currentNode == goal
+nodeActions after testing?  ['East', 'South', 'South', 'West', 'Stop', 'North']
+new_path nigga:  ['East', 'South', 'South', 'West', 'Stop', 'North']
+test_aSolution:  [['East', 'South', 'South', 'West', 'Stop', 'North'], [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]]
+aSolution after singleAgentRecoveryMethod:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['North', 'West', 'North', 'West', 'South', 'South']]
+new_aData for real maybe?:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+jj =  1
+p's left child:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+getting root value from p:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]}
+setting root value for p:
+getting root value from p:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['North', 'West', 'North', 'West', 'South', 'South']], 'constraints': [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['North', 'West', 'North', 'West', 'South', 'South']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['North', 'West', 'North', 'West', 'South', 'South']]
+pConstraints:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+aConstraints:  [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]
+pCost:  6
+aCost:  6
+agents:  [1, 2]
+ai:  2
+pConstraints:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+aConstraints in CBS:  [(2, (1.0, 2.0), 5), (2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+constraints in reconstructPathWithConstraints:  [(2, (1.0, 2.0), 5), (2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+agent:  2
+constraints in singleAgentAstarSearchWithConstraints:  [(2, (1.0, 2.0), 5), (2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 1]
+pair:  [(2, 1), 1]
+found a pair that is a conflict successor!
+pair:  [(3, 1), 1]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+found a pair that is a conflict successor!
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+found a pair that is a conflict successor!
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+found a pair that is a conflict successor!
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 3), 3]
+pair:  [(2, 1), 3]
+found a pair that is a conflict successor!
+pair:  [(3, 2), 3]
+pair:  [(1, 2), 3]
+found a pair that is a conflict successor!
+pair:  [(2, 2), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 3), 2]
+pair:  [(3, 1), 2]
+pair:  [(2, 2), 2]
+pair:  [(3, 2), 2]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(1, 2), 5]
+found a pair that is a conflict successor!
+pair:  [(2, 3), 5]
+pair:  [(1, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(2, 2), 4]
+pair:  [(3, 3), 4]
+pair:  [(1, 3), 4]
+pair:  [(2, 3), 4]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 3]
+pair:  [(2, 3), 3]
+pair:  [(3, 3), 3]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(1.0, 2.0), 5], [(2, 1), 3], [(1.0, 2.0), 3], [(2, 1), 1]]
+pair:  [(3, 2), 5]
+pair:  [(2, 3), 5]
+pair:  [(3, 3), 5]
+
+ 
+
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop']]
+solution_with_conflict:  ['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop']
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop']]
+LENGTH PACMAN:  6
+LENGTH GHOST 1:  6
+LENGTH GHOST 2:  6
+agent_path:  ['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop']
+path:  [(3, 1), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0)]
+constraints:  (2, (1.0, 2.0), 5)
+YES
+entered singleAgentRecoveryMethod for agent  2
+agent:  2 path:  [(3, 1), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0)] constraints:  [(2, (1.0, 2.0), 5), (2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)] goal:  (1, 1)
+path:  [(3, 1), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0), (3.0, 1.0)]
+constraints:  (2, (1.0, 2.0), 5)
+constraintList in checkSingleAgentPathForBackChaining:  [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]
+back_chain_constraints:  [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]
+agent:  2
+constraints in singleAgentSearchAfterBackChain:  [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]
+constraintTable:  [[(3.0, 1.0), 5], [(3.0, 1.0), 4], [(3.0, 1.0), 3], [(3.0, 1.0), 2], [(3.0, 1.0), 1], [(3.0, 1.0), 0]]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(3.0, 1.0), 5], [(3.0, 1.0), 4], [(3.0, 1.0), 3], [(3.0, 1.0), 2], [(3.0, 1.0), 1], [(3.0, 1.0), 0]]
+pair:  [(3, 2), 1]
+pair:  [(2, 1), 1]
+pair:  [(3, 1), 1]
+found a pair that is a conflict successor!
+successors:  [((3, 2), 'North', 1), ((2, 1), 'West', 1)]
+
+ 
+
+test is not in constraintTable:  [(3, 2), 1]
+test is not in constraintTable:  [(2, 1), 1]
+z =  1
+Entered getSuccessorWithConstraints function
+constraintTable in getSuccessorWithConstraints:  [[(3.0, 1.0), 5], [(3.0, 1.0), 4], [(3.0, 1.0), 3], [(3.0, 1.0), 2], [(3.0, 1.0), 1], [(3.0, 1.0), 0]]
+pair:  [(2, 2), 2]
+pair:  [(3, 1), 2]
+found a pair that is a conflict successor!
+pair:  [(1, 1), 2]
+pair:  [(2, 1), 2]
+successors:  [((2, 2), 'North', 1), ((1, 1), 'West', 1), ((2, 1), 'Stop', 1)]
+
+ 
+
+test is not in constraintTable:  [(2, 2), 2]
+test is not in constraintTable:  [(1, 1), 2]
+test is not in constraintTable:  [(2, 1), 2]
+z =  1
+currentNode == goal
+nodeActions after testing?  ['West', 'West']
+new_path nigga:  ['West', 'West']
+test_aSolution:  [['West', 'West'], [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]]
+aSolution after singleAgentRecoveryMethod:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']]
+new_aData for real maybe?:  {'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']], 'constraints': [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]}
+jj =  2
+getting root value from CT:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']], 'constraints': [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+getting root value from p:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']], 'constraints': [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+p's right child:  {'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']], 'constraints': [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]}
+getting root value from p:  {'cost': 6, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']], 'constraints': [(1, (1.0, 2.0), 5), (1, (1.0, 2.0), 4), (1, (1.0, 2.0), 3), (1, (1.0, 2.0), 2), (1, (1.0, 2.0), 1)]}
+setting root value for p:
+getting root value from p:  {'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']], 'constraints': [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]}
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']]
+aSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']]
+pConstraints:  [(2, (2, 1), 3), (2, (1.0, 2.0), 3), (2, (2, 1), 1)]
+aConstraints:  [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]
+pCost:  6
+aCost:  2
+p =  <game.ConstraintTree instance at 0x107b06e60>
+test_data:  {'cost': 2, 'solution': [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']], 'constraints': [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]}
+
+ 
+ 
+m =  5
+pSolution:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']]
+pConstraints:  [(2, (3.0, 1.0), 5), (2, (3.0, 1.0), 4), (2, (3.0, 1.0), 3), (2, (3.0, 1.0), 2), (2, (3.0, 1.0), 1), (2, (3.0, 1.0), 0)]
+pCost:  2
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']]
+LENGTH PACMAN:  6
+LENGTH GHOST 1:  6
+LENGTH GHOST 2:  2
+ghost2Path:  [(3, 1), (2.0, 1.0), (1.0, 1.0)]
+len(ghost2Path):  3
+agentPaths in CORDS FUNCTION:  [['Stop', 'Stop', 'Stop', 'Stop', 'Stop', 'Stop'], ['East', 'South', 'South', 'West', 'Stop', 'North'], ['West', 'West']]
+LENGTH PACMAN:  6
+LENGTH GHOST 1:  6
+LENGTH GHOST 2:  2
+conflict occured:  (0, 2, (2, 1), 1)

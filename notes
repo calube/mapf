@@ -1,0 +1,5 @@
+m =  4
+pSolution:  [['Stop', 'Stop', 'Stop'], ['South', 'Stop', 'Stop'], ['South', 'West', 'South']]
+pConstraints:  []
+
+** pConstraints should be [(2,(1,2),2)]

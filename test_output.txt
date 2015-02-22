@@ -1,0 +1,5 @@
+printing tree:  {'cost': 0, 'solution': [], 'constraints': 0} {'cost': 1, 'solution': ['East'], 'constraints': (0, (13, 1), 1)} {'cost': 1, 'solution': ['East'], 'constraints': (0, (13, 1), 1)} {'cost': 2, 'solution': ['East', 'East'], 'constraints': (0, (13, 2), 2)} {'cost': 2, 'solution': ['East', 'East'], 'constraints': (0, (13, 2), 2)} None
+printing tree in reverse:  {'cost': 2, 'solution': ['East', 'East'], 'constraints': (0, (13, 2), 2)} {'cost': 2, 'solution': ['East', 'East'], 'constraints': (0, (13, 2), 2)} {'cost': 1, 'solution': ['East'], 'constraints': (0, (13, 1), 1)} {'cost': 1, 'solution': ['East'], 'constraints': (0, (13, 1), 1)} {'cost': 0, 'solution': [], 'constraints': 0} None
+min value of tree:  {'cost': 0, 'solution': [], 'constraints': 0}
+max value of tree:  4
+size of tree:  5

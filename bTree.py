@@ -33,8 +33,6 @@ class BinaryTree:
     def getRootVal(self):
         return self.key
 
-
-
 data1 = {'cost': 1, 'solution': "East1", "constraints": []}
 data2 = {'cost': 2, 'solution': "East2", "constraints": []}
 data3 = {'cost': 3, 'solution': "East3", "constraints": []}

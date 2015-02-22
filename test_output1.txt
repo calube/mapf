@@ -1,0 +1,3 @@
+root of tree:  {'cost': 1, 'solution': 'East1', 'constraints': []}
+left child:  {'cost': 2, 'solution': 'East2', 'constraints': []}
+right child {'cost': 3, 'solution': 'East3', 'constraints': []}

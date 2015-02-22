@@ -24,93 +24,40 @@ except:
 # Parts worth reading #
 #######################
 
-# creating the Node (n) for the Constraint Tree(CT)
-class CTNode:
-  left , right, data = None, None, 0
-  # data = {'cost':0, 'constraints':0, 'solution':[]}
-  
-  def __init__(self, data):
-      # initializes the data members
-      self.left = None
-      self.right = None
-      self.data = data
-
 class ConstraintTree:
-  def __init__(self):
-      # initializes the root member
-      self.root = None
-  
-  def addNode(self, data):
-      # creates a new node and returns it
-      return CTNode(data)
+    def __init__(self,rootObj):
+        self.key = rootObj
+        self.leftChild = None
+        self.rightChild = None
 
-  def insert(self, root, data):
-      # inserts a new data
-      if root == None:
-          # it there isn't any data
-          # adds it and returns
-          return self.addNode(data)
-      else:
-          # enters into the tree
-          if data <= root.data:
-              # if the data is less than the stored one
-              # goes into the left-sub-tree
-              root.left = self.insert(root.left, data)
-          else:
-              # processes the right-sub-tree
-              root.right = self.insert(root.right, data)
-          return root
-      
-  def lookup(self, root, target):
-      # looks for a value into the tree
-      if root == None:
-          return 0
-      else:
-          # if it has found it...
-          if target == root.data:
-              return 1
-          else:
-              if target < root.data:
-                  # left side
-                  return self.lookup(root.left, target)
-              else:
-                  # right side
-                  return self.lookup(root.right, target)
-      
-  def minValue(self, root):
-      # goes down into the left
-      # arm and returns the last value
-      while(root.left != None):
-          root = root.left
-      return root.data
+    def insertLeft(self,newNode):
+        if self.leftChild == None:
+            self.leftChild = ConstraintTree(newNode)
+        else:
+            t = ConstraintTree(newNode)
+            t.leftChild = self.leftChild
+            self.leftChild = t
 
-  def maxDepth(self, root):
-      if root == None:
-          return 0
-      else:
-          # computes the two depths
-          ldepth = self.maxDepth(root.left)
-          rdepth = self.maxDepth(root.right)
-          # returns the appropriate depth
-          return max(ldepth, rdepth) + 1
-          
-  def size(self, root):
-      if root == None:
-          return 0
-      else:
-          return self.size(root.left) + 1 + self.size(root.right)
+    def insertRight(self,newNode):
+        if self.rightChild == None:
+            self.rightChild = ConstraintTree(newNode)
+        else:
+            t = ConstraintTree(newNode)
+            t.rightChild = self.rightChild
+            self.rightChild = t
 
-  def printTree(self, root):
-      #print "Entered printTree"
-      # prints the tree path
-      if root == None:
-          #print "Empty"
-          #pass
-          return
-      else:
-          self.printTree(root.left)
-          print root.data
-          self.printTree(root.right)
+
+    def getRightChild(self):
+        return self.rightChild
+
+    def getLeftChild(self):
+        return self.leftChild
+
+    def setRootVal(self,obj):
+        self.key = obj
+
+    def getRootVal(self):
+        return self.key
 
 class Agent:
   """
@@ -1290,6 +1237,32 @@ class Game:
   #                              CBS BEGINS here                                      #
   ##################################################################################### 
 
+  
+  def convertPathWithDirectionsToCords(self, agent, path, goal):
+    agentNewPath = []
+    start = self.state.data.agentStates[agent].getPosition()
+    agentNewPath.append(start)
+
+
+    for i in path:
+      location = agentNewPath[-1]
+      (x, y) = Actions.directionToVector(i)
+      #print"(x,y): ", (x,y)
+      dx, dy = location
+      #print "(dx, dy): ", (dx, dy)
+      #print"location: ", location
+
+      nextLocation = (dx + x, dy + y)
+      #print"next location: ", nextLocation
+
+      #if nextLocation == goal:
+      if location == goal:
+        nextLocation = location
+      agentNewPath.append(nextLocation)
+      #print "agentNewPath: ", agentNewPath
+    return agentNewPath
+
+
   def createPathWithCords(self, agentPaths, agentGoals):
     print "agentPaths in CORDS FUNCTION: ", agentPaths
     print "LENGTH PACMAN: ", len(agentPaths[0])
@@ -1384,27 +1357,39 @@ class Game:
     print "Entered getSuccessorWithConstraints function"
     successors = []
     item = []
-    print "constraints in getSuccessorWithConstraints: ", constraints
+    #print "constraints in getSuccessorWithConstraints: ", constraints
     #print "timeStep: ", t
     if item in constraints:
-      print"constraints has an empty '[]' in it!"
-      constraints.remove([]);
-    print "constraints removed the []?: ", constraints
-    #constraintLength = len(constraints)
-    #for index in range(constraintLength):
-      #if constraints[index] == []:
+      #print"constraints has an empty '[]' in it!"
+      constraints.remove([])
+    #print "constraints removed the []?: ", constraints
+    constraintTable = []
+
+    for each_constraint in constraints:
+      tempList = []
+      tempList.append(each_constraint[1])
+      tempList.append(each_constraint[2])
+      constraintTable.append(tempList)
+    print"constraintTable in getSuccessorWithConstraints: ", constraintTable
+    
 
 
     for action in [Directions.NORTH, Directions.SOUTH, Directions.EAST, Directions.WEST, Directions.STOP]:
       x,y = agentLocation
       dx, dy = Actions.directionToVector(action)
       nextx, nexty = int(x + dx), int(y + dy)
+      agentNextLocation = (nextx, nexty)
+
       if not self.state.data.layout.walls[nextx][nexty]:
-        for i in constraints:
-          if not ( ( (nextx, nexty) == i[1]) and (t == i[2]) ):
-            nextState = (nextx, nexty)
-            cost = self.costFn(nextState)
-            successors.append( ( nextState, action, cost) )
+        pair = [agentNextLocation, t+1]
+        print "pair: ", pair
+        if pair in constraintTable:
+          print"found a pair that is a conflict successor!"
+        if not pair in constraintTable:
+          #if not ( ( (nextx, nexty) == i[1]) and (t == i[2]) ):
+          nextState = (nextx, nexty)
+          cost = self.costFn(nextState)
+          successors.append( ( nextState, action, cost) )
 
         
     # Bookkeeping for display purposes
@@ -1476,9 +1461,9 @@ class Game:
         #print "*len(constraints) inside successor for-loop: ", len(constraints)
         if not childNode in closedList:
           for agent_ai, conflict_location, t in constraints:
-            print "constraints: ", constraints
-            print "len(constraints): ", len(constraints)
-            print "agent_ai: ", agent_ai, "conflict_location: ", conflict_location, "t: ", t
+            #print "constraints: ", constraints
+            #print "len(constraints): ", len(constraints)
+            #print "agent_ai: ", agent_ai, "conflict_location: ", conflict_location, "t: ", t
             if not ((childNode == conflict_location) and (nextTimeStep == t)):
               tempCost = nodeActions + [direction]
               tempGoal = self.getCostOfActions(tempCost) + manhattanDistance(childNode, goal)
@@ -1500,6 +1485,8 @@ class Game:
     pacmanPath = cord_paths['pacman']
     ghost1Path = cord_paths['ghost1']
     ghost2Path = cord_paths['ghost2']
+    print "ghost2Path: ", ghost2Path
+    print "len(ghost2Path): ", len(ghost2Path)
 
     # initial starting position
     pacmanLocation = pacmanPath[timeStep]
@@ -1513,11 +1500,11 @@ class Game:
       ghost2Location = ghost2Path[timeStep]
 
       # output
-      print "time step: ", timeStep
-      print "pacman location: ", pacmanLocation
-      print "ghost1 location: ", ghost1Location
-      print "ghost2 location: ", ghost2Location
-      print "\n"
+      #print "time step: ", timeStep
+      #print "pacman location: ", pacmanLocation
+      #print "ghost1 location: ", ghost1Location
+      #print "ghost2 location: ", ghost2Location
+      #print "\n"
 
       # if pacman's location equals the location of ghost1 at timeStep(t)
       if (pacmanLocation == ghost1Location):
@@ -1609,7 +1596,7 @@ class Game:
       if len(agentPath) < maxLength:
         differenceInLength = maxLength - len(agentPath)
         for i in range(differenceInLength):
-          agentPath.insert(0,Directions.STOP)
+          agentPath.append(Directions.STOP)
 
     pacmanLength = len(pacmanPath)
     ghost1Length = len(ghost1Path)
@@ -1640,10 +1627,13 @@ class Game:
     timeStep = 0
     fringe.push( (start, []), h_value )
 
+    z = 1
     while not fringe.isEmpty():
+      print "z = ", z
       #print "agent starting location: ", agentStart
       currentNode, nodeActions = fringe.pop()
       #print "currentNode in search: ", currentNode
+
       
       if currentNode == goal:
         print"currentNode == goal"
@@ -1655,22 +1645,29 @@ class Game:
       timeStep = len(nodeActions)
       nextTimeStep = timeStep + 1
       successors = self.getSuccessorWithConstraints(currentNode, constraints, timeStep)
+      print "successors: ", successors
       print "\n \n"
       #print "successors: ", successors
       for childNode, direction, cost in successors:
         #print "*len(constraints) inside successor for-loop: ", len(constraints)
         test = [childNode, timeStep+1]
-        if not test in constraintTable:
+        #print "currentNode: ", currentNode, "childNode: ", childNode, "timeStep: ", timeStep, "nextTimeStep: ", timeStep+1
+        #print "test LOOK HERE: ", test
+        if test in constraintTable:
+          print "found a child node that is a constraint: ", test 
+        if not (test in constraintTable):
+          print"test is not in constraintTable: ", test 
+          tempCost = nodeActions + [direction]
+          tempGoal = self.getCostOfActions(tempCost) + manhattanDistance(childNode, goal)
+          fringe.push((childNode, tempCost), tempGoal)
           #print"MAYBE????"
           #print"test that is maybe?: ", test
-          if not childNode in closedList:
+          #if not childNode in closedList:
             #for agent_ai, conflict_location, t in constraints:
-            for index in constraintTable:
-              if not ((childNode == index[0]) and (nextTimeStep == index[1])):
+            #for index in constraintTable:
+              #if not ((childNode == index[0]) and (nextTimeStep == index[1])):
                 #print "childNode: ", childNode, "constraintLocation: ", index[0],"timeStep: ", timeStep, "nextTimeStep: ", nextTimeStep, "t in constraint: ", index[1]
-                tempCost = nodeActions + [direction]
-                tempGoal = self.getCostOfActions(tempCost) + manhattanDistance(childNode, goal)
-                fringe.push((childNode, tempCost), tempGoal)
+                
 
 
 
@@ -1702,53 +1699,104 @@ class Game:
 
     return solution
 
-  def checkSingleAgentPathForBackChaining(self, agent, path):
+  
+  def doesPathRequireBackChaining(self, agent, path, constraint):
     print "path: ", path
     pathLength = len(path)
     index = pathLength-1
     constraintList = []
     start = path[0]
     end = path[-1]
+    print "constraints: ", constraint
+    #print"path[1]: ", path[1]
+    #print"constraint in checkSingleAgentPathForBackChaining: ", constraint
+    if len(constraint) > 0:
+      conflict_location = constraint[1]
 
-    print"path[1]: ", path[1]
 
-    if start != end:
+
+    #print"start in checkSingleAgentPathForBackChaining: ", start  
+    #print"conflict_location in checkSingleAgentPathForBackChaining: ", conflict_location
+
+    # see where chain ends
+    if start == conflict_location:
+      return False
+    for i in range(pathLength):
+      #print"i in pathLength: ", i
+      #print"index in pathLength: ", index
+      agentLocation = path[index]
+
+      if index == 1:
+        
+        #print "agentLocation", agentLocation
+        nextAgentLocation = path[index-1]
+        #print "nextAgentLocation: ", nextAgentLocation
+      if index != 0:
+        nextAgentLocation = path[index-1]
+
+
+        if agentLocation == nextAgentLocation:
+          return True 
+    return False
+
+
+
+  def checkSingleAgentPathForBackChaining(self, agent, path, constraint):
+    print "path: ", path
+    pathLength = len(path)
+    index = pathLength-1
+    constraintList = []
+    start = path[0]
+    end = path[-1]
+    print "constraints: ", constraint
+    #print"path[1]: ", path[1]
+    #print"constraint in checkSingleAgentPathForBackChaining: ", constraint
+    if len(constraint) > 0:
+      conflict_location = constraint[1]
+
+
+
+    #print"start in checkSingleAgentPathForBackChaining: ", start  
+    #print"conflict_location in checkSingleAgentPathForBackChaining: ", conflict_location
+
+    # see where chain ends
+    if start != conflict_location:
       for i in range(pathLength):
-        print"i in pathLength: ", i
-        print"index in pathLength: ", index
+        #print"i in pathLength: ", i
+        #print"index in pathLength: ", index
         agentLocation = path[index]
 
         if index == 1:
-          print "NIGGER"
-          print "agentLocation", agentLocation
+          
+          #print "agentLocation", agentLocation
           nextAgentLocation = path[index-1]
-          print "nextAgentLocation: ", nextAgentLocation
+          #print "nextAgentLocation: ", nextAgentLocation
         if index != 0:
           nextAgentLocation = path[index-1]
 
 
           if agentLocation == nextAgentLocation:
-            print"path in checkSingleAgentPathForBackChaining: ", path
-            print"index in checkSingleAgentPathForBackChaining: ", index
-            print"agentLocation in checkSingleAgentPathForBackChaining: ", agentLocation
-            print"nextAgentLocation in checkSingleAgentPathForBackChaining: ", nextAgentLocation
+            #print"path in checkSingleAgentPathForBackChaining: ", path
+            #print"index in checkSingleAgentPathForBackChaining: ", index
+            #print"agentLocation in checkSingleAgentPathForBackChaining: ", agentLocation
+            #print"nextAgentLocation in checkSingleAgentPathForBackChaining: ", nextAgentLocation
             constraint = (agent, path[index], index-1)
-            print"Back chaining has spotted a new constraint: ", constraint
+            #print"Back chaining has spotted a new constraint: ", constraint
             constraintList.append(constraint)
           
       
         index-=1
-    print "constraintList: ", constraintList
+    print "constraintList in checkSingleAgentPathForBackChaining: ", constraintList
     return constraintList
 
   def checkPathsForBackChaining(self, agentPaths, constraints):
     # dont need to loop thru each index of the paths anymore, just inspect the index of the constraint and back chain that agent's path
-    print"entered checkPathsForBackChaining **"
+    #print"entered checkPathsForBackChaining **"
     pacmanPath = agentPaths[0]
     ghost1Path = agentPaths[1]
     ghost2Path = agentPaths[2]
 
-    print "constraints in checkPathsForBackChaining: ", constraints
+    #print "constraints in checkPathsForBackChaining: ", constraints
 
     back_chain_constraints = constraints
 
@@ -1757,11 +1805,11 @@ class Game:
       location = constraint[1]
       timeStep = constraint[2]
 
-      print "agent: ", agent, "location: ", location, "timeStep: ", timeStep
+      #print "agent: ", agent, "location: ", location, "timeStep: ", timeStep
       agentPathToBackChain = agentPaths[agent]
       conflict_location = agentPathToBackChain[timeStep]
-      print "agentPathToBackChain: ", agentPathToBackChain
-      print "conflict_location: ", conflict_location
+      #print "agentPathToBackChain: ", agentPathToBackChain
+      #print "conflict_location: ", conflict_location
 
 
 
@@ -1769,87 +1817,24 @@ class Game:
       t = timeStep
       index = conflict_location
       for i in range(timeStep):
-        print"t = ", t
+        #print"t = ", t
         index = agentPathToBackChain[t]
-        print "index: ", index
+        #print "index: ", index
 
-        if t == 0 and index == agentPaths[0]:
+        if ((t == 0) and (index == agentPaths[0])):
           print "prune this node"
 
         if t != 0:
           next_index = agentPathToBackChain[t-1]
-          print "next_index: ", next_index
+          #print "next_index: ", next_index
           if index == next_index:
-            print "adding new backchain constraint!"
+            #print "adding new backchain constraint!"
             new_constraint = (agent, index,t)
-            print "new_constraint: ", new_constraint
+            #print "new_constraint: ", new_constraint
             back_chain_constraints.append(new_constraint)
         t-=1
-    print "back_chain_constraints: ", back_chain_constraints
-    return back_chain_constraints
-
-
-    '''
-    pathLength = len(pacmanPath)
-    timeStep = pathLength
-    lastIndex = pathLength- 1
-    lastPacmanMove = pacmanPath[-1]
-    lastGhost1Move = ghost1Path[-1]
-    lastGhost2Move = ghost2Path[-1]
-    print "pathLength: ", pathLength
-    print "lastIndex in pacman path: ", pacmanPath[lastIndex]
-
-    pacmanNextMove = lastIndex-1
-    ghost1NextMove = lastIndex-1
-    ghost2NextMove = lastIndex-1
-
-    pacman = 0
-    ghost1 = 1
-    ghost2 = 2
-
-    pacmanConstraints = []
-    ghost1Constraints = []
-    ghost2Constraints = []
-
-    k = 1
-    for index in range(pathLength):
-      print"k = ", k
-      print "constraints: ", constraints
-      print "lastPacmanMove: ", lastPacmanMove
-      print "pacmanNextMove: ", pacmanPath[pacmanNextMove]
-      print "\n"
-      print "lastGhost1Move: ", lastGhost1Move
-      print "ghost1NextMove: ", ghost1Path[ghost1NextMove]
-      print "\n"
-      print "lastGhost2Move: ", lastGhost2Move
-      print "ghost2NextMove: ", ghost2Path[ghost2NextMove]
-      print "\n"
-      if lastPacmanMove == pacmanPath[pacmanNextMove]:
-        print"constraint for pacman will go here"
-        pacmanConstraint = (pacman,lastPacmanMove,timeStep)
-        pacmanConstraints.insert(0, pacmanConstraint)
-        #print "constraints added: ", constraints
-
-      if lastGhost1Move == ghost1Path[ghost1NextMove]:
-        print"constraint for ghost1 will go here"
-        ghost1Constraint = (ghost1,lastGhost1Move,timeStep)
-        ghost1Constraints.insert(0, ghost1Constraint)
-      if lastGhost2Move == ghost2Path[ghost2NextMove]:
-        print"constraint for ghost2 will go here"
-        ghost2Constraint = (ghost2,lastGhost2Move,timeStep)
-        ghost2Constraints.insert(0, ghost2Constraint)
-
-      lastPacmanMove = pacmanPath[pacmanNextMove]
-      lastGhost1Move = ghost1Path[ghost1NextMove]
-      lastGhost2Move = ghost2Path[ghost2NextMove]
-
-      pacmanNextMove -= 1
-      ghost1NextMove -= 1
-      ghost2NextMove -= 1
-      timeStep -= 1
-      k+=1
-    constraints = [pacmanConstraints, ghost1Constraints, ghost2Constraints]
-    print "final constraints: ", constraints'''
+      #print "back_chain_constraints: ", back_chain_constraints
+      return back_chain_constraints
     return constraints
 
   def converLocationToDirection(self, agentLocation, nextAgentLocation):
@@ -1859,8 +1844,8 @@ class Game:
     diff_x = x1 - x
     diff_y = y1 - y
 
-    print "diff_x: ", diff_x
-    print "diff_y: ", diff_y
+    #print "diff_x: ", diff_x
+    #print "diff_y: ", diff_y
 
     if diff_x == -1:
       return Directions.WEST
@@ -1873,6 +1858,24 @@ class Game:
     if agentLocation == nextAgentLocation:
       return Directions.STOP
 
+  def convertAgentPathToDirections(self, path):
+    #print "path in convertAgentPathToDirections: ", path
+    pathLength = len(path) - 1
+    #print "the path length is: ", pathLength
+    new_path = []
+
+    for i in range(pathLength):
+      #print "the i in convertAgentPathToDirections = ", i
+      agentLocation = path[i]
+      #print "agentLocation in convertAgentPathToDirections: ", agentLocation
+      if (i <= pathLength-1):
+        agentNextLocation = path[i+1]
+        #print "agentNextLocation in convertAgentPathToDirections: ", agentNextLocation
+        agentDirection = self.converLocationToDirection(agentLocation, agentNextLocation)
+        #print "agentDirection in convertAgentPathToDirections: ", agentDirection
+        new_path.append(agentDirection)
+    print "new_path in convertAgentPathToDirections: ", new_path
+    return new_path
 
   def convertAgentPathsToDirections(self, agentPaths):
     print "entered convertAgentPathsToDirections **"
@@ -1899,25 +1902,25 @@ class Game:
       
 
 
-      if (i != pathLength -1):
+      if (i <= pathLength -1):
         pacmanNextLocation = pacmanPath[i+1]
         ghost1NextLocation = ghost1Path[i+1]
         ghost2NextLocation = ghost2Path[i+1]
 
-      print "pacmanLocation: ", pacmanLocation
-      print "ghost1Location: ", ghost1Location
-      print "ghost2Location: ", ghost2Location
-      print "\n"
-      print "pacmanNextLocation: ", pacmanNextLocation
-      print "ghost1NextLocation: ", ghost1NextLocation
-      print "ghost2NextLocation: ", ghost2NextLocation
+      #print "pacmanLocation: ", pacmanLocation
+      #print "ghost1Location: ", ghost1Location
+      #print "ghost2Location: ", ghost2Location
+      #print "\n"
+      #print "pacmanNextLocation: ", pacmanNextLocation
+      #print "ghost1NextLocation: ", ghost1NextLocation
+      #print "ghost2NextLocation: ", ghost2NextLocation
 
       pacmanDirection = self.converLocationToDirection(pacmanLocation, pacmanNextLocation)
       ghost1Direction = self.converLocationToDirection(ghost1Location, ghost1NextLocation)
       ghost2Direction = self.converLocationToDirection(ghost2Location, ghost2NextLocation)
-      print "pacmanDirection: ", pacmanDirection
-      print "ghost1Direction: ", ghost1Direction
-      print "ghost2Direction: ", ghost2Direction
+      #print "pacmanDirection: ", pacmanDirection
+      #print "ghost1Direction: ", ghost1Direction
+      #print "ghost2Direction: ", ghost2Direction
 
       new_pacmanPath.append(pacmanDirection)
       new_ghost1Path.append(ghost1Direction)
@@ -1928,12 +1931,32 @@ class Game:
 
 
 
+  
+  def singleAgentRecoveryMethod(self, agent, path, constraints, goal):
+    print "entered singleAgentRecoveryMethod for agent ", agent
+    print "agent: ", agent, "path: ", path, "constraints: ", constraints, "goal: ", goal 
+    start = path[0]
+    pathLength = len(path)
+    counter = pathLength
+    location = path[-1]
+    constraint = constraints[0]
 
-  def enterRecoveryMethod(self, agentPaths, constraints, goals):
+    back_chain_constraints = self.checkSingleAgentPathForBackChaining(agent, path, constraint)
+    print "back_chain_constraints: ", back_chain_constraints
+
+    new_path = self.singleAgentSearchAfterBackChain(agent, start, goal, back_chain_constraints)
+    print "new_path nigga: ", new_path
+    data = [new_path, back_chain_constraints]
+    return data
+
+
+
+  def enterRecoveryMethod(self, agent, agentPaths, constraints, goals):
 
     pacman = 0
     ghost1 = 1
     ghost2 = 2
+    print "agent in enterRecoveryMethod: ", agent
 
     initialPositions = []
     for n in range(len(self.agents)):
@@ -1946,9 +1969,9 @@ class Game:
     print "constraints in enterRecoveryMethod: ", constraints
     print "ENTERED enterRecoveryMethod "
     #print "agentPaths: ", agentPaths
-    print "pacmanPath: ", pacmanPath
-    print "ghost1Path: ", ghost1Path
-    print "ghost2Path: ", ghost2Path
+    print "pacmanPath in enterRecoveryMethod: ", pacmanPath
+    print "ghost1Path in enterRecoveryMethod: ", ghost1Path
+    print "ghost2Path in enterRecoveryMethod: ", ghost2Path
 
     pathLength = len(pacmanPath)
     counter = pathLength
@@ -1962,87 +1985,131 @@ class Game:
 
 
     for index in range(pathLength):
-      print "counter: ", counter
+      #print "counter: ", counter
       pacmanLocation = pacmanPath[counter-1]
       ghost1Location = ghost1Path[counter-1]
       ghost2Location = ghost2Path[counter-1]
       if pacmanLocation == ghost1Location:
-        print "pacman and ghost1 conflict!"
+        #print "pacman and ghost1 conflict!"
         #if not pacmanLocation == pacmanPath[0]:
         pacmanConstraint = (pacman, pacmanLocation, counter-1)
-        pacmanConstraints.append(pacmanConstraint)
-        pacmanConstraint_test = self.checkSingleAgentPathForBackChaining(pacman, pacmanPath)
+        if pacmanConstraint not in pacmanConstraints:
+          pacmanConstraints.append(pacmanConstraint)
+        pacmanConstraint_test = self.checkSingleAgentPathForBackChaining(pacman, pacmanPath, pacmanConstraint)
         for i in pacmanConstraint_test:
-          pacmanConstraints.append(i)
+          if i not in pacmanConstraints:
+            pacmanConstraints.append(i)
         #if not ghost1Location == ghost1Path[0]:
         ghost1Constraint = (ghost1, ghost1Location, counter-1)
-        ghost1Constraints.append(ghost1Constraint)
-        ghost1Constraint_test = self.checkSingleAgentPathForBackChaining(ghost1, ghost1Path)
+        if ghost1Constraint not in ghost1Constraints:
+         ghost1Constraints.append(ghost1Constraint)
+        ghost1Constraint_test = self.checkSingleAgentPathForBackChaining(ghost1, ghost1Path, ghost1Constraint)
         for k in ghost1Constraint_test:
-          ghost1Constraints.append(k)
+          if k not in ghost1Constraints:
+            ghost1Constraints.append(k)
+            print "ghost1Constraints: ", ghost1Constraints
 
       if pacmanLocation == ghost2Location:
-        print "pacman and ghost2 conflict!"
+        #print "pacman and ghost2 conflict!"
         #if not pacmanLocation == pacmanPath[0]:
         pacmanConstraint = (pacman, pacmanLocation, counter-1)
-        pacmanConstraints.append(pacmanConstraint)
-        pacmanConstraint_test = self.checkSingleAgentPathForBackChaining(pacman, pacmanPath)
+        if pacmanConstraint not in pacmanConstraints:
+          pacmanConstraints.append(pacmanConstraint)
+        pacmanConstraint_test = self.checkSingleAgentPathForBackChaining(pacman, pacmanPath, pacmanConstraint)
         for i in pacmanConstraint_test:
-          pacmanConstraints.append(i)
+          if i not in pacmanConstraints:
+            pacmanConstraints.append(i)
         #if not ghost2Location == ghost2Path[0]:
         ghost2Constraint = (ghost2, ghost2Location, counter-1)
-        ghost2Constraints.append(ghost2Constraint)
-        ghost2Constraint_test = self.checkSingleAgentPathForBackChaining(ghost2, ghost2Path)
+        if ghost2Constraint not in ghost2Constraints:
+          ghost2Constraints.append(ghost2Constraint)
+        ghost2Constraint_test = self.checkSingleAgentPathForBackChaining(ghost2, ghost2Path, ghost2Constraint)
         for k in ghost2Constraint_test:
-          ghost2Constraints.append(k)
+          if k not in ghost2Constraints:
+            ghost2Constraints.append(k)
 
       if ghost1Location == ghost2Location:
-        print "ghost1 and ghost2 conflict!"
-        print "ghost1Path: ", ghost1Path
-        print "ghost2Path: ", ghost2Path
-        print "ghost1Location: ", ghost1Location
-        print "ghost2Location: ", ghost2Location
-        print "index: ", index
-        print "counter-1: ", counter-1
+        #print "ghost1 and ghost2 conflict!"
+        #print "ghost1Path: ", ghost1Path
+        #print "ghost2Path: ", ghost2Path
+        #print "ghost1Location: ", ghost1Location
+        #print "ghost2Location: ", ghost2Location
+        #print "index: ", index
+        #print "counter-1: ", counter-1
         ghost1Constraint = (ghost1, ghost1Location, counter-1)
-        ghost1Constraints.append(ghost1Constraint)
-        ghost1Constraint_test = self.checkSingleAgentPathForBackChaining(ghost1, ghost1Path)
+        if ghost1Constraint not in ghost1Constraints:
+          ghost1Constraints.append(ghost1Constraint)
+        ghost1Constraint_test = self.checkSingleAgentPathForBackChaining(ghost1, ghost1Path, ghost1Constraint)
         for i in ghost1Constraint_test:
-          ghost1Constraints.append(i)
+          if i not in ghost1Constraints:
+            ghost1Constraints.append(i)
         #if not ghost2Location == ghost2Path[0]:
         ghost2Constraint = (ghost2, ghost2Location, counter-1)
-        ghost2Constraints.append(ghost2Constraint)
-        ghost2Constraint_test = self.checkSingleAgentPathForBackChaining(ghost2, ghost2Path)
+        if ghost2Constraint not in ghost2Constraints:
+          ghost2Constraints.append(ghost2Constraint)
+        ghost2Constraint_test = self.checkSingleAgentPathForBackChaining(ghost2, ghost2Path, ghost2Constraint)
         for k in ghost2Constraint_test:
-          ghost2Constraints.append(k)
+          if k not in ghost2Constraints:
+            ghost2Constraints.append(k)
         # this shows the conflict @ location (1,2)
         # back chain both agents
-      print "pacmanConstraints: ", pacmanConstraints
-      print "ghost1Constraints: ", ghost1Constraints
-      print "ghost2Constraints: ", ghost2Constraints
+      #print "pacmanConstraints: ", pacmanConstraints
+      #print "ghost1Constraints: ", ghost1Constraints
+      #print "ghost2Constraints: ", ghost2Constraints
       counter-=1
     test = []
-    test = [pacmanConstraints, ghost1Constraints, ghost2Constraints]
+    #test = [pacmanConstraints, ghost1Constraints, ghost2Constraints]
     print "test: ", test
     #if len(pacmanConstraints) > 0:
     new_pacmanPath = self.singleAgentSearchAfterBackChain(pacman, initialPositions[pacman], goals[pacman], pacmanConstraints)
-    print "new_pacmanPath: ", new_pacmanPath
+    #print "new_pacmanPath: ", new_pacmanPath
     #if len(ghost1Constraints) > 0:
+    print "ghost1Constraints before new_ghost1Path: ", ghost1Constraints
     new_ghost1Path = self.singleAgentSearchAfterBackChain(ghost1, initialPositions[ghost1], goals[ghost1], ghost1Constraints)
-    print "new_ghost1Path: ", new_ghost1Path
+    #print "new_ghost1Path: ", new_ghost1Path
     #if len(ghost2Constraints) > 0:
     new_ghost2Path = self.singleAgentSearchAfterBackChain(ghost2, initialPositions[ghost2], goals[ghost2], ghost2Constraints)
-    print "new_ghost2Path: ", new_ghost2Path
+    #print "new_ghost2Path: ", new_ghost2Path
 
-    print "new_pacmanPath: ", new_pacmanPath
-    print "new_ghost1Path: ", new_ghost1Path
-    print "new_ghost2Path: ", new_ghost2Path
+    print "new_pacmanPath in enterRecoveryMethod: ", new_pacmanPath
+    print "new_ghost1Path in enterRecoveryMethod: ", new_ghost1Path
+    print "new_ghost2Path in enterRecoveryMethod: ", new_ghost2Path
 
-    test = [pacmanConstraints, ghost1Constraints, ghost2Constraints]
-    solution = [new_pacmanPath, new_ghost1Path, new_ghost2Path]
+    #test = [pacmanConstraints, ghost1Constraints, ghost2Constraints]
+    if agent == 0:
+      print"enter agent == 0"
+      #print "ghost1Path: ", ghost1Path
+      ghost1Path = self.convertAgentPathToDirections(ghost1Path)
+      
+      ghost2Path = self.convertAgentPathToDirections(ghost2Path)
+      #print "ghost2Path: ", ghost2Path
+      solution = [new_pacmanPath, ghost1Path, ghost2Path]
+      test = pacmanConstraints
+      #cost = len(new_pacmanPath)
+
+    if agent == 1:
+      print"enter agent == 1"
+      pacmanPath = self.convertAgentPathToDirections(pacmanPath)
+      ghost2Path = self.convertAgentPathToDirections(ghost2Path)
+      solution = [pacmanPath, new_ghost1Path, ghost2Path]
+      test = ghost1Constraints
+      print "solution for agent 1 from enterRecoveryMethod: ", solution
+      #cost = len(new_ghost1Path)
+
+    if agent == 2:
+      print"enter agent == 2"
+      pacmanPath = self.convertAgentPathToDirections(pacmanPath)
+      ghost1Path = self.convertAgentPathToDirections(ghost1Path)
+      solution = [pacmanPath, ghost1Path, new_ghost2Path]
+      test = ghost2Constraints
+      #cost = len(new_pacmanPath)
+
+    for constraint in constraints:
+      test.append(constraint)
+    print "solution: ", solution
     solution = self.makePathsTheSameLength(solution)
-    print"solution: ", solution
-    cost = len(new_pacmanPath)
+    cost = len(solution[0])
+    #print"NEWEST solution SEE IF PATHS STAY THE SAME: ", solution
     data = {'constraints':test, 'solution': solution, 'cost': cost}
     return data
     
@@ -2057,28 +2124,33 @@ class Game:
     goals = agentGoals
     solution = agentPaths
     cost = len(solution[0])
-    CT = ConstraintTree()
+    
     data = {'cost':cost, 'constraints':constraints, 'solution':solution}
-    root = CT.addNode(data)
-    CT.printTree(root)
-
+    CT = ConstraintTree(data)
+    print(CT.getRootVal())
+    
+    
     fringe = PriorityQueue()
-    fringe.push(root, cost)
+    fringe.push(CT, cost)
 
     initialPositions = []
     for n in range(len(self.agents)):
       initialPositions.append(self.state.data.agentStates[ n ].getPosition())
 
 
-    i = 1
+    m = 1
     while not fringe.isEmpty():
       p = fringe.pop()
-      pSolution = p.data['solution']
-      pConstraints = p.data['constraints']
+      print "p = ", p
+      test_data = p.getRootVal()
+      print "test_data: ", test_data
+
+      pSolution = test_data['solution']
+      pConstraints = test_data['constraints']
       #test = pConstraints
-      pCost = p.data['cost']
+      pCost = test_data['cost']
       print "\n \n "
-      print "i = ", i
+      print "m = ", m
       print "pSolution: ", pSolution
       print "pConstraints: ", pConstraints
       print "pCost: ", pCost
@@ -2100,7 +2172,7 @@ class Game:
       if self.hasNoConflicts(pSolution, goals) == True:
         print "CBS SUCCESS!!!"
         #print "solution: ", p.data['solution']
-        return p.data['solution']
+        return pSolution
       
       
 
@@ -2118,7 +2190,8 @@ class Game:
         agents.append(agent_aj)
         print "agents in conflict: ", agents
         print "len agents: ", len(agents)
-        #print "test constraints before ai in agents for loop: ", test 
+        #print "test constraints before ai in agents for loop: ", test
+        jj = 1 
         for ai in agents:
           print "agents: ", agents
           print "ai: ", ai
@@ -2132,29 +2205,75 @@ class Game:
           testing = (ai,v,t)
           
           aConstraints.insert(0, testing)
-          print "aConstraints: ", aConstraints
+          print "aConstraints in CBS: ", aConstraints
           aSolution = self.reconstructPathWithConstraints(ai, initialPositions[ai], goals[ai], aConstraints, pSolution)
           print "aSolution: ", aSolution
+
+          test_constraint = aConstraints[0]
+          agentIndex = test_constraint[0]
+          solution_with_conflict = aSolution[agentIndex]
+          print "solution_with_conflict: ", solution_with_conflict
 
 
 
           aSolution_withCords = self.createPathWithCords(aSolution, goals)
           #print "aSolution_withCords: ", aSolution_withCords
-          new_aData = self.enterRecoveryMethod(aSolution_withCords, aConstraints, goals)
-          print "new_aData: ", new_aData
+          agent_path = aSolution[agentIndex]
+          print "agent_path: ", agent_path
+          
+          agentPathInCords = self.convertPathWithDirectionsToCords(agentIndex, agent_path, goals[agentIndex])
+          #doesPathRequireBackChaining(self, agent, path, constraint):
+          prune = self.doesPathRequireBackChaining(agentIndex, agentPathInCords, aConstraints[0])
+          if ( prune == True):
+            print "YES"
+            test_aSolution = self.singleAgentRecoveryMethod(agentIndex, agentPathInCords, aConstraints, goals[agentIndex])
+            print "test_aSolution: ", test_aSolution
+          if (prune == False):
+            #test_aSolution = 
+            print "NO"
+            test_aSolution = [agent_path, aConstraints]
+            print "test_aSolution: ", test_aSolution
+          #aSolution[agentIndex] = test_aSolution['solution'] 
+          singleAgentSolution = test_aSolution[0]
+          back_chain_constraints = test_aSolution[1]
+          aSolution[agentIndex] = singleAgentSolution
+          print "aSolution after singleAgentRecoveryMethod: ", aSolution
+          #new_aData = self.enterRecoveryMethod(agentIndex, aSolution_withCords, aConstraints, goals)
+          new_aData = {'solution': aSolution, 'cost': len(singleAgentSolution), 'constraints':back_chain_constraints}
+          print "new_aData for real maybe?: ", new_aData
           new_aSolution = new_aData['solution']
-          print "new_aSolution: ", new_aSolution
-          print "len(new_aSolution): ", len(new_aSolution)
+          #print "new_aSolution: ", new_aSolution
+          #print "len(new_aSolution): ", len(new_aSolution)
+          #singlePath = new_aSolution[0]
           new_aCost = new_aData['cost']
           new_aConstraint = new_aData['constraints']
-          print "new_aConstraint: ", new_aConstraint
-          print "YESSSS new_aData: ", new_aData
+          #print "new_aConstraint: ", new_aConstraint
+          #print "YESSSS new_aData: ", new_aData
 
-          aData = {'cost':new_aCost, 'constraints':new_aConstraint, 'solution':new_aSolution} 
-          a = CT.insert(root, aData)
-          print "PRINTING THE TREE: "
-          CT.printTree(a)
-          fringe.push(a, new_aCost)
+          #aData = {'cost':new_aCost, 'constraints':new_aConstraint, 'solution':new_aSolution} 
+          #print "aData: ", aData
+          print "jj = ", jj
+          if jj == 1:
+            p.insertLeft(new_aData)
+            print "p's left child: ", p.getLeftChild().getRootVal()
+          if jj == 2:
+            
+            print"getting root value from CT: ", CT.getRootVal()
+            print"getting root value from p: ", p.getRootVal()
+            p.insertRight(new_aData)
+            print "p's right child: ", p.getRightChild().getRootVal()
+          jj+=1
+
+          print"getting root value from p: ", CT.getRootVal()
+          #print(p.getLeftChild().getRootVal())
+          #a = CT.insert(root, new_aData)
+          #print "PRINTING THE TREE: "
+          #CT.printTree(a)
+          print "setting root value for p:"
+          p.setRootVal(new_aData)
+          print"getting root value from p: ", p.getRootVal()
+
+          fringe.push(p, new_aCost)
           print "pSolution: ", pSolution
           print "aSolution: ", new_aSolution
           print "pConstraints: ", pConstraints
@@ -2162,7 +2281,7 @@ class Game:
           print "pCost: ", pCost
           print "aCost: ", new_aCost
           
-        i+=1
+        m+=1
     return []
         
  

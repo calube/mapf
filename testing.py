@@ -25,7 +25,7 @@ class ConstraintTree:
             return self.addNode(data)
         else:
             # enters into the tree
-            if data <= root.data:
+            if data['cost'] <= root.data['cost']:
                 # if the data is less than the stored one
                 # goes into the left-sub-tree
                 root.left = self.insert(root.left, data)
@@ -85,7 +85,7 @@ class ConstraintTree:
     def printRevTree(self, root):
         # prints the tree path in reverse order
         if root == None:
-            pass
+            return
         else:
             self.printRevTree(root.right)
             print root.data,
@@ -96,12 +96,51 @@ if __name__ == "__main__":
     CT = ConstraintTree()
 
     # add the root node
-    data = {'cost':0, 'constraints':0, 'solution':[]}
+    data = {'cost':[1,2,3]}
     root = CT.addNode(data)
-
+    depth = CT.maxDepth(root)
+    print "depth after adding 1 node: ", depth
+    print "printing tree: ", CT.printTree(root)
+    print "\n \n"
     # insert values
-    data1 = {'cost':1, 'constraints':(0,(13,1),1), 'solution':["East"]}
+    data1 = data['cost']
+    data1.append(4)
+    test = data1
+    data1 = {'cost': test}
+    print "data1: ", data1
     CT.insert(root, data1)
+    #CT.addNode(data1)
+    depth = CT.maxDepth(root)
+    print "depth after adding 2 nodes: ", depth
+    print "printing tree: ", CT.printTree(root)
+    print "\n \n"
+    data2 = data['cost']
+    data2.append(5)
+    print "data2: ", data2
+    test1 = data2
+    data2 = {'cost': test1}
+    CT.insert(root, data2)
+    #CT.addNode(data2)
+    depth = CT.maxDepth(root)
+    print "depth after adding 3 nodes: ", depth
+    print "printing tree: ", CT.printTree(root)
+    print "\n \n"
+    data3 = {'cost':4}
+    CT.insert(root, data3)
+    #CT.addNode(data3)
+    depth = CT.maxDepth(root)
+    print "depth after adding 4 nodes: ", depth
+    print "printing tree: ", CT.printTree(root)
+    print "\n \n"
+    data4 = {'cost':5}
+    CT.insert(root, data4)
+    #CT.addNode(data4)
+    depth = CT.maxDepth(root)
+    print "depth after adding 5 nodes: ", depth
+    print "printing tree: ", CT.printTree(root)
+    print "\n \n"
+
+
 
     
     
