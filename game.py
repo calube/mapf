@@ -1268,6 +1268,7 @@ class Game:
     print "LENGTH PACMAN: ", len(agentPaths[0])
     print "LENGTH GHOST 1: ", len(agentPaths[1])
     print "LENGTH GHOST 2: ", len(agentPaths[2])
+
     pacmanNewPath = []
     ghost1NewPath = []
     ghost2NewPath = []
@@ -1275,6 +1276,7 @@ class Game:
     pacmanPath = agentPaths[0]
     ghost1Path = agentPaths[1]
     ghost2Path = agentPaths[2]
+    print"ghost2Path in createPathWithCords: ", ghost2Path
 
     pacmanGoal = agentGoals[0]
     ghost1Goal = agentGoals[1]
@@ -1488,12 +1490,13 @@ class Game:
     print "ghost2Path: ", ghost2Path
     print "len(ghost2Path): ", len(ghost2Path)
 
+    timeStep = 0
     # initial starting position
     pacmanLocation = pacmanPath[timeStep]
     ghost1Location = ghost1Path[timeStep]
     ghost2Location = ghost2Path[timeStep]
 
-    for i in range(len(pacmanPath)):
+    for i in range(len(ghost2Path)):
       # updating location each iteration in loop
       pacmanLocation = pacmanPath[timeStep]
       ghost1Location = ghost1Path[timeStep]
@@ -1517,6 +1520,8 @@ class Game:
         return False
       # increment the timeStep each move
       timeStep += 1
+
+
     # return true is no conflicts occured between the agents
     return True
 
@@ -2147,7 +2152,8 @@ class Game:
 
       pSolution = test_data['solution']
       pConstraints = test_data['constraints']
-      #test = pConstraints
+      test = self.makePathsTheSameLength(pSolution)
+      print"test: ", test 
       pCost = test_data['cost']
       print "\n \n "
       print "m = ", m
@@ -2238,8 +2244,22 @@ class Game:
           back_chain_constraints = test_aSolution[1]
           aSolution[agentIndex] = singleAgentSolution
           print "aSolution after singleAgentRecoveryMethod: ", aSolution
+
+          if self.hasNoConflicts(aSolution, goals) == True:
+            print "CBS SUCCESS!!!"
+            #print "solution: ", p.data['solution']
+            return aSolution
+
           #new_aData = self.enterRecoveryMethod(agentIndex, aSolution_withCords, aConstraints, goals)
-          new_aData = {'solution': aSolution, 'cost': len(singleAgentSolution), 'constraints':back_chain_constraints}
+          test_path_for_cost = aSolution[0]
+          for index in aConstraints:
+            if index not in back_chain_constraints:
+              back_chain_constraints.append(index)
+          print "aConstraints: ", aConstraints, "back_chain_constraints: ", back_chain_constraints, "pConstraints: ", pConstraints 
+
+
+
+          new_aData = {'solution': aSolution, 'cost': len(test_path_for_cost), 'constraints':back_chain_constraints}
           print "new_aData for real maybe?: ", new_aData
           new_aSolution = new_aData['solution']
           #print "new_aSolution: ", new_aSolution
@@ -2255,23 +2275,27 @@ class Game:
           print "jj = ", jj
           if jj == 1:
             p.insertLeft(new_aData)
+            p.getLeftChild().setRootVal(new_aData)
             print "p's left child: ", p.getLeftChild().getRootVal()
           if jj == 2:
             
             print"getting root value from CT: ", CT.getRootVal()
             print"getting root value from p: ", p.getRootVal()
             p.insertRight(new_aData)
+            p.getRightChild().setRootVal(new_aData)
             print "p's right child: ", p.getRightChild().getRootVal()
           jj+=1
 
-          print"getting root value from p: ", CT.getRootVal()
+          print"getting root value from CT: ", CT.getRootVal()
           #print(p.getLeftChild().getRootVal())
           #a = CT.insert(root, new_aData)
           #print "PRINTING THE TREE: "
           #CT.printTree(a)
-          print "setting root value for p:"
+          #print "setting root value for p:"
           p.setRootVal(new_aData)
           print"getting root value from p: ", p.getRootVal()
+          #print "p's left child: ", p.getLeftChild().getRootVal()
+          #print "p's right child: ", p.getRightChild().getRootVal()
 
           fringe.push(p, new_aCost)
           print "pSolution: ", pSolution
@@ -2307,7 +2331,7 @@ class Game:
     goalX1 = 2
     goalX2 = 1
     goalX3 = 1
-    goalY1 = 1
+    goalY1 = 2
     goalY2 = 2 
     goalY3 = 1
 
